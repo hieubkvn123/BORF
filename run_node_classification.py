@@ -21,8 +21,8 @@ actor = Actor(root="data")
 cora = Planetoid(root="data", name="cora")
 citeseer = Planetoid(root="data", name="citeseer")
 pubmed = Planetoid(root="data", name="pubmed")
-datasets = {"cornell": cornell, "wisconsin": wisconsin, "texas": texas, "chameleon": chameleon, "squirrel": squirrel, "actor": actor, "cora": cora, "citeseer": citeseer, "pubmed": pubmed}
-#datasets = {"cornell": cornell, "wisconsin": wisconsin}
+# datasets = {"cornell": cornell, "wisconsin": wisconsin, "texas": texas, "chameleon": chameleon, "squirrel": squirrel, "actor": actor, "cora": cora, "citeseer": citeseer, "pubmed": pubmed}
+datasets = {"cornell": cornell}
 
 for key in datasets:
     dataset = datasets[key]
@@ -40,8 +40,8 @@ default_args = AttrDict({
     "hidden_dim": 128,
     "learning_rate": 1e-3,
     "layer_type": "R-GCN",
-    "display": False,
-    "num_trials": 100,
+    "display": True,
+    "num_trials": 10,
     "eval_every": 1,
     "rewiring": "fosr",
     "num_iterations": 50,
@@ -68,11 +68,18 @@ for key in datasets:
         edge_index, edge_type, _ = fosr.edge_rewire(dataset.data.edge_index.numpy(), num_iterations=args.num_iterations)
         dataset.data.edge_index = torch.tensor(edge_index)
         dataset.data.edge_type = torch.tensor(edge_type)
-    elif args.rewiring == "sdrf":
-        dataset.data.edge_index, dataset.data.edge_type = sdrf.sdrf(dataset.data, loops=args.num_iterations, remove_edges=False, is_undirected=True)
-    #print(rewiring.spectral_gap(to_networkx(dataset.data, to_undirected=True)))
+    elif args.rewiring == "sdrf_bfc":
+        curvature_type = "bfc"
+        dataset.data.edge_index, dataset.data.edge_type = sdrf.sdrf(dataset.data, loops=args.num_iterations, remove_edges=False, 
+                is_undirected=True, curvature=curvature_type)
+    elif args.rewiring == "sdrf_orc":
+        curvature_type = "orc"
+        dataset.data.edge_index, dataset.data.edge_type = sdrf.sdrf(dataset.data, loops=args.num_iterations, remove_edges=False, 
+                is_undirected=True, curvature=curvature_type)
+
+    # print(rewiring.spectral_gap(to_networkx(dataset.data, to_undirected=True)))
     for trial in range(args.num_trials):
-        #print(f"TRIAL {trial+1}")
+        print(f"TRIAL #{trial+1}")
         train_acc, validation_acc, test_acc = Experiment(args=args, dataset=dataset).run()
         accuracies.append(test_acc)
 

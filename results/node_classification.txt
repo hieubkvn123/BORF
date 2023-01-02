@@ -1,0 +1,12 @@
+RESULTS FOR cornell (fosr):
+average acc: 0.6054054054054054
+plus/minus:  0.042009425357244216
+
+RESULTS FOR wisconsin (fosr):
+average acc: 0.7450980392156863
+plus/minus:  0.050829338811042034
+
+RESULTS FOR texas (fosr):
+average acc: 0.7324324324324324
+plus/minus:  0.06370586170199388
+
