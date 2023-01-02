@@ -1,21 +1,44 @@
 # SDRF preprocessing, from https://github.com/jctops/understanding-oversquashing
 
-from numba import jit, prange
-import numpy as np
 import torch
+import numpy as np
+import networkx as nx
+from numba import jit, prange
 from torch_geometric.utils import (
     to_networkx,
     from_networkx,
 )
+from GraphRicciCurvature.OllivierRicci import OllivierRicci
 
 def softmax(a, tau=1):
     exp_a = np.exp(a * tau)
     return exp_a / exp_a.sum()
 
 @jit(nopython=True)
+def _ollivier_ricci_curvature(A, A2, d_in, d_out, N, C):
+    # Get graph from adjacency matrix
+    g = nx.from_numpy_matrix(A)
+
+    # Compute the Ollivier Ricci Curvature
+    orc = OllivierRicci(g, alpha=0, verbose="INFO")
+    orc.compute_ricci_curvature()
+
+    # Add to curvature matrix
+    for i in range(N):
+        for j in range(N):
+            if(A[i, j] == 0):
+                C[i, j] = 0
+                continue
+
+            else:
+                C[i, j] = orc.G[i][j]["ricciCurvature"]
+
+@jit(nopython=True)
 def _balanced_forman_curvature(A, A2, d_in, d_out, N, C):
     for i in prange(N):
         for j in prange(N):
+            # If two nodes are not connected
+            # Curvature is 0
             if A[i, j] == 0:
                 C[i, j] = 0
                 break
