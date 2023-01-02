@@ -62,7 +62,7 @@ if args.dataset:
 
 for key in datasets:
     accuracies = []
-    print(f"TESTING: {key} ({default_args.rewiring})")
+    print(f"TESTING: {key} ({args.rewiring})")
     dataset = datasets[key]
     if args.rewiring == "fosr":
         edge_index, edge_type, _ = fosr.edge_rewire(dataset.data.edge_index.numpy(), num_iterations=args.num_iterations)
@@ -83,7 +83,7 @@ for key in datasets:
         train_acc, validation_acc, test_acc = Experiment(args=args, dataset=dataset).run()
         accuracies.append(test_acc)
 
-    log_to_file(f"RESULTS FOR {key} ({default_args.rewiring}):\n")
+    log_to_file(f"RESULTS FOR {key} ({args.rewiring}):\n")
     log_to_file(f"average acc: {np.mean(accuracies)}\n")
     log_to_file(f"plus/minus:  {2 * np.std(accuracies)/(args.num_trials ** 0.5)}\n\n")
     results.append({
