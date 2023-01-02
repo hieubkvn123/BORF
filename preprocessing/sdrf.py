@@ -90,6 +90,17 @@ def balanced_forman_curvature(A, C=None):
     _balanced_forman_curvature(A, A2, d_in, d_out, N, C)
     return C
 
+def ollivier_ricci_curvature(A, C=None):
+    N = A.shape[0]
+    A2 = np.matmul(A, A)
+    d_in = A.sum(axis=0)
+    d_out = A.sum(axis=1)
+    if C is None:
+        C = np.zeros((N, N))
+
+    _balanced_forman_curvature(A, A2, d_in, d_out, N, C)
+    return C
+
 
 @jit(nopython=True)
 def _balanced_forman_post_delta(
@@ -203,7 +214,8 @@ def sdrf(
     remove_edges=True,
     removal_bound=0.5,
     tau=1,
-    is_undirected=False
+    is_undirected=False,
+    curvature='bfc'
 ):
     N = data.x.shape[0]
     A = np.zeros(shape=(N, N))
@@ -229,7 +241,10 @@ def sdrf(
 
     for x in range(loops):
         can_add = True
-        balanced_forman_curvature(A, C=C)
+        if(curvature == 'bfc'):
+            balanced_forman_curvature(A, C=C)
+        elif(curvature == 'orc'):
+            ollivier_ricci_curvature(A, C=C)
         ix_min = C.argmin()
         x = ix_min // N
         y = ix_min % N
