@@ -6,3 +6,75 @@ RESULTS FOR cornell (sdrf_orc):
 average acc: 0.6486486486486486
 plus/minus:  0.03151865889105568
 
+RESULTS FOR cornell (sdrf_bfc):
+average acc: 0.6513513513513514
+plus/minus:  0.03931480334263391
+
+RESULTS FOR wisconsin (sdrf_bfc):
+average acc: 0.7333333333333334
+plus/minus:  0.028387389915064874
+
+RESULTS FOR texas (sdrf_bfc):
+average acc: 0.7837837837837838
+plus/minus:  0.04187009022926937
+
+RESULTS FOR chameleon (sdrf_bfc):
+average acc: 0.6708333333333333
+plus/minus:  0.012612223230779837
+
+RESULTS FOR squirrel (sdrf_bfc):
+average acc: 0.4706051873198847
+plus/minus:  0.009045911152228813
+
+RESULTS FOR actor (sdrf_bfc):
+average acc: 0.33532894736842106
+plus/minus:  0.0062164612587642986
+
+RESULTS FOR cora (sdrf_bfc):
+average acc: 0.8638376383763837
+plus/minus:  0.007227198920941736
+
+RESULTS FOR citeseer (sdrf_bfc):
+average acc: 0.7358858858858859
+plus/minus:  0.010510081501326035
+
+RESULTS FOR pubmed (sdrf_bfc):
+average acc: 0.8844827586206897
+plus/minus:  0.0038494154962304887
+
+RESULTS FOR cornell (sdrf_orc):
+average acc: 0.6594594594594595
+plus/minus:  0.0288062975015659
+
+RESULTS FOR wisconsin (sdrf_orc):
+average acc: 0.7098039215686275
+plus/minus:  0.020602236135786184
+
+RESULTS FOR texas (sdrf_orc):
+average acc: 0.7270270270270272
+plus/minus:  0.04148450563102679
+
+RESULTS FOR chameleon (sdrf_orc):
+average acc: 0.6725877192982456
+plus/minus:  0.007944531076330192
+
+RESULTS FOR squirrel (sdrf_orc):
+average acc: 0.46330451488952934
+plus/minus:  0.00945139517560632
+
+RESULTS FOR actor (sdrf_orc):
+average acc: 0.33888157894736837
+plus/minus:  0.007402295256827576
+
+RESULTS FOR cora (sdrf_orc):
+average acc: 0.8625461254612545
+plus/minus:  0.009454706992855322
+
+RESULTS FOR citeseer (sdrf_orc):
+average acc: 0.7378378378378379
+plus/minus:  0.006330569654318966
+
+RESULTS FOR pubmed (sdrf_orc):
+average acc: 0.8863336713995944
+plus/minus:  0.003498655068591759
+
