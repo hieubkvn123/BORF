@@ -85,7 +85,7 @@ for key in datasets:
     validation_accuracies = []
     test_accuracies = []
     energies = []
-    print(f"TESTING: {key} ({args.rewiring})")
+    print(f"TESTING: {key} ({args.rewiring} - layer {args.layer_type})")
     dataset = datasets[key]
 
     print('REWIRING STARTED...')
