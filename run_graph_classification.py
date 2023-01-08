@@ -6,6 +6,8 @@ from attrdict import AttrDict
 from torch_geometric.datasets import TUDataset
 from torch_geometric.utils import to_networkx, from_networkx, to_dense_adj
 from experiments.graph_classification import Experiment
+
+import tqdm
 import torch
 import numpy as np
 import pandas as pd
@@ -87,19 +89,27 @@ for key in datasets:
     dataset = datasets[key]
 
     print('REWIRING STARTED...')
-    if args.rewiring == "fosr":
-        for i in range(len(dataset)):
-            edge_index, edge_type, _ = fosr.edge_rewire(dataset[i].edge_index.numpy(), num_iterations=args.num_iterations)
-            dataset[i].edge_index = torch.tensor(edge_index)
-            dataset[i].edge_type = torch.tensor(edge_type)
-    elif args.rewiring == "sdrf":
-        for i in range(len(dataset)):
-            dataset[i].edge_index, dataset[i].edge_type = sdrf.sdrf(dataset[i], loops=args.num_iterations, remove_edges=False, is_undirected=True)
-    elif args.rewiring == "digl":
-        for i in range(len(dataset)):
-            dataset[i].edge_index = digl.rewire(dataset[i], alpha=0.1, eps=0.05)
-            m = dataset[i].edge_index.shape[1]
-            dataset[i].edge_type = torch.tensor(np.zeros(m, dtype=np.int64))
+    with tqdm.tqdm(total=len(dataset)) as pbar:
+        if args.rewiring == "fosr":
+            for i in range(len(dataset)):
+                edge_index, edge_type, _ = fosr.edge_rewire(dataset[i].edge_index.numpy(), num_iterations=args.num_iterations)
+                dataset[i].edge_index = torch.tensor(edge_index)
+                dataset[i].edge_type = torch.tensor(edge_type)
+                pbar.update(1)
+        elif args.rewiring == "sdrf_orc":
+            for i in range(len(dataset)):
+                dataset[i].edge_index, dataset[i].edge_type = sdrf.sdrf(dataset[i], loops=args.num_iterations, remove_edges=False, is_undirected=True, curvature='orc')
+                pbar.update(1)
+        elif args.rewiring == "sdrf_bfc":
+            for i in range(len(dataset)):
+                dataset[i].edge_index, dataset[i].edge_type = sdrf.sdrf(dataset[i], loops=args.num_iterations, remove_edges=False, is_undirected=True, curvature='bfc')
+                pbar.update(1)
+        elif args.rewiring == "digl":
+            for i in range(len(dataset)):
+                dataset[i].edge_index = digl.rewire(dataset[i], alpha=0.1, eps=0.05)
+                m = dataset[i].edge_index.shape[1]
+                dataset[i].edge_type = torch.tensor(np.zeros(m, dtype=np.int64))
+                pbar.update(1)
 
     #spectral_gap = average_spectral_gap(dataset)
     print('TRAINING STARTED...')
@@ -138,6 +148,8 @@ for key in datasets:
         "energy_ci": energy_ci,
         "last_layer_fa": args.last_layer_fa
         })
-df = pd.DataFrame(results)
-with open('results/graph_classification_fa.csv', 'a') as f:
-    df.to_csv(f, mode='a', header=f.tell()==0)
+
+    # Log every time a dataset is completed
+    df = pd.DataFrame(results)
+    with open(f'results/graph_classification_{args.layer_type}_{args.rewiring}.csv', 'a') as f:
+        df.to_csv(f, mode='a', header=f.tell()==0)

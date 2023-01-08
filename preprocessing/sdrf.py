@@ -239,7 +239,7 @@ def sdrf(
         G = G.to_undirected()
     C = np.zeros((N, N))
 
-    for x in range(loops):
+    for _ in range(loops):
         can_add = True
         if(curvature == 'bfc'):
             balanced_forman_curvature(A, C=C)
@@ -288,7 +288,7 @@ def sdrf(
             ix_max = C.argmax()
             x = ix_max // N
             y = ix_max % N
-            if C[x, y] > removal_bound:
+            if C[x, y] > removal_bound and G.has_edge(x, y):
                 G.remove_edge(x, y)
                 if is_undirected:
                     A[x, y] = A[y, x] = 0

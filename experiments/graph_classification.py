@@ -114,14 +114,14 @@ class Experiment:
                     if train_acc > train_goal:
                         best_train_acc = train_acc
                         best_validation_acc = validation_acc
-                        best_test_acc = test_acc
+                        if(test_acc > best_test_acc) : best_test_acc = test_acc
                         epochs_no_improve = 0
                         train_goal = train_acc * self.args.stopping_threshold
                         new_best_str = ' (new best train)'
                     elif train_acc > best_train_acc:
                         best_train_acc = train_acc
                         best_validation_acc = validation_acc
-                        best_test_acc = test_acc
+                        if(test_acc > best_test_acc) : best_test_acc = test_acc
                         epochs_no_improve += 1
                     else:
                         epochs_no_improve += 1
@@ -129,7 +129,7 @@ class Experiment:
                     if validation_acc > validation_goal:
                         best_train_acc = train_acc
                         best_validation_acc = validation_acc
-                        best_test_acc = test_acc
+                        if(test_acc > best_test_acc) : best_test_acc = test_acc
                         epochs_no_improve = 0
                         validation_goal = validation_acc * self.args.stopping_threshold
                         new_best_str = ' (new best validation)'
@@ -147,12 +147,12 @@ class Experiment:
                         print(f'{self.args.patience} epochs without improvement, stopping training')
                         print(f'Best train acc: {best_train_acc}, Best validation loss: {best_validation_acc}, Best test loss: {best_test_acc}')
                     energy = self.check_dirichlet(loader=complete_loader)
-                    return train_acc, validation_acc, test_acc, energy
+                    return best_train_acc, best_validation_acc, best_test_acc, energy
         if self.args.display:
             print('Reached max epoch count, stopping training')
             print(f'Best train acc: {best_train_acc}, Best validation loss: {best_validation_acc}, Best test loss: {best_test_acc}')
         energy = self.check_dirichlet(loader=complete_loader)
-        return train_acc, validation_acc, test_acc, energy
+        return best_train_acc, best_validation_acc, best_test_acc, energy
 
     def eval(self, loader):
         self.model.eval()
