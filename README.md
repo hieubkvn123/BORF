@@ -6,6 +6,7 @@ To configure and activate the conda environment for this repository, run
 ```
 conda env create -f environment.yml
 conda activate oversquashing
+pip install -r requirements.txt
 ```
 
 ## Experiments
