@@ -1,0 +1,2 @@
+,dataset,rewiring,layer_type,num_iterations,alpha,eps,test_mean,test_ci,val_mean,val_ci,train_mean,train_ci,energy_mean,energy_ci,last_layer_fa
+0,reddit,sdrf_orc,R-GIN,10,0.1,0.001,89.55,1.152822622956369,88.3,1.2181953866272859,87.71875,0.9040274470390818,1.5082004528717396,0.12014605781128569,False

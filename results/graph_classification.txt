@@ -1,0 +1,4 @@
+RESULTS FOR reddit (sdrf_orc), 10 ITERATIONS:
+average acc: 89.55
+plus/minus:  1.152822622956369
+
