@@ -79,6 +79,7 @@ class Experiment:
 
         best_validation_acc = 0.0
         best_train_acc = 0.0
+        best_test_acc = 0.0
         train_goal = 0.0
         validation_goal = 0.0
         epochs_no_improve = 0
