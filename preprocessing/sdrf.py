@@ -14,7 +14,6 @@ def softmax(a, tau=1):
     exp_a = np.exp(a * tau)
     return exp_a / exp_a.sum()
 
-@jit(nopython=True)
 def _ollivier_ricci_curvature(A, A2, d_in, d_out, N, C):
     # Get graph from adjacency matrix
     g = nx.from_numpy_matrix(A)
@@ -98,7 +97,7 @@ def ollivier_ricci_curvature(A, C=None):
     if C is None:
         C = np.zeros((N, N))
 
-    _balanced_forman_curvature(A, A2, d_in, d_out, N, C)
+    _ollivier_ricci_curvature(A, A2, d_in, d_out, N, C)
     return C
 
 
