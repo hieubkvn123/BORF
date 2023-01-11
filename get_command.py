@@ -12,7 +12,7 @@ gpu_index = args['gpu_index']
 num_seeds = args['num_seeds']
 rewiring_methods = ['fosr', 'sdrf_orc', 'sdrf_bfc']
 num_iterations = [3, 5, 10]
-layer_types = ['GCN', 'GIN', 'R-GCN', 'R-GIN']
+layer_types = ['GCN', 'GIN'] # 'R-GIN', 'R-GCN'
 
 if(args['rewiring'] != ''):
     assert args['rewiring'] in rewiring_methods
