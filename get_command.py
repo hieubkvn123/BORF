@@ -10,7 +10,7 @@ args = vars(parser.parse_args())
 
 gpu_index = args['gpu_index']
 num_seeds = args['num_seeds']
-rewiring_methods = ['fosr', 'sdrf_orc', 'sdrf_bfc']
+rewiring_methods = ['fosr', 'sdrf_orc', 'sdrf_bfc', 'none']
 num_iterations = [3, 5, 10]
 layer_types = ['GCN', 'GIN'] # 'R-GIN', 'R-GCN'
 
