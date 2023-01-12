@@ -12,7 +12,7 @@ import torch
 import numpy as np
 import pandas as pd
 from hyperparams import get_args_from_input
-from preprocessing import rewiring, sdrf, fosr, digl
+from preprocessing import rewiring, sdrf, fosr, digl, brf
 
 mutag = list(TUDataset(root="data", name="MUTAG"))
 enzymes = list(TUDataset(root="data", name="ENZYMES"))
@@ -103,6 +103,10 @@ for key in datasets:
         elif args.rewiring == "sdrf_bfc":
             for i in range(len(dataset)):
                 dataset[i].edge_index, dataset[i].edge_type = sdrf.sdrf(dataset[i], loops=args.num_iterations, remove_edges=False, is_undirected=True, curvature='bfc')
+                pbar.update(1)
+        elif args.rewiring == "brf":
+            for i in range(len(dataset)):
+                dataset[i].edge_index, dataset[i].edge_type = brf.brf(dataset[i], loops=args.num_iterations, remove_edges=False, is_undirected=True, curvature='bfc')
                 pbar.update(1)
         elif args.rewiring == "digl":
             for i in range(len(dataset)):

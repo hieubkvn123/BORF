@@ -8,7 +8,6 @@ from torch_geometric.utils import (
     to_networkx,
     from_networkx,
 )
-from GraphRicciCurvature.OllivierRicci import OllivierRicci
 
 class CurvaturePlainGraph():
     def __init__(self, V, E):
@@ -41,6 +40,7 @@ class CurvaturePlainGraph():
         v_neighbors = [q for q in range(self.V) if self.adjacency_matrix[v][q] == 1]
         u_deg = len(u_neighbors)
         v_deg = len(v_neighbors)
+
         # Instead of using fractions [1/n,...,1/n], [1/m,...,1/m], we use [m,...,m], [n,...,n] and then divides by mn
         mu = np.full(u_deg, v_deg)
         mv = np.full(v_deg, u_deg)
@@ -76,40 +76,7 @@ class CurvaturePlainGraph():
         head = ['C'] + [str(u) for u in range(self.V)]
         print(tabulate(C, floatfmt=".2f", headers=head, tablefmt="presto"))
 
-def balanced_forman_post_delta(A, x, y, i_neighbors, j_neighbors, D=None):
-    N = A.shape[0]
-    A2 = np.matmul(A, A)
-    d_in = A[:, x].sum()
-    d_out = A[y].sum()
-    if D is None:
-        D = np.zeros((len(i_neighbors), len(j_neighbors)))
-
-    _balanced_forman_post_delta(
-        A,
-        A2,
-        d_in,
-        d_out,
-        N,
-        D,
-        x,
-        y,
-        np.array(i_neighbors),
-        np.array(j_neighbors),
-        D.shape[0],
-        D.shape[1],
-    )
-    return D
-
-
-def bfr(
-    data,
-    loops=10,
-    remove_edges=True,
-    removal_bound=0.5,
-    tau=1,
-    is_undirected=False,
-    curvature='bfc'
-):
+def preprocess_data(data):
     # Get necessary data information
     N = data.x.shape[0]
     A = np.zeros(shape=(N, N))
@@ -135,6 +102,20 @@ def bfr(
     if is_undirected:
         G = G.to_undirected()
     C = np.zeros((N, N))
+
+    return G, N, A, m, C
+
+def bfr(
+    data,
+    loops=10,
+    remove_edges=True,
+    removal_bound=0.5,
+    tau=1,
+    is_undirected=False,
+    curvature='bfc'
+):
+    # Preprocess data
+    G, N, A, m, C = preprocess_data(data)
 
     # Rewiring begins
     for _ in range(loops):
