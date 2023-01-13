@@ -22,7 +22,7 @@ imdb = list(TUDataset(root="data", name="IMDB-BINARY"))
 reddit = list(TUDataset(root="data", name="REDDIT-BINARY"))
 # datasets = {"reddit": reddit, "imdb": imdb, "mutag": mutag, "enzymes": enzymes, "proteins": proteins, "collab": collab}
 # datasets = {"proteins": proteins, "collab": collab}
-datasets = {"mutag" : mutag, "proteins" : proteins, "enzymes" : enzymes}
+datasets = {"mutag" : mutag, "enzymes" : enzymes}
 for key in datasets:
     if key in ["reddit", "imdb", "collab"]:
         for graph in datasets[key]:
