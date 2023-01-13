@@ -20,8 +20,9 @@ proteins = list(TUDataset(root="data", name="PROTEINS"))
 collab = list(TUDataset(root="data", name="COLLAB"))
 imdb = list(TUDataset(root="data", name="IMDB-BINARY"))
 reddit = list(TUDataset(root="data", name="REDDIT-BINARY"))
-datasets = {"reddit": reddit, "imdb": imdb, "mutag": mutag, "enzymes": enzymes, "proteins": proteins, "collab": collab}
-#datasets = {"proteins": proteins, "collab": collab}
+# datasets = {"reddit": reddit, "imdb": imdb, "mutag": mutag, "enzymes": enzymes, "proteins": proteins, "collab": collab}
+# datasets = {"proteins": proteins, "collab": collab}
+datasets = {"mutag" : mutag}
 for key in datasets:
     if key in ["reddit", "imdb", "collab"]:
         for graph in datasets[key]:
@@ -59,7 +60,9 @@ default_args = AttrDict({
     "alpha": 0.1,
     "eps": 0.001,
     "dataset": None,
-    "last_layer_fa": False
+    "last_layer_fa": False,
+    "brf_batch_add" : 4,
+    "brf_batch_remove" : 2
     })
 
 hyperparams = {
@@ -106,7 +109,12 @@ for key in datasets:
                 pbar.update(1)
         elif args.rewiring == "brf":
             for i in range(len(dataset)):
-                dataset[i].edge_index, dataset[i].edge_type = brf.brf(dataset[i], loops=args.num_iterations, remove_edges=False, is_undirected=True, curvature='bfc')
+                dataset[i].edge_index, dataset[i].edge_type = brf.brf2(dataset[i], 
+                        loops=args.num_iterations, 
+                        remove_edges=False, 
+                        is_undirected=True,
+                        batch_add=args.brf_batch_add,
+                        batch_remove=args.brf_batch_remove)
                 pbar.update(1)
         elif args.rewiring == "digl":
             for i in range(len(dataset)):

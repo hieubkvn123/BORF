@@ -144,12 +144,19 @@ class Experiment:
                     if self.args.display:
                         print(f'{self.args.patience} epochs without improvement, stopping training')
                         print(f'Best train acc: {best_train_acc}, Best validation acc: {best_validation_acc}, Best test acc: {best_test_acc}')
-                    energy = self.check_dirichlet(loader=complete_loader)
+                    if(self.args.rewiring != 'brf'):
+                        energy = self.check_dirichlet(loader=complete_loader)
+                    else:
+                        energy = 0
                     return best_train_acc, best_validation_acc, best_test_acc, energy
         if self.args.display:
             print('Reached max epoch count, stopping training')
             print(f'Best train acc: {best_train_acc}, Best validation acc: {best_validation_acc}, Best test acc: {best_test_acc}')
-        energy = self.check_dirichlet(loader=complete_loader)
+
+        if(self.args.rewiring != 'brf'):
+            energy = self.check_dirichlet(loader=complete_loader)
+        else:
+            energy = 0
         return best_train_acc, best_validation_acc, best_test_acc, energy
 
     def eval(self, loader):

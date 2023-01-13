@@ -227,7 +227,6 @@ def _optimal_transportation_distance(x, y, d):
         Optimal transportation distance.
 
     """
-    x, y, d = _parse_to_tensor(x, y, d)
     t0 = time.time()
     m = ot.emd2(x, y, d)
     logger.debug(

@@ -2,6 +2,7 @@ import ot
 import time
 import torch
 import numpy as np
+import pandas as pd
 import multiprocessing as mp
 import networkx as nx
 from numba import jit, prange
@@ -12,23 +13,26 @@ from torch_geometric.utils import (
 from torch_geometric.datasets import TUDataset
 
 class CurvaturePlainGraph():
-    def __init__(self, V, E, device=None):
-        self.V = V
-        self.E = E
-        self.adjacency_matrix = np.full((V,V),np.inf)
+    def __init__(self, G, device=None):
+        self.G = G
+        self.V = len(G.nodes)
+        self.E = list(G.edges)
+        self.adjacency_matrix = np.full((self.V,self.V),np.inf)
+        self.dist = self.adjacency_matrix.copy()
 
         if(device is None):
           self.device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
         else:
           self.device = device
         
-        for index in range(V):
+        for index in range(self.V):
             self.adjacency_matrix[index, index] = 0
-        for index, edge in enumerate(E):
+        for index, edge in enumerate(self.E):
             self.adjacency_matrix[edge[0], edge[1]] = 1
             self.adjacency_matrix[edge[1], edge[0]] = 1
         
         # Floyd Warshall
+        # self.dist = self._floyd_warshall()
         self.dist = self._floyd_warshall()
 
     def __str__(self):
@@ -39,6 +43,15 @@ class CurvaturePlainGraph():
         G.add_edges_from(self.E)
         nx.draw_networkx(G)
         plt.show()
+
+    def _dijkstra(self):
+        for i in range(self.V):
+            for j in range(self.V):
+                try:
+                    self.dist[i][j] = len(nx.dijkstra_path(self.G, i, j))
+                except nx.NetworkXNoPath:
+                    continue
+        return self.dist
 
     def _floyd_warshall(self):
         self.dist = self.adjacency_matrix.copy()
@@ -69,24 +82,36 @@ class CurvaturePlainGraph():
         sub_indices = np.ix_(u_neighbors, v_neighbors)
         dist_matrix = self._to_tensor(self.dist[sub_indices])
         dist_matrix[dist_matrix == np.inf] = 0 # Correct the dist matrix
+        
+        # Update distance matrix
+        self.d = dist_matrix
         if method == 'OTD':
             optimal_plan = self._to_numpy(ot.emd(mu, mv, dist_matrix))
-        elif method == 'Sinkhorn':
-            optimal_plan = ot.sinkhorn(x, y, d, 1e-1, method='sinkhorn')
         else:
             raise NotImplemented
-        optimal_plan = optimal_plan/(u_deg*v_deg)
-        optimal_cost = np.sum(optimal_plan*self._to_numpy(dist_matrix))
-        return optimal_cost, optimal_plan
+        optimal_plan = optimal_plan/(u_deg*v_deg) # PI
+        optimal_cost = optimal_plan*self._to_numpy(dist_matrix)
+        optimal_total_cost = np.sum(optimal_cost)
+        optimal_cost = pd.DataFrame(optimal_cost, columns=v_neighbors, index=u_neighbors)
+        return optimal_total_cost, optimal_cost
 
-    def add_edge(self, i, j):
+    def add_edge(self, p, q, inter_up, inter_vq):
         # TODO : Need to replace with a more efficient algorithm
-        self.adjacency_matrix[i, j] = 1
-        self.adjacency_matrix[j, i] = 1
+        self.adjacency_matrix[p, q] = 1
+        self.adjacency_matrix[q, p] = 1
         
         # self.dist = self._floyd_warshall()
-        self.dist[i, j] = 1
-        self.dist[j, i] = 1
+        self.dist[p, q] = 1
+        self.dist[q, p] = 1
+
+        # Add edge to edge list
+        self.E.append((p, q))
+
+        for k in inter_up:
+            self.dist[k, q] = min(2, self.dist[k, q])
+            
+        for l in inter_vq:
+            self.dist[l, p] = min(2, self.dist[l, p])
 
     def remove_edge(self, i, j):
         self.adjacency_matrix[i, j] = 0
@@ -95,14 +120,20 @@ class CurvaturePlainGraph():
         self.dist[i, j] = np.inf
         self.dist[j, i] = np.inf
 
-    def curvature_uv(self, u, v, method = 'OTD', u_neighbors=None, v_neighbors=None):
-        optimal_cost, _ = self._transport_plan_uv(u, v, method, u_neighbors=u_neighbors, v_neighbors=v_neighbors)
-        return 1 - optimal_cost/self.dist[u,v]
+        self.E.remove((i, j))
 
-    def edge_curvatures(self, method = 'OTD'):
+    def curvature_uv(self, u, v, method = 'OTD', u_neighbors=None, v_neighbors=None):
+        optimal_cost, optimal_plan = self._transport_plan_uv(u, v, method, u_neighbors=u_neighbors, v_neighbors=v_neighbors)
+        return 1 - optimal_cost/self.dist[u,v], optimal_plan
+
+    def edge_curvatures(self, method = 'OTD', return_transport_cost=False):
         edge_curvature_dict = {}
+        transport_plan_dict = {}
         for edge in self.E:
-            edge_curvature_dict[edge] = self.curvature_uv(edge[0], edge[1], method)
+            edge_curvature_dict[edge], transport_plan_dict[edge] = self.curvature_uv(edge[0], edge[1], method)
+
+        if(return_transport_cost):
+            return edge_curvature_dict, transport_plan_dict
         return edge_curvature_dict
 
     def all_curvatures(self, method = 'OTD'):
@@ -122,7 +153,6 @@ def _softmax(a, tau=1):
 def _preprocess_data(data, is_undirected=False):
     # Get necessary data information
     N = data.x.shape[0]
-    A = np.zeros(shape=(N, N))
     m = data.edge_index.shape[1]
 
     # Compute the adjacency matrix
@@ -130,32 +160,22 @@ def _preprocess_data(data, is_undirected=False):
         edge_type = np.zeros(m, dtype=int)
     else:
         edge_type = data.edge_type
-    if is_undirected:
-        for i, j in zip(data.edge_index[0], data.edge_index[1]):
-            if i != j:
-                A[i, j] = A[j, i] = 1.0
-    else:
-        for i, j in zip(data.edge_index[0], data.edge_index[1]):
-            if i != j:
-                A[i, j] = 1.0
-    N = A.shape[0]
 
     # Convert graph to Networkx
     G = to_networkx(data)
     if is_undirected:
         G = G.to_undirected()
-    C = np.zeros((N, N))
 
-    return G, N, A, m, C, edge_type
+    return G, N, edge_type
 
 def _get_neighbors(x, G, is_undirected=False, is_source=False):
     if is_undirected:
-        x_neighbors = list(G.neighbors(x)) + [x]
+        x_neighbors = list(G.neighbors(x)) #+ [x]
     else:
         if(is_source):
-          x_neighbors = list(G.successors(x)) + [x]
+          x_neighbors = list(G.successors(x)) #+ [x]
         else:
-          x_neighbors = list(G.predecessors(x)) + [x]
+          x_neighbors = list(G.predecessors(x)) #+ [x]
     return x_neighbors
 
 def _get_rewire_candidates(G, x_neighbors, y_neighbors):
@@ -167,137 +187,64 @@ def _get_rewire_candidates(G, x_neighbors, y_neighbors):
     return candidates
 
 def _calculate_improvement(graph, C, x, y, x_neighbors, y_neighbors, k, l):
-  """
-  Calculate the curvature performance of x -> y when k -> l is added.
-  """
-  graph.add_edge(k, l)
-  old_curvature = C[(x, y)]
+    """
+    Calculate the curvature performance of x -> y when k -> l is added.
+    """
+    graph.add_edge(k, l)
+    old_curvature = C[(x, y)]
 
-  # This step should be removed by something more efficient
-  # start = time.time()
-  new_curvature = graph.curvature_uv(x, y, u_neighbors=x_neighbors, v_neighbors=y_neighbors)
-  # end = time.time()
-  # print('Time taken to re-calculate curvature : ', end-start)
-  improvement = new_curvature - old_curvature
-  graph.remove_edge(k, l)
+    new_curvature, _ = graph.curvature_uv(x, y, u_neighbors=x_neighbors, v_neighbors=y_neighbors)
+    improvement = new_curvature - old_curvature
+    graph.remove_edge(k, l)
 
-  return new_curvature, old_curvature
+    return new_curvature, old_curvature
+batch_add = [3, 6, 9]
+batch_remove = [1, 2, 3]
+num_iterations = [1, 2, 3]
 
-def bfr(
+def brf2(
     data,
     loops=10,
     remove_edges=True,
     removal_bound=0.5,
     tau=1,
     is_undirected=False,
-    num_add_per_iter=4,
-    num_rmv_per_iter=2,
+    batch_add=4,
+    batch_remove=2,
     device=None
 ):
     # Preprocess data
-    G, N, A, m, C, edge_type = _preprocess_data(data)
-    graph = CurvaturePlainGraph(N, list(G.edges), device=device)
-    C = graph.edge_curvatures(method='OTD')
+    G, N, edge_type = _preprocess_data(data)
+    # start = time.time()
+    # graph = CurvaturePlainGraph(G, device=device)
+    # end = time.time()
+    # print('Preprocessing takes ', end - start)
 
     # Rewiring begins
     for _ in range(loops):
         # Compute ORC
         can_add = True
-        C = graph.edge_curvatures(method='OTD')
+        graph = CurvaturePlainGraph(G, device=device)
+        C, PI = graph.edge_curvatures(method='OTD', return_transport_cost=True)
+        _C = sorted(C, key=C.get)
 
-        # Get the neighbors of an edge x-y with
-        # minimum curvature (most negative).
-        x, y = min(C, key=C.get)
-        x_neighbors = _get_neighbors(x, G, is_undirected=is_undirected, is_source=True)
-        y_neighbors = _get_neighbors(y, G, is_undirected=is_undirected, is_source=False)
+        # Get top negative and positive curved edges
+        most_pos_edges = _C[-batch_remove:]
+        most_neg_edges = _C[:batch_add]
 
-        # Get all node pairs from two nodes' neighborhood
-        # that are not connected
-        candidates = _get_rewire_candidates(G, x_neighbors, y_neighbors)
-        print('Number of candidates : ', len(candidates))
-        candidates = candidates[:100]
+        edges_to_add = []
+        for (u, v) in most_neg_edges:
+            N_u = _get_neighbors(u, G, is_undirected=is_undirected, is_source=True)
+            N_v = _get_neighbors(v, G, is_undirected=is_undirected, is_source=False)
 
-        # If there are candidates for edge removal
-        if len(candidates):
-            improvements = []
-            for (i, j) in candidates:
-                new_curvature, old_curvature = _calculate_improvement(graph, C, x, y, x_neighbors, y_neighbors, i, j)
-                improvement = new_curvature - old_curvature
-                improvements.append(improvement)
+            pi = PI[(u, v)]
+            p, q = np.unravel_index(pi.values.argmax(), pi.values.shape)
+            p, q = pi.index[p], pi.columns[q]
+            
+            if(p != q and not G.has_edge(p, q)):
+                G.add_edge(p, q)
 
-            candidate_idx = np.random.choice(range(len(candidates)), size=(num_add_per_iter,),
-                                             p = _softmax(np.array(improvements), tau=tau))
-
-            for c in candidate_idx:
-                k, l = candidates[c]
-                print(f'Adding edge ({k} -> {l}), improvement = {improvements[c]}')
-
-                # Add edge to both networkx and meta graphs
-                G.add_edge(k, l)
-                graph.add_edge(k, l)
-                edge_type = np.append(edge_type, 1)
-                edge_type = np.append(edge_type, 1)
-
-                # Update adjacency
-                if is_undirected:
-                    A[k, l] = A[l, k] = 1
-                else:
-                    A[k, l] = 1
-        else:
-            can_add = False
-            if not remove_edges:
-                break
+        for (u, v) in most_pos_edges:
+            if(G.has_edge(u, v)):
+                G.remove_edge(u, v)
     return from_networkx(G).edge_index, torch.tensor(edge_type)
-
-if __name__ == '__main__':
-    ### Benchmark our performance vs. their performance ###
-    # Calculate curvature
-    G = nx.karate_club_graph()
-    graph = CurvaturePlainGraph(len(G.nodes), list(G.edges), device=torch.device('cpu'))
-    start = time.time()
-    C = graph.edge_curvatures(method = 'OTD')
-    end = time.time()
-    print(f'Time taken (Ours) : {end - start}')
-
-    ### Check the add_edge function ###
-    # Get min curvature
-    u, v = min(C, key=C.get)
-    min_curvature = C[(u, v)]
-    print(f'Minimum curvature ({u} -> {v}) : {min_curvature}')
-
-    # Add edge
-    graph.add_edge(30, 31)
-    c_uv = graph.curvature_uv(u, v)
-    print('Curvature after adding edge : ', c_uv)
-
-    # Remove edge
-    graph.remove_edge(30, 31)
-    c_uv = graph.curvature_uv(u, v)
-    print('Curvature after removing edge : ', c_uv)
-
-    ### Check the calculate_improvement method ###
-    # Calculate curvature improvements
-    G = nx.karate_club_graph()
-    graph = CurvaturePlainGraph(len(G.nodes), list(G.edges), device=torch.device('cuda'))
-    C = graph.edge_curvatures(method = 'OTD')
-    x, y = 0 , 31
-    k, l = 30, 31
-    neighbors_x = _get_neighbors(x, G, is_undirected=True)
-    neighbors_y = _get_neighbors(y, G, is_undirected=True)
-
-    new_curvature, old_curvature = _calculate_improvement(graph, C, x, y, neighbors_x, neighbors_y, k, l)
-    improvement = new_curvature - old_curvature
-    print(f'Curvature improvement of ({x} -> {y}) after adding ({k} -> {l}) is {improvement}')
-    print(f'Curvature of ({x} -> {y}) after calling _curvature_improvement : {graph.curvature_uv(x, y)}')
-
-    ### Test rewiring ###
-    dataset = list(TUDataset(root="data", name="REDDIT-BINARY"))
-    for graph in dataset:
-        n = graph.num_nodes
-        graph.x = torch.ones((n,1))
-
-    start = time.time()
-    bfr(dataset[0], device=torch.device('cpu'))
-    end = time.time()
-
-    print(f'Time taken for rewiring = {end - start}')
