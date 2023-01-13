@@ -215,10 +215,6 @@ def brf2(
 ):
     # Preprocess data
     G, N, edge_type = _preprocess_data(data)
-    # start = time.time()
-    # graph = CurvaturePlainGraph(G, device=device)
-    # end = time.time()
-    # print('Preprocessing takes ', end - start)
 
     # Rewiring begins
     for _ in range(loops):
@@ -234,9 +230,6 @@ def brf2(
 
         edges_to_add = []
         for (u, v) in most_neg_edges:
-            N_u = _get_neighbors(u, G, is_undirected=is_undirected, is_source=True)
-            N_v = _get_neighbors(v, G, is_undirected=is_undirected, is_source=False)
-
             pi = PI[(u, v)]
             p, q = np.unravel_index(pi.values.argmax(), pi.values.shape)
             p, q = pi.index[p], pi.columns[q]

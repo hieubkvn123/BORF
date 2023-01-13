@@ -22,7 +22,7 @@ imdb = list(TUDataset(root="data", name="IMDB-BINARY"))
 reddit = list(TUDataset(root="data", name="REDDIT-BINARY"))
 # datasets = {"reddit": reddit, "imdb": imdb, "mutag": mutag, "enzymes": enzymes, "proteins": proteins, "collab": collab}
 # datasets = {"proteins": proteins, "collab": collab}
-datasets = {"mutag" : mutag}
+datasets = {"mutag" : mutag, "proteins" : proteins, "enzymes" : enzymes}
 for key in datasets:
     if key in ["reddit", "imdb", "collab"]:
         for graph in datasets[key]:
@@ -108,6 +108,9 @@ for key in datasets:
                 dataset[i].edge_index, dataset[i].edge_type = sdrf.sdrf(dataset[i], loops=args.num_iterations, remove_edges=False, is_undirected=True, curvature='bfc')
                 pbar.update(1)
         elif args.rewiring == "brf":
+            print(f"[INFO] BRF hyper-parameter : num_iterations = {args.num_iterations}")
+            print(f"[INFO] BRF hyper-parameter : batch_add = {args.brf_batch_add}")
+            print(f"[INFO] BRF hyper-parameter : num_iterations = {args.brf_batch_remove}")
             for i in range(len(dataset)):
                 dataset[i].edge_index, dataset[i].edge_type = brf.brf2(dataset[i], 
                         loops=args.num_iterations, 
