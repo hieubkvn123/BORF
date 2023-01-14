@@ -22,8 +22,7 @@ collab = list(TUDataset(root="data", name="COLLAB"))
 imdb = list(TUDataset(root="data", name="IMDB-BINARY"))
 reddit = list(TUDataset(root="data", name="REDDIT-BINARY"))
 # datasets = {"reddit": reddit, "imdb": imdb, "mutag": mutag, "enzymes": enzymes, "proteins": proteins, "collab": collab}
-datasets = {"proteins": proteins, "collab": collab}
-# datasets = {"mutag" : mutag, "enzymes" : enzymes}
+datasets = {"reddit": reddit, "imdb": imdb, "proteins": proteins, "collab": collab}
 for key in datasets:
     if key in ["reddit", "imdb", "collab"]:
         for graph in datasets[key]:
@@ -158,6 +157,8 @@ for key in datasets:
         "rewiring": args.rewiring,
         "layer_type": args.layer_type,
         "num_iterations": args.num_iterations,
+        "brf_batch_add" : args.brf_batch_add,
+        "brf_batch_remove" : args.brf_batch_remove,
         "alpha": args.alpha,
         "eps": args.eps,
         "test_mean": test_mean,
@@ -170,7 +171,7 @@ for key in datasets:
         "energy_ci": energy_ci,
         "last_layer_fa": args.last_layer_fa,
         "rewiring_duration" : rewiring_duration,
-        "run_duration" : run_duration
+        "run_duration" : run_duration,
     })
 
     # Log every time a dataset is completed

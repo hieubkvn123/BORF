@@ -2,7 +2,7 @@
 gpu_index = 0
 layer_types = ["GCN", "GIN"]
 batch_add = [3, 4, 5]
-batch_remove = [1, 2, 3]
+batch_remove = [0, 1, 2, 3]
 num_iterations = [1, 2, 3]
 
 cmd_template = """

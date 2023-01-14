@@ -111,6 +111,8 @@ for key in datasets:
         "dataset": key,
         "rewiring": args.rewiring,
         "num_iterations": args.num_iterations,
+        "brf_batch_add" : args.brf_batch_add,
+        "brf_batch_remove" : args.brf_batch_remove,
         "avg_accuracy": np.mean(accuracies),
         "ci":  2 * np.std(accuracies)/(args.num_trials ** 0.5),
         "run_duration" : run_duration,
