@@ -23,6 +23,7 @@ import importlib
 import math
 import time
 import torch
+import pandas as pd
 torch.multiprocessing.set_start_method('spawn')
 _device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
 import multiprocessing as mp
@@ -164,7 +165,7 @@ def _distribute_densities(source, target):
 
     logger.debug("%8f secs density matrix construction for edge." % (time.time() - t0))
 
-    return x, y, d
+    return x, y, source_topknbr, target_topknbr, d
 
 
 @lru_cache(_cache_maxsize)
@@ -331,6 +332,14 @@ def _compute_ricci_curvature_single_edge(source, target):
     m = 1  # assign an initial cost
     assert _method in ["OTD", "ATD", "Sinkhorn", "OTDSinkhornMix"], \
         'Method %s not found, support method:["OTD", "ATD", "Sinkhorn", "OTDSinkhornMix]' % _method
+    
+    x, y, neighbors_x, neighbors_y, d = _distribute_densities(source, target)
+    optimal_plan = ot.emd(x, y, d)
+    optimal_cost = optimal_plan * d
+    optimal_total_cost = np.sum(optimal_cost)
+    optimal_cost = pd.DataFrame(optimal_cost, columns=neighbors_y, index=neighbors_x)
+
+    '''
     if _method == "OTD":
         x, y, d = _distribute_densities(source, target)
         m = _optimal_transportation_distance(x, y, d)
@@ -347,12 +356,18 @@ def _compute_ricci_curvature_single_edge(source, target):
             m = _sinkhorn_distance(x, y, d)
         else:
             m = _optimal_transportation_distance(x, y, d)
+    '''
 
     # compute Ricci curvature: k=1-(m_{x,y})/d(x,y)
-    result = 1 - (m / _Gk.weight(source, target))  # Divided by the length of d(i, j)
+    result = 1 - (optimal_total_cost / _Gk.weight(source, target))  # Divided by the length of d(i, j)
     logger.debug("Ricci curvature (%s,%s) = %f" % (source, target, result))
 
-    return {(source, target): result}
+    return {
+        (source, target): {
+            'rc_curvature' : result,
+            'rc_transport_cost' : optimal_cost,
+        }
+    }
 
 
 def _wrap_compute_single_edge(stuff):
@@ -520,7 +535,7 @@ def _compute_ricci_curvature(G: nx.Graph, weight="weight", **kwargs):
         if G.degree(n) != 0:
             for nbr in G.neighbors(n):
                 if 'ricciCurvature' in G[n][nbr]:
-                    rc_sum += G[n][nbr]['ricciCurvature']
+                    rc_sum += G[n][nbr]['ricciCurvature']['rc_curvature']
 
             # Assign the node Ricci curvature to be the average of node's adjacency edges
             G.nodes[n]['ricciCurvature'] = rc_sum / G.degree(n)

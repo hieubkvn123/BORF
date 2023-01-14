@@ -5,7 +5,6 @@ import numpy as np
 import pandas as pd
 import multiprocessing as mp
 import networkx as nx
-from numba import jit, prange
 from torch_geometric.utils import (
     to_networkx,
     from_networkx,
