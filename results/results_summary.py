@@ -1,7 +1,7 @@
 import glob
 import pandas as pd
 
-for _file in glob.glob('graph_classification_*'):
+for _file in glob.glob('graph_classification_*fosr*'):
     print('\nResult for ', _file)
     df = pd.read_csv(_file)
 

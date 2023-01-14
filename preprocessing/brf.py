@@ -198,9 +198,6 @@ def _calculate_improvement(graph, C, x, y, x_neighbors, y_neighbors, k, l):
     graph.remove_edge(k, l)
 
     return new_curvature, old_curvature
-batch_add = [3, 6, 9]
-batch_remove = [1, 2, 3]
-num_iterations = [1, 2, 3]
 
 def brf2(
     data,
@@ -219,7 +216,6 @@ def brf2(
     # Rewiring begins
     for _ in range(loops):
         # Compute ORC
-        can_add = True
         graph = CurvaturePlainGraph(G, device=device)
         C, PI = graph.edge_curvatures(method='OTD', return_transport_cost=True)
         _C = sorted(C, key=C.get)
@@ -228,7 +224,7 @@ def brf2(
         most_pos_edges = _C[-batch_remove:]
         most_neg_edges = _C[:batch_add]
 
-        edges_to_add = []
+        # Add edges
         for (u, v) in most_neg_edges:
             pi = PI[(u, v)]
             p, q = np.unravel_index(pi.values.argmax(), pi.values.shape)
@@ -237,6 +233,7 @@ def brf2(
             if(p != q and not G.has_edge(p, q)):
                 G.add_edge(p, q)
 
+        # Remove edges
         for (u, v) in most_pos_edges:
             if(G.has_edge(u, v)):
                 G.remove_edge(u, v)
