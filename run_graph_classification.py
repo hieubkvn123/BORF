@@ -22,8 +22,8 @@ collab = list(TUDataset(root="data", name="COLLAB"))
 imdb = list(TUDataset(root="data", name="IMDB-BINARY"))
 reddit = list(TUDataset(root="data", name="REDDIT-BINARY"))
 # datasets = {"reddit": reddit, "imdb": imdb, "mutag": mutag, "enzymes": enzymes, "proteins": proteins, "collab": collab}
-# datasets = {"proteins": proteins, "collab": collab}
-datasets = {"mutag" : mutag, "enzymes" : enzymes}
+datasets = {"proteins": proteins, "collab": collab}
+# datasets = {"mutag" : mutag, "enzymes" : enzymes}
 for key in datasets:
     if key in ["reddit", "imdb", "collab"]:
         for graph in datasets[key]:
@@ -114,7 +114,7 @@ for key in datasets:
             print(f"[INFO] BRF hyper-parameter : batch_add = {args.brf_batch_add}")
             print(f"[INFO] BRF hyper-parameter : num_iterations = {args.brf_batch_remove}")
             for i in range(len(dataset)):
-                dataset[i].edge_index, dataset[i].edge_type = brf.brf2(dataset[i], 
+                dataset[i].edge_index, dataset[i].edge_type = brf.brf3(dataset[i], 
                         loops=args.num_iterations, 
                         remove_edges=False, 
                         is_undirected=True,

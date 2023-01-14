@@ -10,6 +10,7 @@ from torch_geometric.utils import (
     from_networkx,
 )
 from torch_geometric.datasets import TUDataset
+from GraphRicciCurvature.OllivierRicci import OllivierRicci
 
 class CurvaturePlainGraph():
     def __init__(self, G, device=None):
@@ -226,6 +227,47 @@ def brf2(
         # Add edges
         for (u, v) in most_neg_edges:
             pi = PI[(u, v)]
+            p, q = np.unravel_index(pi.values.argmax(), pi.values.shape)
+            p, q = pi.index[p], pi.columns[q]
+            
+            if(p != q and not G.has_edge(p, q)):
+                G.add_edge(p, q)
+
+        # Remove edges
+        for (u, v) in most_pos_edges:
+            if(G.has_edge(u, v)):
+                G.remove_edge(u, v)
+    return from_networkx(G).edge_index, torch.tensor(edge_type)
+
+
+def brf3(
+    data,
+    loops=10,
+    remove_edges=True,
+    removal_bound=0.5,
+    tau=1,
+    is_undirected=False,
+    batch_add=4,
+    batch_remove=2,
+    device=None
+):
+    # Preprocess data
+    G, N, edge_type = _preprocess_data(data)
+
+    # Rewiring begins
+    for _ in range(loops):
+        # Compute ORC
+        orc = OllivierRicci(G, alpha=0)
+        orc.compute_ricci_curvature()
+        _C = sorted(orc.G.edges, key=lambda x: orc.G[x[0]][x[1]]['ricciCurvature']['rc_curvature'])
+
+        # Get top negative and positive curved edges
+        most_pos_edges = _C[-batch_remove:]
+        most_neg_edges = _C[:batch_add]
+
+        # Add edges
+        for (u, v) in most_neg_edges:
+            pi = orc.G[u][v]['ricciCurvature']['rc_transport_cost']
             p, q = np.unravel_index(pi.values.argmax(), pi.values.shape)
             p, q = pi.index[p], pi.columns[q]
             
