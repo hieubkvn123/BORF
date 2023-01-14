@@ -2,3 +2,771 @@ RESULTS FOR reddit (sdrf_orc), 10 ITERATIONS:
 average acc: 89.55
 plus/minus:  1.152822622956369
 
+RESULTS FOR reddit (sdrf_orc), 10 ITERATIONS:
+average acc: 88.6
+plus/minus:  1.309961831505026
+
+RESULTS FOR imdb (sdrf_orc), 10 ITERATIONS:
+average acc: 73.79999999999998
+plus/minus:  2.0356817039999173
+
+RESULTS FOR mutag (sdrf_orc), 10 ITERATIONS:
+average acc: 90.0
+plus/minus:  4.242640687119284
+
+RESULTS FOR enzymes (sdrf_orc), 10 ITERATIONS:
+average acc: 45.50000000000001
+plus/minus:  3.7431418769679445
+
+RESULTS FOR proteins (sdrf_orc), 10 ITERATIONS:
+average acc: 73.48214285714285
+plus/minus:  3.5807912989352793
+
+RESULTS FOR collab (sdrf_orc), 10 ITERATIONS:
+average acc: 77.94
+plus/minus:  1.171733758154984
+
+RESULTS FOR reddit (sdrf_bfc), 10 ITERATIONS:
+average acc: 89.2
+plus/minus:  1.0507140429250967
+
+RESULTS FOR imdb (sdrf_bfc), 10 ITERATIONS:
+average acc: 73.5
+plus/minus:  3.0886890422961
+
+RESULTS FOR mutag (sdrf_bfc), 10 ITERATIONS:
+average acc: 89.49999999999999
+plus/minus:  2.9832867780352585
+
+RESULTS FOR enzymes (sdrf_bfc), 10 ITERATIONS:
+average acc: 46.333333333333336
+plus/minus:  2.2010098692292237
+
+RESULTS FOR proteins (sdrf_bfc), 10 ITERATIONS:
+average acc: 75.26785714285714
+plus/minus:  2.6969606854337926
+
+RESULTS FOR collab (sdrf_bfc), 10 ITERATIONS:
+average acc: 77.18
+plus/minus:  1.1488428961350645
+
+RESULTS FOR reddit (fosr), 10 ITERATIONS:
+average acc: 91.4
+plus/minus:  1.567163041932779
+
+RESULTS FOR imdb (fosr), 10 ITERATIONS:
+average acc: 73.00000000000001
+plus/minus:  2.5922962793631448
+
+RESULTS FOR mutag (fosr), 10 ITERATIONS:
+average acc: 89.0
+plus/minus:  1.8973665961010278
+
+RESULTS FOR enzymes (fosr), 10 ITERATIONS:
+average acc: 43.83333333333333
+plus/minus:  4.473378042498879
+
+RESULTS FOR proteins (fosr), 10 ITERATIONS:
+average acc: 78.125
+plus/minus:  2.1613782923053946
+
+RESULTS FOR collab (fosr), 10 ITERATIONS:
+average acc: 78.48
+plus/minus:  0.630428425755058
+
+RESULTS FOR reddit (sdrf_orc), 5 ITERATIONS:
+average acc: 73.7
+plus/minus:  2.5581243128511173
+
+RESULTS FOR imdb (sdrf_orc), 5 ITERATIONS:
+average acc: 51.300000000000004
+plus/minus:  3.0860978597575293
+
+RESULTS FOR mutag (sdrf_orc), 5 ITERATIONS:
+average acc: 69.0
+plus/minus:  4.857983120596447
+
+RESULTS FOR enzymes (sdrf_orc), 5 ITERATIONS:
+average acc: 27.500000000000004
+plus/minus:  3.027650354097491
+
+RESULTS FOR proteins (sdrf_orc), 5 ITERATIONS:
+average acc: 73.21428571428571
+plus/minus:  1.3832083379312186
+
+RESULTS FOR reddit (fosr), 3 ITERATIONS:
+average acc: 72.89999999999999
+plus/minus:  1.8264720090929403
+
+RESULTS FOR imdb (fosr), 3 ITERATIONS:
+average acc: 51.7
+plus/minus:  3.453114536183241
+
+RESULTS FOR mutag (fosr), 3 ITERATIONS:
+average acc: 73.5
+plus/minus:  7.218032973047435
+
+RESULTS FOR enzymes (fosr), 3 ITERATIONS:
+average acc: 29.000000000000004
+plus/minus:  2.9135697844549533
+
+RESULTS FOR proteins (fosr), 3 ITERATIONS:
+average acc: 72.41071428571428
+plus/minus:  1.5246695861526105
+
+RESULTS FOR reddit (none), 3 ITERATIONS:
+average acc: 71.89999999999999
+plus/minus:  2.110923968313401
+
+RESULTS FOR imdb (none), 3 ITERATIONS:
+average acc: 52.1
+plus/minus:  2.7488179277645877
+
+RESULTS FOR mutag (none), 3 ITERATIONS:
+average acc: 78.0
+plus/minus:  5.513619500836089
+
+RESULTS FOR enzymes (none), 3 ITERATIONS:
+average acc: 32.5
+plus/minus:  3.1710495984067415
+
+RESULTS FOR proteins (none), 3 ITERATIONS:
+average acc: 74.28571428571428
+plus/minus:  2.8549098416730496
+
+RESULTS FOR collab (none), 3 ITERATIONS:
+average acc: 52.26
+plus/minus:  1.0969776661354604
+
+RESULTS FOR reddit (none), 3 ITERATIONS:
+average acc: 87.79999999999998
+plus/minus:  2.3417941839538337
+
+RESULTS FOR imdb (none), 3 ITERATIONS:
+average acc: 71.2
+plus/minus:  4.1065800856673915
+
+RESULTS FOR mutag (none), 3 ITERATIONS:
+average acc: 83.0
+plus/minus:  6.5115282384398805
+
+RESULTS FOR enzymes (none), 3 ITERATIONS:
+average acc: 38.99999999999999
+plus/minus:  3.9214509786273983
+
+RESULTS FOR proteins (none), 3 ITERATIONS:
+average acc: 74.28571428571426
+plus/minus:  2.4458419526091326
+
+RESULTS FOR collab (none), 3 ITERATIONS:
+average acc: 74.49999999999999
+plus/minus:  0.8768124086713196
+
+RESULTS FOR reddit (none), 5 ITERATIONS:
+average acc: 72.30000000000001
+plus/minus:  2.196360626126776
+
+RESULTS FOR imdb (none), 5 ITERATIONS:
+average acc: 51.6
+plus/minus:  1.5798734126505205
+
+RESULTS FOR mutag (none), 5 ITERATIONS:
+average acc: 75.0
+plus/minus:  7.3484692283495345
+
+RESULTS FOR enzymes (none), 5 ITERATIONS:
+average acc: 29.000000000000004
+plus/minus:  3.747591819348051
+
+RESULTS FOR proteins (none), 5 ITERATIONS:
+average acc: 72.5
+plus/minus:  1.9364916731037092
+
+RESULTS FOR collab (none), 5 ITERATIONS:
+average acc: 52.820000000000014
+plus/minus:  0.8550087718848276
+
+RESULTS FOR reddit (none), 5 ITERATIONS:
+average acc: 89.39999999999999
+plus/minus:  2.4608941464435232
+
+RESULTS FOR imdb (none), 5 ITERATIONS:
+average acc: 69.5
+plus/minus:  5.420332093147061
+
+RESULTS FOR mutag (none), 5 ITERATIONS:
+average acc: 77.0
+plus/minus:  14.6424041741785
+
+RESULTS FOR enzymes (none), 5 ITERATIONS:
+average acc: 41.166666666666664
+plus/minus:  2.830390628713838
+
+RESULTS FOR proteins (none), 5 ITERATIONS:
+average acc: 74.37500000000001
+plus/minus:  2.1731489895108997
+
+RESULTS FOR collab (none), 5 ITERATIONS:
+average acc: 74.18
+plus/minus:  1.5372182668703893
+
+RESULTS FOR reddit (none), 10 ITERATIONS:
+average acc: 72.65
+plus/minus:  2.5061923310073384
+
+RESULTS FOR imdb (none), 10 ITERATIONS:
+average acc: 49.3
+plus/minus:  3.0469657037781044
+
+RESULTS FOR mutag (none), 10 ITERATIONS:
+average acc: 74.0
+plus/minus:  7.042726744663604
+
+RESULTS FOR enzymes (none), 10 ITERATIONS:
+average acc: 34.333333333333336
+plus/minus:  2.796823595120405
+
+RESULTS FOR proteins (none), 10 ITERATIONS:
+average acc: 71.875
+plus/minus:  2.5411159769210188
+
+RESULTS FOR collab (none), 10 ITERATIONS:
+average acc: 52.62
+plus/minus:  1.0559545444762282
+
+RESULTS FOR reddit (none), 10 ITERATIONS:
+average acc: 90.24999999999999
+plus/minus:  1.5247950681976907
+
+RESULTS FOR imdb (none), 10 ITERATIONS:
+average acc: 68.1
+plus/minus:  5.6174727413668855
+
+RESULTS FOR mutag (none), 10 ITERATIONS:
+average acc: 81.0
+plus/minus:  7.183313998427186
+
+RESULTS FOR enzymes (none), 10 ITERATIONS:
+average acc: 40.0
+plus/minus:  2.624669291337271
+
+RESULTS FOR proteins (none), 10 ITERATIONS:
+average acc: 73.57142857142858
+plus/minus:  3.000850219657143
+
+RESULTS FOR collab (none), 10 ITERATIONS:
+average acc: 75.64
+plus/minus:  0.8271396496360219
+
+RESULTS FOR mutag (brf), 3 ITERATIONS:
+average acc: 68.33333333333333
+plus/minus:  9.813067629253167
+
+RESULTS FOR mutag (brf), 1 ITERATIONS:
+average acc: 75.0
+plus/minus:  20.548046676563256
+
+RESULTS FOR mutag (brf), 5 ITERATIONS:
+average acc: 63.99999999999999
+plus/minus:  4.427188724235731
+
+RESULTS FOR mutag (brf), 2 ITERATIONS:
+average acc: 77.5
+plus/minus:  3.5355339059327404
+
+RESULTS FOR mutag (brf), 2 ITERATIONS:
+average acc: 67.5
+plus/minus:  3.5355339059327324
+
+RESULTS FOR mutag (brf), 2 ITERATIONS:
+average acc: 75.0
+plus/minus:  21.213203435596427
+
+RESULTS FOR mutag (brf), 10 ITERATIONS:
+average acc: 64.99999999999999
+plus/minus:  6.324555320336757
+
+RESULTS FOR mutag (brf), 3 ITERATIONS:
+average acc: 65.0
+plus/minus:  12.649110640673516
+
+RESULTS FOR mutag (brf), 3 ITERATIONS:
+average acc: 71.0
+plus/minus:  3.3466401061363014
+
+RESULTS FOR mutag (brf), 5 ITERATIONS:
+average acc: 74.0
+plus/minus:  13.084341787036902
+
+RESULTS FOR mutag (brf), 5 ITERATIONS:
+average acc: 63.0
+plus/minus:  9.20869154657707
+
+RESULTS FOR mutag (brf), 5 ITERATIONS:
+average acc: 73.00000000000001
+plus/minus:  10.43072384832424
+
+RESULTS FOR mutag (fosr), 5 ITERATIONS:
+average acc: 86.99999999999999
+plus/minus:  6.693280212272603
+
+RESULTS FOR mutag (brf), 5 ITERATIONS:
+average acc: 66.0
+plus/minus:  3.3466401061363005
+
+RESULTS FOR mutag (brf), 5 ITERATIONS:
+average acc: 61.0
+plus/minus:  9.959919678390984
+
+RESULTS FOR mutag (brf), 5 ITERATIONS:
+average acc: 89.0
+plus/minus:  4.381780460041327
+
+RESULTS FOR mutag (brf), 5 ITERATIONS:
+average acc: 87.00000000000001
+plus/minus:  3.577708763999663
+
+RESULTS FOR mutag (brf), 5 ITERATIONS:
+average acc: 86.5
+plus/minus:  5.486346689738081
+
+RESULTS FOR mutag (brf), 5 ITERATIONS:
+average acc: 86.0
+plus/minus:  6.131883886702355
+
+RESULTS FOR mutag (brf), 1 ITERATIONS:
+average acc: 66.0
+plus/minus:  8.221921916437786
+
+RESULTS FOR enzymes (brf), 1 ITERATIONS:
+average acc: 30.999999999999993
+plus/minus:  2.6749870196985173
+
+RESULTS FOR mutag (brf), 2 ITERATIONS:
+average acc: 65.0
+plus/minus:  6.782329983125268
+
+RESULTS FOR enzymes (brf), 2 ITERATIONS:
+average acc: 29.833333333333336
+plus/minus:  1.7919573407620812
+
+RESULTS FOR mutag (brf), 3 ITERATIONS:
+average acc: 69.00000000000001
+plus/minus:  9.143303560529967
+
+RESULTS FOR enzymes (brf), 3 ITERATIONS:
+average acc: 28.666666666666664
+plus/minus:  3.457680661303984
+
+RESULTS FOR mutag (brf), 1 ITERATIONS:
+average acc: 67.0
+plus/minus:  10.411532067856294
+
+RESULTS FOR enzymes (brf), 1 ITERATIONS:
+average acc: 34.166666666666664
+plus/minus:  3.13581462037113
+
+RESULTS FOR mutag (brf), 2 ITERATIONS:
+average acc: 56.50000000000001
+plus/minus:  6.008327554319919
+
+RESULTS FOR enzymes (brf), 2 ITERATIONS:
+average acc: 31.33333333333333
+plus/minus:  2.485513584307633
+
+RESULTS FOR mutag (brf), 3 ITERATIONS:
+average acc: 69.5
+plus/minus:  4.347413023856832
+
+RESULTS FOR enzymes (brf), 3 ITERATIONS:
+average acc: 32.66666666666666
+plus/minus:  3.062315754094894
+
+RESULTS FOR mutag (brf), 1 ITERATIONS:
+average acc: 73.50000000000001
+plus/minus:  6.00832755431992
+
+RESULTS FOR enzymes (brf), 1 ITERATIONS:
+average acc: 31.333333333333336
+plus/minus:  2.6583202716502514
+
+RESULTS FOR mutag (brf), 2 ITERATIONS:
+average acc: 70.49999999999999
+plus/minus:  4.9899899799498595
+
+RESULTS FOR enzymes (brf), 2 ITERATIONS:
+average acc: 30.666666666666664
+plus/minus:  2.951459149490486
+
+RESULTS FOR mutag (brf), 3 ITERATIONS:
+average acc: 58.50000000000001
+plus/minus:  8.006247560499236
+
+RESULTS FOR enzymes (brf), 3 ITERATIONS:
+average acc: 32.166666666666664
+plus/minus:  2.6267851073127386
+
+RESULTS FOR mutag (brf), 1 ITERATIONS:
+average acc: 70.5
+plus/minus:  6.848357467305573
+
+RESULTS FOR enzymes (brf), 1 ITERATIONS:
+average acc: 27.333333333333332
+plus/minus:  2.988868236194652
+
+RESULTS FOR mutag (brf), 2 ITERATIONS:
+average acc: 71.50000000000001
+plus/minus:  5.10881590977792
+
+RESULTS FOR enzymes (brf), 2 ITERATIONS:
+average acc: 29.833333333333336
+plus/minus:  2.5144029554194804
+
+RESULTS FOR mutag (brf), 3 ITERATIONS:
+average acc: 62.000000000000014
+plus/minus:  7.5099933422074345
+
+RESULTS FOR enzymes (brf), 3 ITERATIONS:
+average acc: 28.16666666666666
+plus/minus:  3.2128215360057304
+
+RESULTS FOR mutag (brf), 1 ITERATIONS:
+average acc: 75.0
+plus/minus:  5.830951894845301
+
+RESULTS FOR enzymes (brf), 1 ITERATIONS:
+average acc: 31.0
+plus/minus:  3.777124126457412
+
+RESULTS FOR mutag (brf), 2 ITERATIONS:
+average acc: 73.5
+plus/minus:  6.00832755431992
+
+RESULTS FOR enzymes (brf), 2 ITERATIONS:
+average acc: 28.83333333333333
+plus/minus:  2.406010991015811
+
+RESULTS FOR mutag (brf), 3 ITERATIONS:
+average acc: 68.5
+plus/minus:  5.839520528262573
+
+RESULTS FOR enzymes (brf), 3 ITERATIONS:
+average acc: 28.499999999999996
+plus/minus:  1.9692073983655902
+
+RESULTS FOR mutag (brf), 1 ITERATIONS:
+average acc: 74.0
+plus/minus:  11.730302638892145
+
+RESULTS FOR enzymes (brf), 1 ITERATIONS:
+average acc: 27.333333333333332
+plus/minus:  2.9888682361946515
+
+RESULTS FOR mutag (brf), 2 ITERATIONS:
+average acc: 69.0
+plus/minus:  5.253570214625477
+
+RESULTS FOR enzymes (brf), 2 ITERATIONS:
+average acc: 32.0
+plus/minus:  2.9739610697593943
+
+RESULTS FOR mutag (brf), 3 ITERATIONS:
+average acc: 71.00000000000001
+plus/minus:  3.9496835316263
+
+RESULTS FOR enzymes (brf), 3 ITERATIONS:
+average acc: 30.0
+plus/minus:  4.371625682868
+
+RESULTS FOR mutag (brf), 1 ITERATIONS:
+average acc: 70.0
+plus/minus:  5.8309518948453
+
+RESULTS FOR enzymes (brf), 1 ITERATIONS:
+average acc: 27.500000000000004
+plus/minus:  3.4399612400917152
+
+RESULTS FOR mutag (brf), 2 ITERATIONS:
+average acc: 67.0
+plus/minus:  5.692099788303084
+
+RESULTS FOR enzymes (brf), 2 ITERATIONS:
+average acc: 28.666666666666664
+plus/minus:  3.047767853509989
+
+RESULTS FOR mutag (brf), 3 ITERATIONS:
+average acc: 74.49999999999999
+plus/minus:  5.735852159879995
+
+RESULTS FOR enzymes (brf), 3 ITERATIONS:
+average acc: 27.499999999999996
+plus/minus:  2.5495097567963914
+
+RESULTS FOR mutag (brf), 1 ITERATIONS:
+average acc: 68.0
+plus/minus:  6.356099432828279
+
+RESULTS FOR enzymes (brf), 1 ITERATIONS:
+average acc: 30.66666666666667
+plus/minus:  3.169297153067923
+
+RESULTS FOR mutag (brf), 2 ITERATIONS:
+average acc: 68.0
+plus/minus:  6.356099432828281
+
+RESULTS FOR enzymes (brf), 2 ITERATIONS:
+average acc: 29.833333333333336
+plus/minus:  2.5582111805799848
+
+RESULTS FOR mutag (brf), 3 ITERATIONS:
+average acc: 61.00000000000001
+plus/minus:  7.589466384404109
+
+RESULTS FOR enzymes (brf), 3 ITERATIONS:
+average acc: 27.0
+plus/minus:  2.394437999475729
+
+RESULTS FOR mutag (brf), 1 ITERATIONS:
+average acc: 67.0
+plus/minus:  5.329165037789691
+
+RESULTS FOR enzymes (brf), 1 ITERATIONS:
+average acc: 29.333333333333332
+plus/minus:  3.533962208186286
+
+RESULTS FOR mutag (brf), 2 ITERATIONS:
+average acc: 63.99999999999999
+plus/minus:  7.720103626247512
+
+RESULTS FOR enzymes (brf), 2 ITERATIONS:
+average acc: 30.000000000000004
+plus/minus:  2.6666666666666656
+
+RESULTS FOR mutag (brf), 3 ITERATIONS:
+average acc: 73.0
+plus/minus:  6.356099432828281
+
+RESULTS FOR enzymes (brf), 3 ITERATIONS:
+average acc: 28.666666666666668
+plus/minus:  3.6453928305312844
+
+RESULTS FOR mutag (brf), 1 ITERATIONS:
+average acc: 93.0
+plus/minus:  4.049691346263317
+
+RESULTS FOR enzymes (brf), 1 ITERATIONS:
+average acc: 36.833333333333336
+plus/minus:  5.466056876558986
+
+RESULTS FOR mutag (brf), 2 ITERATIONS:
+average acc: 82.0
+plus/minus:  12.89961239727768
+
+RESULTS FOR enzymes (brf), 2 ITERATIONS:
+average acc: 41.166666666666664
+plus/minus:  5.034326612809746
+
+RESULTS FOR mutag (brf), 3 ITERATIONS:
+average acc: 84.00000000000001
+plus/minus:  11.730302638892145
+
+RESULTS FOR enzymes (brf), 3 ITERATIONS:
+average acc: 40.166666666666664
+plus/minus:  2.9230881691191675
+
+RESULTS FOR mutag (brf), 1 ITERATIONS:
+average acc: 81.0
+plus/minus:  8.921883209278183
+
+RESULTS FOR enzymes (brf), 1 ITERATIONS:
+average acc: 40.833333333333336
+plus/minus:  2.9907264074877267
+
+RESULTS FOR mutag (brf), 2 ITERATIONS:
+average acc: 87.5
+plus/minus:  4.527692569068708
+
+RESULTS FOR enzymes (brf), 2 ITERATIONS:
+average acc: 40.166666666666664
+plus/minus:  1.6633299933166208
+
+RESULTS FOR mutag (brf), 3 ITERATIONS:
+average acc: 82.0
+plus/minus:  6.663332499583072
+
+RESULTS FOR enzymes (brf), 3 ITERATIONS:
+average acc: 43.33333333333334
+plus/minus:  2.4944382578492945
+
+RESULTS FOR mutag (brf), 1 ITERATIONS:
+average acc: 79.0
+plus/minus:  13.62350909274112
+
+RESULTS FOR enzymes (brf), 1 ITERATIONS:
+average acc: 41.66666666666667
+plus/minus:  2.054804667656325
+
+RESULTS FOR mutag (brf), 2 ITERATIONS:
+average acc: 80.0
+plus/minus:  7.999999999999999
+
+RESULTS FOR enzymes (brf), 2 ITERATIONS:
+average acc: 41.166666666666664
+plus/minus:  2.4060109910158123
+
+RESULTS FOR mutag (brf), 3 ITERATIONS:
+average acc: 77.0
+plus/minus:  4.516635916254486
+
+RESULTS FOR enzymes (brf), 3 ITERATIONS:
+average acc: 40.0
+plus/minus:  2.160246899469287
+
+RESULTS FOR mutag (brf), 1 ITERATIONS:
+average acc: 78.5
+plus/minus:  10.202940752547766
+
+RESULTS FOR enzymes (brf), 1 ITERATIONS:
+average acc: 43.166666666666664
+plus/minus:  4.3576242252962665
+
+RESULTS FOR mutag (brf), 2 ITERATIONS:
+average acc: 77.0
+plus/minus:  6.511528238439882
+
+RESULTS FOR enzymes (brf), 2 ITERATIONS:
+average acc: 40.666666666666664
+plus/minus:  3.5652645218989165
+
+RESULTS FOR mutag (brf), 3 ITERATIONS:
+average acc: 75.00000000000001
+plus/minus:  7.0710678118654755
+
+RESULTS FOR enzymes (brf), 3 ITERATIONS:
+average acc: 40.5
+plus/minus:  3.6832956257496727
+
+RESULTS FOR mutag (brf), 1 ITERATIONS:
+average acc: 87.5
+plus/minus:  6.2048368229954285
+
+RESULTS FOR enzymes (brf), 1 ITERATIONS:
+average acc: 39.83333333333333
+plus/minus:  2.9981475762358483
+
+RESULTS FOR mutag (brf), 2 ITERATIONS:
+average acc: 75.5
+plus/minus:  10.435516278555651
+
+RESULTS FOR enzymes (brf), 2 ITERATIONS:
+average acc: 37.83333333333333
+plus/minus:  4.398231968012197
+
+RESULTS FOR mutag (brf), 3 ITERATIONS:
+average acc: 85.0
+plus/minus:  5.656854249492379
+
+RESULTS FOR enzymes (brf), 3 ITERATIONS:
+average acc: 40.666666666666664
+plus/minus:  2.988868236194653
+
+RESULTS FOR mutag (brf), 1 ITERATIONS:
+average acc: 86.0
+plus/minus:  6.899275324264135
+
+RESULTS FOR enzymes (brf), 1 ITERATIONS:
+average acc: 37.16666666666667
+plus/minus:  4.24394994210713
+
+RESULTS FOR mutag (brf), 2 ITERATIONS:
+average acc: 82.5
+plus/minus:  6.041522986797284
+
+RESULTS FOR enzymes (brf), 2 ITERATIONS:
+average acc: 40.33333333333333
+plus/minus:  3.425395354310701
+
+RESULTS FOR mutag (brf), 3 ITERATIONS:
+average acc: 72.5
+plus/minus:  10.124228365658293
+
+RESULTS FOR enzymes (brf), 3 ITERATIONS:
+average acc: 40.833333333333336
+plus/minus:  3.2058973436118907
+
+RESULTS FOR mutag (brf), 1 ITERATIONS:
+average acc: 87.99999999999999
+plus/minus:  3.5213633723318
+
+RESULTS FOR enzymes (brf), 1 ITERATIONS:
+average acc: 40.666666666666664
+plus/minus:  4.812021982031624
+
+RESULTS FOR mutag (brf), 2 ITERATIONS:
+average acc: 73.50000000000001
+plus/minus:  16.127616066858735
+
+RESULTS FOR enzymes (brf), 2 ITERATIONS:
+average acc: 39.5
+plus/minus:  2.6267851073127404
+
+RESULTS FOR mutag (brf), 3 ITERATIONS:
+average acc: 84.00000000000001
+plus/minus:  5.6213877290220795
+
+RESULTS FOR enzymes (brf), 3 ITERATIONS:
+average acc: 40.0
+plus/minus:  3.887301263230201
+
+RESULTS FOR mutag (brf), 1 ITERATIONS:
+average acc: 86.0
+plus/minus:  5.253570214625477
+
+RESULTS FOR enzymes (brf), 1 ITERATIONS:
+average acc: 41.16666666666667
+plus/minus:  3.4976182372199136
+
+RESULTS FOR mutag (brf), 2 ITERATIONS:
+average acc: 84.5
+plus/minus:  3.591656999213593
+
+RESULTS FOR enzymes (brf), 2 ITERATIONS:
+average acc: 40.666666666666664
+plus/minus:  3.9496835316263
+
+RESULTS FOR mutag (brf), 3 ITERATIONS:
+average acc: 86.0
+plus/minus:  5.059644256269406
+
+RESULTS FOR enzymes (brf), 3 ITERATIONS:
+average acc: 38.49999999999999
+plus/minus:  3.178049716414141
+
+RESULTS FOR mutag (brf), 1 ITERATIONS:
+average acc: 73.5
+plus/minus:  11.666190466471907
+
+RESULTS FOR enzymes (brf), 1 ITERATIONS:
+average acc: 42.16666666666667
+plus/minus:  4.001388647846035
+
+RESULTS FOR mutag (brf), 2 ITERATIONS:
+average acc: 78.0
+plus/minus:  6.033241251599342
+
+RESULTS FOR enzymes (brf), 2 ITERATIONS:
+average acc: 39.666666666666664
+plus/minus:  2.043961295567453
+
+RESULTS FOR mutag (brf), 3 ITERATIONS:
+average acc: 74.0
+plus/minus:  13.769531582446803
+
+RESULTS FOR enzymes (brf), 3 ITERATIONS:
+average acc: 42.833333333333336
+plus/minus:  4.191260749066642
+
+RESULTS FOR mutag (brf), 1 ITERATIONS:
+average acc: 82.5
+plus/minus:  10.793516572461451
+

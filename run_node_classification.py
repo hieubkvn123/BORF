@@ -47,8 +47,10 @@ default_args = AttrDict({
     "num_iterations": 50,
     "num_relations": 2,
     "patience": 100,
-    "dataset": None
-    })
+    "dataset": None,
+    "brf_batch_add" : 4,
+    "brf_batch_remove" : 2
+})
 
 
 results = []
@@ -72,6 +74,17 @@ for key in datasets:
         curvature_type = "bfc"
         dataset.data.edge_index, dataset.data.edge_type = sdrf.sdrf(dataset.data, loops=args.num_iterations, remove_edges=False, 
                 is_undirected=True, curvature=curvature_type)
+    elif args.rewiring == "brf":
+        print(f"[INFO] BRF hyper-parameter : num_iterations = {args.num_iterations}")
+        print(f"[INFO] BRF hyper-parameter : batch_add = {args.brf_batch_add}")
+        print(f"[INFO] BRF hyper-parameter : num_iterations = {args.brf_batch_remove}")
+        for i in range(len(dataset)):
+            dataset[i].edge_index, dataset[i].edge_type = brf.brf2(dataset[i], 
+                    loops=args.num_iterations, 
+                    remove_edges=False, 
+                    is_undirected=True,
+                    batch_add=args.brf_batch_add,
+                    batch_remove=args.brf_batch_remove)
     elif args.rewiring == "sdrf_orc":
         curvature_type = "orc"
         dataset.data.edge_index, dataset.data.edge_type = sdrf.sdrf(dataset.data, loops=args.num_iterations, remove_edges=False, 
@@ -92,7 +105,7 @@ for key in datasets:
         "num_iterations": args.num_iterations,
         "avg_accuracy": np.mean(accuracies),
         "ci":  2 * np.std(accuracies)/(args.num_trials ** 0.5)
-        })
+    })
     results_df = pd.DataFrame(results)
-    with open('results/node_classification.csv', 'a') as f:
+    with open(f'results/node_classification_{args.layer_type}_{args.rewiring}.csv', 'a') as f:
         results_df.to_csv(f, mode='a', header=f.tell()==0)
