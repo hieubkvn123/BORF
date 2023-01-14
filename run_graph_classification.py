@@ -7,6 +7,7 @@ from torch_geometric.datasets import TUDataset
 from torch_geometric.utils import to_networkx, from_networkx, to_dense_adj
 from experiments.graph_classification import Experiment
 
+import time
 import tqdm
 import torch
 import numpy as np
@@ -63,7 +64,7 @@ default_args = AttrDict({
     "last_layer_fa": False,
     "brf_batch_add" : 4,
     "brf_batch_remove" : 2
-    })
+})
 
 hyperparams = {
     "mutag": AttrDict({"output_dim": 2}),
@@ -92,6 +93,7 @@ for key in datasets:
     dataset = datasets[key]
 
     print('REWIRING STARTED...')
+    start = time.time()
     with tqdm.tqdm(total=len(dataset)) as pbar:
         if args.rewiring == "fosr":
             for i in range(len(dataset)):
@@ -125,15 +127,20 @@ for key in datasets:
                 m = dataset[i].edge_index.shape[1]
                 dataset[i].edge_type = torch.tensor(np.zeros(m, dtype=np.int64))
                 pbar.update(1)
+    end = time.time()
+    rewiring_duration = end - start
 
     #spectral_gap = average_spectral_gap(dataset)
     print('TRAINING STARTED...')
+    start = time.time()
     for trial in range(args.num_trials):
         train_acc, validation_acc, test_acc, energy = Experiment(args=args, dataset=dataset).run()
         train_accuracies.append(train_acc)
         validation_accuracies.append(validation_acc)
         test_accuracies.append(test_acc)
         energies.append(energy)
+    end = time.time()
+    run_duration = end - start
 
     train_mean = 100 * np.mean(train_accuracies)
     val_mean = 100 * np.mean(validation_accuracies)
@@ -161,8 +168,10 @@ for key in datasets:
         "train_ci": train_ci,
         "energy_mean": energy_mean,
         "energy_ci": energy_ci,
-        "last_layer_fa": args.last_layer_fa
-        })
+        "last_layer_fa": args.last_layer_fa,
+        "rewiring_duration" : rewiring_duration,
+        "run_duration" : run_duration
+    })
 
     # Log every time a dataset is completed
     df = pd.DataFrame(results)

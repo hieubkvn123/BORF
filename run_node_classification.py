@@ -3,6 +3,8 @@ from torch_geometric.datasets import WebKB, WikipediaNetwork, Actor, Planetoid
 from torch_geometric.utils import to_networkx, from_networkx, to_undirected
 from torch_geometric.transforms import LargestConnectedComponents, ToUndirected
 from experiments.node_classification import Experiment
+
+import time
 import torch
 import numpy as np
 import pandas as pd
@@ -66,6 +68,7 @@ for key in datasets:
     accuracies = []
     print(f"TESTING: {key} ({args.rewiring})")
     dataset = datasets[key]
+    start = time.time()
     if args.rewiring == "fosr":
         edge_index, edge_type, _ = fosr.edge_rewire(dataset.data.edge_index.numpy(), num_iterations=args.num_iterations)
         dataset.data.edge_index = torch.tensor(edge_index)
@@ -89,12 +92,17 @@ for key in datasets:
         curvature_type = "orc"
         dataset.data.edge_index, dataset.data.edge_type = sdrf.sdrf(dataset.data, loops=args.num_iterations, remove_edges=False, 
                 is_undirected=True, curvature=curvature_type)
+    end = time.time()
+    rewiring_duration = end - start
 
     # print(rewiring.spectral_gap(to_networkx(dataset.data, to_undirected=True)))
+    start = time.time()
     for trial in range(args.num_trials):
         print(f"TRIAL #{trial+1}")
         train_acc, validation_acc, test_acc = Experiment(args=args, dataset=dataset).run()
         accuracies.append(test_acc)
+    end = time.time()
+    run_duration = end - start
 
     log_to_file(f"RESULTS FOR {key} ({args.rewiring}):\n")
     log_to_file(f"average acc: {np.mean(accuracies)}\n")
@@ -104,7 +112,9 @@ for key in datasets:
         "rewiring": args.rewiring,
         "num_iterations": args.num_iterations,
         "avg_accuracy": np.mean(accuracies),
-        "ci":  2 * np.std(accuracies)/(args.num_trials ** 0.5)
+        "ci":  2 * np.std(accuracies)/(args.num_trials ** 0.5),
+        "run_duration" : run_duration,
+        "rewiring_duration" : rewiring_duration
     })
     results_df = pd.DataFrame(results)
     with open(f'results/node_classification_{args.layer_type}_{args.rewiring}.csv', 'a') as f:
