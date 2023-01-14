@@ -782,3 +782,7 @@ RESULTS FOR mutag (brf), 1 ITERATIONS:
 average acc: 76.99999999999999
 plus/minus:  12.01665510863984
 
+RESULTS FOR imdb (brf), 1 ITERATIONS:
+average acc: 54.6
+plus/minus:  0.021391587131393497
+
