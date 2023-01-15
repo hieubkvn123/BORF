@@ -1138,3 +1138,35 @@ RESULTS FOR mutag (brf), 3 ITERATIONS:
 average acc: 71.0
 plus/minus:  0.050596442562694056
 
+RESULTS FOR mutag (brf), 1 ITERATIONS:
+average acc: 72.99999999999999
+plus/minus:  0.04939635614091388
+
+RESULTS FOR enzymes (brf), 1 ITERATIONS:
+average acc: 30.666666666666664
+plus/minus:  0.018378731669453623
+
+RESULTS FOR imdb (brf), 1 ITERATIONS:
+average acc: 51.7
+plus/minus:  0.013579396157414375
+
+RESULTS FOR proteins (brf), 1 ITERATIONS:
+average acc: 72.32142857142857
+plus/minus:  0.020203050891044214
+
+RESULTS FOR mutag (brf), 2 ITERATIONS:
+average acc: 63.5
+plus/minus:  0.04701063709417262
+
+RESULTS FOR mutag (brf), 3 ITERATIONS:
+average acc: 69.0
+plus/minus:  0.04857983120596448
+
+RESULTS FOR mutag (brf), 3 ITERATIONS:
+average acc: 68.0
+plus/minus:  0.05865151319446072
+
+RESULTS FOR mutag (brf), 3 ITERATIONS:
+average acc: 66.5
+plus/minus:  0.074899933244296
+

@@ -1,0 +1,38 @@
+import pandas as pd
+
+seeds = 10
+gpu_index = 0
+layer_type = 'GCN'
+datasets = ['mutag', 'enzymes', 'proteins', 'imdb']
+num_iterations = [1, 2, 3]
+batch_add = [3, 4, 5]
+batch_remove = [1, 2, 3]
+
+cmd = '''
+python run_graph_classification.py --rewiring brf     
+    --layer_type {}   
+    --num_trials {}    
+    --device cuda:{}    
+    --brf_batch_add {} 
+    --brf_batch_remove {}     
+    --num_iterations {}
+    --dataset {}
+'''
+
+exp_file = 'graph_classification_GCN_brf.csv'
+df = pd.read_csv(exp_file)
+existing_exps = df[['num_iterations', 'brf_batch_add', 'brf_batch_remove']].values
+existing_exps = [set(x) for x in existing_exps]
+missing_exps = []
+
+for ds in datasets:
+    for it in num_iterations:
+        for ba in batch_add:
+            for br in batch_remove:
+                if({ds, it, ba, br} not in existing_exps):
+                    cmd = cmd.format(layer_type, seeds, gpu_index, ba, br, it, ds)
+                    cmd = cmd.strip()
+                    cmd = cmd.replace('\n', '')
+                    cmd = cmd.replace('\t', ' ')
+                    print(cmd)
+

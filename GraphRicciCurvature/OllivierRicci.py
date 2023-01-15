@@ -487,6 +487,7 @@ def _compute_ricci_curvature_edges(G: nx.Graph, weight="weight", edge_list=[],
             chunksize, extra = divmod(len(args), proc * 4)
             if extra:
                 chunksize += 1
+            if chunksize == 0: chunksize=1
 
         # Compute Ricci curvature for edges
         result = pool.imap_unordered(_wrap_compute_single_edge, args, chunksize=chunksize)
