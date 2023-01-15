@@ -806,3 +806,23 @@ RESULTS FOR proteins (brf), 2 ITERATIONS:
 average acc: 74.91071428571429
 plus/minus:  0.01811422093273679
 
+RESULTS FOR mutag (brf), 1 ITERATIONS:
+average acc: 85.0
+plus/minus:  0.0
+
+RESULTS FOR mutag (brf), 1 ITERATIONS:
+average acc: 60.0
+plus/minus:  0.0
+
+RESULTS FOR mutag (brf), 1 ITERATIONS:
+average acc: 80.0
+plus/minus:  0.0
+
+RESULTS FOR mutag (brf), 1 ITERATIONS:
+average acc: 81.5
+plus/minus:  0.14969969939849576
+
+RESULTS FOR mutag (brf), 2 ITERATIONS:
+average acc: 84.00000000000001
+plus/minus:  0.05440588203494177
+

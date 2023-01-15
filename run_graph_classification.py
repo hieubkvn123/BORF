@@ -118,7 +118,9 @@ for key in datasets:
                         remove_edges=False, 
                         is_undirected=True,
                         batch_add=args.brf_batch_add,
-                        batch_remove=args.brf_batch_remove)
+                        batch_remove=args.brf_batch_remove,
+                        dataset_name=key,
+                        graph_index=i)
                 pbar.update(1)
         elif args.rewiring == "digl":
             for i in range(len(dataset)):
