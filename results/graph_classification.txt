@@ -786,3 +786,23 @@ RESULTS FOR imdb (brf), 1 ITERATIONS:
 average acc: 54.6
 plus/minus:  0.021391587131393497
 
+RESULTS FOR proteins (brf), 1 ITERATIONS:
+average acc: 63.124999999999986
+plus/minus:  0.0344462387982627
+
+RESULTS FOR imdb (brf), 1 ITERATIONS:
+average acc: 51.0
+plus/minus:  0.03046309242345563
+
+RESULTS FOR proteins (brf), 1 ITERATIONS:
+average acc: 72.85714285714285
+plus/minus:  0.021606404946077393
+
+RESULTS FOR imdb (brf), 2 ITERATIONS:
+average acc: 51.800000000000004
+plus/minus:  0.02379915964902963
+
+RESULTS FOR proteins (brf), 2 ITERATIONS:
+average acc: 74.91071428571429
+plus/minus:  0.01811422093273679
+
