@@ -1286,3 +1286,11 @@ RESULTS FOR mutag (brf), 1 ITERATIONS:
 average acc: 70.0
 plus/minus:  0.07348469228349534
 
+RESULTS FOR enzymes (brf), 2 ITERATIONS:
+average acc: 27.833333333333332
+plus/minus:  0.027100635498903788
+
+RESULTS FOR enzymes (brf), 2 ITERATIONS:
+average acc: 28.500000000000004
+plus/minus:  0.02469817807045693
+

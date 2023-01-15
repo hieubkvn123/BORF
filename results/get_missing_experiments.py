@@ -19,7 +19,7 @@ python run_graph_classification.py --rewiring brf
     --dataset {}
 '''
 
-exp_file = 'graph_classification_GCN_brf.csv'
+exp_file = f'graph_classification_{layer_type}_brf.csv'
 df = pd.read_csv(exp_file)
 existing_exps = df[['dataset', 'num_iterations', 'brf_batch_add', 'brf_batch_remove']].values
 existing_exps = [list(x) for x in existing_exps]
