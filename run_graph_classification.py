@@ -111,7 +111,7 @@ for key in datasets:
         elif args.rewiring == "brf":
             print(f"[INFO] BRF hyper-parameter : num_iterations = {args.num_iterations}")
             print(f"[INFO] BRF hyper-parameter : batch_add = {args.brf_batch_add}")
-            print(f"[INFO] BRF hyper-parameter : num_iterations = {args.brf_batch_remove}")
+            print(f"[INFO] BRF hyper-parameter : batch_remove = {args.brf_batch_remove}")
             for i in range(len(dataset)):
                 dataset[i].edge_index, dataset[i].edge_type = brf.brf3(dataset[i], 
                         loops=args.num_iterations, 
