@@ -14,3 +14,6 @@ for _file in glob.glob(f'graph_classification_*{model}*'):
 
     result = result.sort_index(ascending=True)
     print(result)
+    
+    print(f'Saving to summary_{_file}.xlsx')
+    result.to_excel(f'summary_{_file}.xlsx')

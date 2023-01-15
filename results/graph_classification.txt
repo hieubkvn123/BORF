@@ -1170,3 +1170,19 @@ RESULTS FOR mutag (brf), 3 ITERATIONS:
 average acc: 66.5
 plus/minus:  0.074899933244296
 
+RESULTS FOR mutag (brf), 1 ITERATIONS:
+average acc: 73.50000000000001
+plus/minus:  0.06935416353759881
+
+RESULTS FOR mutag (brf), 1 ITERATIONS:
+average acc: 71.50000000000001
+plus/minus:  0.06640783086353597
+
+RESULTS FOR mutag (brf), 1 ITERATIONS:
+average acc: 68.5
+plus/minus:  0.09803060746521976
+
+RESULTS FOR mutag (brf), 1 ITERATIONS:
+average acc: 70.0
+plus/minus:  0.054772255750516606
+
