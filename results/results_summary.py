@@ -1,7 +1,7 @@
 import glob
 import pandas as pd
 
-model = 'sdrf_bfc'
+model = 'brf'
 
 for _file in glob.glob(f'graph_classification_*{model}*'):
     print('\nResult for ', _file)

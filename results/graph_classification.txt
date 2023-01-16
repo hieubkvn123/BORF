@@ -1650,3 +1650,83 @@ RESULTS FOR imdb (brf), 1 ITERATIONS:
 average acc: 69.30000000000001
 plus/minus:  0.049400404856640594
 
+RESULTS FOR imdb (brf), 1 ITERATIONS:
+average acc: 73.10000000000001
+plus/minus:  0.01426884718538957
+
+RESULTS FOR imdb (brf), 2 ITERATIONS:
+average acc: 73.2
+plus/minus:  0.04221847936626803
+
+RESULTS FOR imdb (brf), 2 ITERATIONS:
+average acc: 74.19999999999999
+plus/minus:  0.029637813684548323
+
+RESULTS FOR imdb (brf), 2 ITERATIONS:
+average acc: 72.89999999999999
+plus/minus:  0.039844698518121585
+
+RESULTS FOR imdb (brf), 2 ITERATIONS:
+average acc: 71.7
+plus/minus:  0.04128437961263314
+
+RESULTS FOR imdb (brf), 2 ITERATIONS:
+average acc: 70.59999999999998
+plus/minus:  0.04110474425172841
+
+RESULTS FOR imdb (brf), 2 ITERATIONS:
+average acc: 73.7
+plus/minus:  0.04792076794042433
+
+RESULTS FOR imdb (brf), 2 ITERATIONS:
+average acc: 71.7
+plus/minus:  0.0429930226897342
+
+RESULTS FOR imdb (brf), 3 ITERATIONS:
+average acc: 71.3
+plus/minus:  0.03929885494515075
+
+RESULTS FOR imdb (brf), 3 ITERATIONS:
+average acc: 73.0
+plus/minus:  0.04578209256903838
+
+RESULTS FOR imdb (sdrf_bfc), 20 ITERATIONS:
+average acc: 52.16
+plus/minus:  0.00852159609462922
+
+RESULTS FOR imdb (brf), 3 ITERATIONS:
+average acc: 74.0
+plus/minus:  0.03720215047547654
+
+RESULTS FOR imdb (brf), 3 ITERATIONS:
+average acc: 74.1
+plus/minus:  0.024568272222523092
+
+RESULTS FOR imdb (brf), 3 ITERATIONS:
+average acc: 71.1
+plus/minus:  0.0517262022576566
+
+RESULTS FOR imdb (brf), 3 ITERATIONS:
+average acc: 71.1
+plus/minus:  0.026600751869073177
+
+RESULTS FOR imdb (brf), 3 ITERATIONS:
+average acc: 69.5
+plus/minus:  0.054350712966804764
+
+RESULTS FOR imdb (brf), 3 ITERATIONS:
+average acc: 72.5
+plus/minus:  0.05224940191045253
+
+RESULTS FOR imdb (brf), 3 ITERATIONS:
+average acc: 69.9
+plus/minus:  0.04927068093704409
+
+RESULTS FOR proteins (sdrf_bfc), 40 ITERATIONS:
+average acc: 74.08928571428572
+plus/minus:  0.008279939490067768
+
+RESULTS FOR imdb (sdrf_bfc), 10 ITERATIONS:
+average acc: 72.03999999999999
+plus/minus:  0.012016388808622998
+
