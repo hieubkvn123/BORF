@@ -1,8 +1,13 @@
 
 gpu_index = 0
 layer_types = ["GCN", "GIN"]
-batch_add = [3, 4, 5]
-batch_remove = [0, 1, 2, 3]
+# batch_add = [3, 4, 5]
+# batch_remove = [0, 1, 2, 3]
+# For node classification : 
+#   batch_add = [10, 20, 30]
+#   batch_remove = [10, 20, 30]
+batch_add = [5, 10, 15]
+batch_remove = [3, 6, 9]
 num_iterations = [1, 2, 3]
 
 cmd_template = """

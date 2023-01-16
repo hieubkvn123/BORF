@@ -1730,3 +1730,7 @@ RESULTS FOR imdb (sdrf_bfc), 10 ITERATIONS:
 average acc: 72.03999999999999
 plus/minus:  0.012016388808622998
 
+RESULTS FOR proteins (sdrf_bfc), 20 ITERATIONS:
+average acc: 75.46428571428572
+plus/minus:  0.006755005702500652
+
