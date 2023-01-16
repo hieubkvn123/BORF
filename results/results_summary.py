@@ -1,11 +1,14 @@
 import glob
 import pandas as pd
 
-model = 'fosr'
+model = 'none'
 
 for _file in glob.glob(f'graph_classification_*{model}*'):
     print('\nResult for ', _file)
     df = pd.read_csv(_file)
+
+    if(model == 'none'):
+        df = df[df['num_iterations'] == 10]
 
     if(model == 'brf'):
         result = df.groupby(['dataset', 'num_iterations']).max('test_mean')[['test_mean', 'test_ci', 'brf_batch_add', 'brf_batch_remove']]
