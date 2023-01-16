@@ -1294,3 +1294,83 @@ RESULTS FOR enzymes (brf), 2 ITERATIONS:
 average acc: 28.500000000000004
 plus/minus:  0.02469817807045693
 
+RESULTS FOR enzymes (brf), 2 ITERATIONS:
+average acc: 29.166666666666664
+plus/minus:  0.024608038433722324
+
+RESULTS FOR enzymes (brf), 2 ITERATIONS:
+average acc: 31.999999999999996
+plus/minus:  0.03155242550986462
+
+RESULTS FOR enzymes (brf), 2 ITERATIONS:
+average acc: 27.333333333333332
+plus/minus:  0.0211869981094276
+
+RESULTS FOR enzymes (brf), 2 ITERATIONS:
+average acc: 29.5
+plus/minus:  0.02263232692902394
+
+RESULTS FOR enzymes (brf), 3 ITERATIONS:
+average acc: 27.999999999999996
+plus/minus:  0.025733678754158378
+
+RESULTS FOR enzymes (brf), 3 ITERATIONS:
+average acc: 30.0
+plus/minus:  0.014907119849998594
+
+RESULTS FOR enzymes (brf), 3 ITERATIONS:
+average acc: 27.833333333333332
+plus/minus:  0.02451756739791105
+
+RESULTS FOR enzymes (brf), 3 ITERATIONS:
+average acc: 29.83333333333332
+plus/minus:  0.0276686746259295
+
+RESULTS FOR enzymes (brf), 3 ITERATIONS:
+average acc: 29.666666666666664
+plus/minus:  0.03392802839999859
+
+RESULTS FOR enzymes (brf), 3 ITERATIONS:
+average acc: 30.333333333333336
+plus/minus:  0.023475755815545337
+
+RESULTS FOR enzymes (brf), 3 ITERATIONS:
+average acc: 29.500000000000004
+plus/minus:  0.02406010991015811
+
+RESULTS FOR enzymes (brf), 3 ITERATIONS:
+average acc: 31.83333333333333
+plus/minus:  0.025582111805799855
+
+RESULTS FOR enzymes (brf), 3 ITERATIONS:
+average acc: 27.999999999999996
+plus/minus:  0.02780887148615227
+
+RESULTS FOR proteins (brf), 2 ITERATIONS:
+average acc: 73.125
+plus/minus:  0.019634738582004943
+
+RESULTS FOR proteins (brf), 2 ITERATIONS:
+average acc: 71.25000000000001
+plus/minus:  0.02109865069677418
+
+RESULTS FOR proteins (brf), 2 ITERATIONS:
+average acc: 76.16071428571429
+plus/minus:  0.026492442125933165
+
+RESULTS FOR proteins (brf), 2 ITERATIONS:
+average acc: 73.92857142857142
+plus/minus:  0.024846467329894414
+
+RESULTS FOR proteins (brf), 2 ITERATIONS:
+average acc: 73.6607142857143
+plus/minus:  0.03226662678498689
+
+RESULTS FOR proteins (brf), 2 ITERATIONS:
+average acc: 73.92857142857143
+plus/minus:  0.019199542936736595
+
+RESULTS FOR proteins (brf), 3 ITERATIONS:
+average acc: 70.44642857142857
+plus/minus:  0.02960733672175028
+
