@@ -16,7 +16,7 @@ for _file in glob.glob(f'graph_classification_*{model}*'):
         df = df[df['num_iterations'] == 10]
 
     # Find idx of max accuracy
-    idx = df.groupby(['dataset', 'num_iterations']).idxmax()['test_mean']
+    idx = df.groupby(['dataset', 'num_iterations']).idxmax(numeric_only=True)['test_mean']
     result = df.loc[idx][columns]
     result = result.groupby(['dataset', 'num_iterations']).max()
     print(result)
