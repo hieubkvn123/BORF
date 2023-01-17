@@ -138,3 +138,7 @@ RESULTS FOR cornell (brf):
 average acc: 0.5378378378378378
 plus/minus:  0.039314803342633896
 
+RESULTS FOR cornell (brf):
+average acc: 0.5
+plus/minus:  0.04909703276914851
+
