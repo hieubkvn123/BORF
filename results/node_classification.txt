@@ -142,3 +142,15 @@ RESULTS FOR cornell (brf):
 average acc: 0.5
 plus/minus:  0.04909703276914851
 
+RESULTS FOR wisconsin (brf):
+average acc: 0.49215686274509796
+plus/minus:  0.025079650125991344
+
+RESULTS FOR texas (brf):
+average acc: 0.49189189189189186
+plus/minus:  0.03133270647824743
+
+RESULTS FOR chameleon (brf):
+average acc: 0.6133771929824562
+plus/minus:  0.010618202748540386
+
