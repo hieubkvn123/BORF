@@ -78,3 +78,59 @@ RESULTS FOR pubmed (sdrf_orc):
 average acc: 0.8863336713995944
 plus/minus:  0.003498655068591759
 
+RESULTS FOR cornell (brf):
+average acc: 0.4027027027027027
+plus/minus:  0.03701814847192201
+
+RESULTS FOR cornell (brf):
+average acc: 0.4243243243243243
+plus/minus:  0.039758217402017924
+
+RESULTS FOR cornell (brf):
+average acc: 0.44054054054054054
+plus/minus:  0.05130865935171583
+
+RESULTS FOR cornell (brf):
+average acc: 0.4513513513513513
+plus/minus:  0.0374887370473507
+
+RESULTS FOR cornell (brf):
+average acc: 0.4621621621621622
+plus/minus:  0.04486812101502083
+
+RESULTS FOR cornell (brf):
+average acc: 0.4459459459459459
+plus/minus:  0.05198752449100362
+
+RESULTS FOR cornell (brf):
+average acc: 0.43243243243243246
+plus/minus:  0.03972145528837586
+
+RESULTS FOR cornell (brf):
+average acc: 0.47027027027027035
+plus/minus:  0.05469885682453411
+
+RESULTS FOR cornell (brf):
+average acc: 0.44594594594594594
+plus/minus:  0.046655882436843425
+
+RESULTS FOR cornell (brf):
+average acc: 0.427027027027027
+plus/minus:  0.04378044698663045
+
+RESULTS FOR cornell (brf):
+average acc: 0.47027027027027024
+plus/minus:  0.042009425357244196
+
+RESULTS FOR cornell (brf):
+average acc: 0.4675675675675676
+plus/minus:  0.03670107069571449
+
+RESULTS FOR cornell (brf):
+average acc: 0.39459459459459467
+plus/minus:  0.03435729423150422
+
+RESULTS FOR cornell (brf):
+average acc: 0.5081081081081081
+plus/minus:  0.06057913827512172
+

@@ -9,7 +9,7 @@ import torch
 import numpy as np
 import pandas as pd
 from hyperparams import get_args_from_input
-from preprocessing import rewiring, sdrf, fosr
+from preprocessing import rewiring, sdrf, fosr, brf
 
 largest_cc = LargestConnectedComponents()
 
@@ -23,8 +23,10 @@ actor = Actor(root="data")
 cora = Planetoid(root="data", name="cora")
 citeseer = Planetoid(root="data", name="citeseer")
 pubmed = Planetoid(root="data", name="pubmed")
-datasets = {"cornell": cornell, "wisconsin": wisconsin, "texas": texas, "chameleon": chameleon, "squirrel": squirrel, "actor": actor, "cora": cora, "citeseer": citeseer, "pubmed": pubmed}
-# datasets = {"cornell": cornell}
+datasets = {"cornell": cornell, "wisconsin": wisconsin, "texas": texas, 
+        "chameleon": chameleon, "squirrel": squirrel, 
+        "actor": actor, 
+        "cora": cora, "citeseer": citeseer} # , "pubmed": pubmed}
 
 for key in datasets:
     dataset = datasets[key]
@@ -73,6 +75,8 @@ for key in datasets:
         edge_index, edge_type, _ = fosr.edge_rewire(dataset.data.edge_index.numpy(), num_iterations=args.num_iterations)
         dataset.data.edge_index = torch.tensor(edge_index)
         dataset.data.edge_type = torch.tensor(edge_type)
+        print(dataset.data.num_edges)
+        print(len(dataset.data.edge_type))
     elif args.rewiring == "sdrf_bfc":
         curvature_type = "bfc"
         dataset.data.edge_index, dataset.data.edge_type = sdrf.sdrf(dataset.data, loops=args.num_iterations, remove_edges=False, 
@@ -81,13 +85,15 @@ for key in datasets:
         print(f"[INFO] BRF hyper-parameter : num_iterations = {args.num_iterations}")
         print(f"[INFO] BRF hyper-parameter : batch_add = {args.brf_batch_add}")
         print(f"[INFO] BRF hyper-parameter : num_iterations = {args.brf_batch_remove}")
-        for i in range(len(dataset)):
-            dataset[i].edge_index, dataset[i].edge_type = brf.brf2(dataset[i], 
-                    loops=args.num_iterations, 
-                    remove_edges=False, 
-                    is_undirected=True,
-                    batch_add=args.brf_batch_add,
-                    batch_remove=args.brf_batch_remove)
+        dataset.data.edge_index, dataset.data.edge_type = brf.brf3(dataset.data, 
+                loops=args.num_iterations, 
+                remove_edges=False, 
+                is_undirected=True,
+                batch_add=args.brf_batch_add,
+                batch_remove=args.brf_batch_remove,
+                dataset_name=key,
+                graph_index=0)
+        print(len(dataset.data.edge_type))
     elif args.rewiring == "sdrf_orc":
         curvature_type = "orc"
         dataset.data.edge_index, dataset.data.edge_type = sdrf.sdrf(dataset.data, loops=args.num_iterations, remove_edges=False, 

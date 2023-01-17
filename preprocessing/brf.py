@@ -300,7 +300,8 @@ def brf3(
                 G.remove_edge(u, v)
 
     edge_index = from_networkx(G).edge_index
-    edge_type = torch.tensor(edge_type)
+    edge_type = torch.zeros(size=(len(G.edges),)).type(torch.LongTensor)
+    # edge_type = torch.tensor(edge_type)
 
     if(debug) : print(f'[INFO] Saving edge_index to {edge_index_filename}')
     with open(edge_index_filename, 'wb') as f:
