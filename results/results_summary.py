@@ -1,7 +1,12 @@
 import glob
 import pandas as pd
 
-model = 'sdrf_bfc'
+model = 'brf'
+keys = ['dataset', 'num_iterations']
+columns = ['test_mean', 'test_ci', 'brf_batch_add', 'brf_batch_remove']
+if(model != 'brf'):
+    columns = ['test_mean', 'test_ci']
+columns = keys + columns
 
 for _file in glob.glob(f'graph_classification_*{model}*'):
     print('\nResult for ', _file)
@@ -10,12 +15,10 @@ for _file in glob.glob(f'graph_classification_*{model}*'):
     if(model == 'none'):
         df = df[df['num_iterations'] == 10]
 
-    if(model == 'brf'):
-        result = df.groupby(['dataset', 'num_iterations']).max('test_mean')[['test_mean', 'test_ci', 'brf_batch_add', 'brf_batch_remove']]
-    else:
-        result = df.groupby(['dataset', 'num_iterations']).max('test_mean')[['test_mean', 'test_ci']]
-
-    result = result.sort_index(ascending=True)
+    # Find idx of max accuracy
+    idx = df.groupby(['dataset', 'num_iterations']).idxmax()['test_mean']
+    result = df.loc[idx][columns]
+    result = result.groupby(['dataset', 'num_iterations']).max()
     print(result)
     
     print(f'Saving to summary_{_file}.xlsx')
