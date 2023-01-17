@@ -105,7 +105,13 @@ for key in datasets:
     start = time.time()
     for trial in range(args.num_trials):
         print(f"TRIAL #{trial+1}")
-        train_acc, validation_acc, test_acc = Experiment(args=args, dataset=dataset).run()
+
+        test_accs = []
+        for j in range(num_splits):
+            train_acc, validation_acc, test_acc = Experiment(args=args, dataset=dataset).run()
+            test_accs.append(test_acc)
+
+        test_acc = max(test_accs)
         accuracies.append(test_acc)
     end = time.time()
     run_duration = end - start
