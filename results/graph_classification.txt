@@ -1734,3 +1734,47 @@ RESULTS FOR proteins (sdrf_bfc), 20 ITERATIONS:
 average acc: 75.46428571428572
 plus/minus:  0.006755005702500652
 
+RESULTS FOR enzymes (brf), 1 ITERATIONS:
+average acc: 25.666666666666664
+plus/minus:  0.035652645218989164
+
+RESULTS FOR imdb (brf), 1 ITERATIONS:
+average acc: 51.2
+plus/minus:  0.024298148077579892
+
+RESULTS FOR mutag (brf), 1 ITERATIONS:
+average acc: 69.0
+plus/minus:  0.06899275324264136
+
+RESULTS FOR proteins (brf), 2 ITERATIONS:
+average acc: 69.64285714285714
+plus/minus:  0.02600039246171614
+
+RESULTS FOR enzymes (brf), 2 ITERATIONS:
+average acc: 30.66666666666667
+plus/minus:  0.05719362823873925
+
+RESULTS FOR imdb (brf), 1 ITERATIONS:
+average acc: 66.10000000000001
+plus/minus:  0.04394997155858009
+
+RESULTS FOR mutag (brf), 1 ITERATIONS:
+average acc: 77.0
+plus/minus:  0.05865151319446072
+
+RESULTS FOR mutag (brf), 1 ITERATIONS:
+average acc: 69.5
+plus/minus:  0.047853944456021584
+
+RESULTS FOR enzymes (brf), 1 ITERATIONS:
+average acc: 15.666666666666664
+plus/minus:  0.03169297153067923
+
+RESULTS FOR imdb (brf), 1 ITERATIONS:
+average acc: 52.79999999999999
+plus/minus:  0.02035681703999915
+
+RESULTS FOR proteins (brf), 1 ITERATIONS:
+average acc: 62.23214285714286
+plus/minus:  0.019569668846853547
+

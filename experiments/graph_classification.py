@@ -112,7 +112,7 @@ class Experiment:
                 validation_acc = self.eval(loader=validation_loader)
                 test_acc = self.eval(loader=test_loader)
 
-		if self.args.stopping_criterion == "train":
+                if self.args.stopping_criterion == "train":
                     if train_acc > train_goal:
                         best_train_acc = train_acc
                         best_validation_acc = validation_acc
@@ -179,4 +179,3 @@ class Experiment:
                 graph = graph.to(self.args.device)
                 total_energy += self.model(graph, measure_dirichlet=True)
         return total_energy / sample_size
-
