@@ -111,17 +111,19 @@ class Experiment:
                 train_acc = self.eval(loader=train_loader)
                 validation_acc = self.eval(loader=validation_loader)
                 test_acc = self.eval(loader=test_loader)
-                if(test_acc > best_test_acc) : best_test_acc = test_acc
-                if self.args.stopping_criterion == "train":
+
+		if self.args.stopping_criterion == "train":
                     if train_acc > train_goal:
                         best_train_acc = train_acc
                         best_validation_acc = validation_acc
+                        best_test_acc = test_acc
                         epochs_no_improve = 0
                         train_goal = train_acc * self.args.stopping_threshold
                         new_best_str = ' (new best train)'
                     elif train_acc > best_train_acc:
                         best_train_acc = train_acc
                         best_validation_acc = validation_acc
+                        best_test_acc = test_acc
                         epochs_no_improve += 1
                     else:
                         epochs_no_improve += 1
@@ -129,12 +131,14 @@ class Experiment:
                     if validation_acc > validation_goal:
                         best_train_acc = train_acc
                         best_validation_acc = validation_acc
+                        best_test_acc = test_acc
                         epochs_no_improve = 0
                         validation_goal = validation_acc * self.args.stopping_threshold
                         new_best_str = ' (new best validation)'
                     elif validation_acc > best_validation_acc:
-                        best_train_acc = test_acc
+                        best_train_acc = train_acc
                         best_validation_acc = validation_acc
+                        best_test_acc = test_acc
                         epochs_no_improve += 1
                     else:
                         epochs_no_improve += 1
@@ -144,19 +148,13 @@ class Experiment:
                     if self.args.display:
                         print(f'{self.args.patience} epochs without improvement, stopping training')
                         print(f'Best train acc: {best_train_acc}, Best validation acc: {best_validation_acc}, Best test acc: {best_test_acc}')
-                    if(self.args.rewiring != 'brf'):
-                        energy = self.check_dirichlet(loader=complete_loader)
-                    else:
                         energy = 0
                     return best_train_acc, best_validation_acc, best_test_acc, energy
         if self.args.display:
             print('Reached max epoch count, stopping training')
             print(f'Best train acc: {best_train_acc}, Best validation acc: {best_validation_acc}, Best test acc: {best_test_acc}')
 
-        if(self.args.rewiring != 'brf'):
-            energy = self.check_dirichlet(loader=complete_loader)
-        else:
-            energy = 0
+        energy = 0
         return best_train_acc, best_validation_acc, best_test_acc, energy
 
     def eval(self, loader):

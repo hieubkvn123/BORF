@@ -24,8 +24,8 @@ cora = Planetoid(root="data", name="cora")
 citeseer = Planetoid(root="data", name="citeseer")
 pubmed = Planetoid(root="data", name="pubmed")
 datasets = {"cornell": cornell, "wisconsin": wisconsin, "texas": texas, 
-        "chameleon": chameleon, "squirrel": squirrel, 
-        "actor": actor, 
+        "chameleon": chameleon, # "squirrel": squirrel, 
+        # "actor": actor, 
         "cora": cora, "citeseer": citeseer} # , "pubmed": pubmed}
 
 for key in datasets:
