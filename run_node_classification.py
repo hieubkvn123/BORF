@@ -56,7 +56,7 @@ default_args = AttrDict({
     "brf_batch_remove" : 2
 })
 
-
+num_splits = 3
 results = []
 args = default_args
 args += get_args_from_input()
