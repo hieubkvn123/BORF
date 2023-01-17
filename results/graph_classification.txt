@@ -1778,3 +1778,15 @@ RESULTS FOR proteins (brf), 1 ITERATIONS:
 average acc: 62.23214285714286
 plus/minus:  0.019569668846853547
 
+RESULTS FOR mutag (brf), 2 ITERATIONS:
+average acc: 71.5
+plus/minus:  0.06332456079595025
+
+RESULTS FOR enzymes (brf), 2 ITERATIONS:
+average acc: 19.5
+plus/minus:  0.022632326929023942
+
+RESULTS FOR imdb (brf), 2 ITERATIONS:
+average acc: 47.5
+plus/minus:  0.027459060435491973
+
