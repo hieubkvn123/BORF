@@ -15,14 +15,10 @@ for _file in glob.glob(f'node_classification_*{model}*'):
     if(model == 'none'):
         df = df[df['num_iterations'] == 10]
 
-    if(model == 'brf'):
-        result = df.groupby(['dataset', 'num_iterations']).max('avg_accuracy')
-    else:
-        result = df.groupby(['dataset', 'num_iterations']).max('avg_accuracy')
-
-    result = result.sort_index(ascending=True)
-    result = df[df['avg_accuracy'].isin(result['avg_accuracy'].values)]
-    result = result[columns].sort_values(['dataset', 'num_iterations'])
+    # Find idx of max accuracy
+    idx = df.groupby(['dataset', 'num_iterations']).idxmax(numeric_only=True)['avg_accuracy']
+    result = df.loc[idx][columns]
+    result = result.groupby(['dataset', 'num_iterations']).max()
     print(result)
     
     print(f'Saving to summary_{_file}.xlsx')
