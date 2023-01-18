@@ -2,11 +2,11 @@ import pandas as pd
 
 seeds = 10
 gpu_index = 0
-layer_type = 'GIN'
+layer_type = 'GCN'
 datasets = ['mutag', 'enzymes', 'proteins', 'imdb']
 num_iterations = [1, 2, 3]
 batch_add = [3, 4, 5]
-batch_remove = [1, 2, 3]
+batch_remove = [0, 1, 2, 3]
 
 cmd_template = '''
 python run_graph_classification.py --rewiring brf     
