@@ -2,7 +2,7 @@ import pandas as pd
 
 seeds = 10
 gpu_index = 0
-layer_type = 'GCN'
+layer_type = 'GIN'
 datasets = ['mutag', 'enzymes', 'proteins', 'imdb']
 num_iterations = [1, 2, 3]
 batch_add = [3, 4, 5]
