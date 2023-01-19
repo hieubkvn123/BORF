@@ -1,0 +1,24 @@
+RESULTS FOR enzymes (brf), 3 ITERATIONS:
+average acc: 31.516666666666666
+plus/minus:  0.011917261057437279
+
+RESULTS FOR enzymes (brf), 3 ITERATIONS:
+average acc: 31.25
+plus/minus:  0.01151207095955275
+
+RESULTS FOR imdb (brf), 1 ITERATIONS:
+average acc: 69.27000000000001
+plus/minus:  0.015038231278976924
+
+RESULTS FOR imdb (brf), 1 ITERATIONS:
+average acc: 68.42
+plus/minus:  0.01267495167643648
+
+RESULTS FOR mutag (brf), 1 ITERATIONS:
+average acc: 73.69999999999999
+plus/minus:  0.03145218593357225
+
+RESULTS FOR mutag (brf), 1 ITERATIONS:
+average acc: 75.74999999999999
+plus/minus:  0.0248746859276655
+
