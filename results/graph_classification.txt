@@ -78,3 +78,67 @@ RESULTS FOR mutag (brf), 4 ITERATIONS:
 average acc: 61.999999999999986
 plus/minus:  0.0513809303146605
 
+RESULTS FOR mutag (brf), 5 ITERATIONS:
+average acc: 58.5
+plus/minus:  0.06789698078707182
+
+RESULTS FOR mutag (brf), 1 ITERATIONS:
+average acc: 66.0
+plus/minus:  0.07183313998427188
+
+RESULTS FOR mutag (brf), 2 ITERATIONS:
+average acc: 72.5
+plus/minus:  0.058736700622353664
+
+RESULTS FOR mutag (brf), 3 ITERATIONS:
+average acc: 70.0
+plus/minus:  0.058309518948453
+
+RESULTS FOR mutag (brf), 4 ITERATIONS:
+average acc: 62.500000000000014
+plus/minus:  0.06819090848492927
+
+RESULTS FOR mutag (brf), 5 ITERATIONS:
+average acc: 65.49999999999999
+plus/minus:  0.07273238618387272
+
+RESULTS FOR mutag (brf), 1 ITERATIONS:
+average acc: 69.0
+plus/minus:  0.03098386676965933
+
+RESULTS FOR mutag (brf), 2 ITERATIONS:
+average acc: 64.49999999999999
+plus/minus:  0.04110960958218892
+
+RESULTS FOR mutag (brf), 3 ITERATIONS:
+average acc: 67.0
+plus/minus:  0.0737563556583431
+
+RESULTS FOR mutag (brf), 4 ITERATIONS:
+average acc: 64.5
+plus/minus:  0.03591656999213593
+
+RESULTS FOR mutag (brf), 5 ITERATIONS:
+average acc: 65.5
+plus/minus:  0.05186520991955975
+
+RESULTS FOR mutag (brf), 1 ITERATIONS:
+average acc: 67.00000000000001
+plus/minus:  0.07641989269817119
+
+RESULTS FOR mutag (brf), 2 ITERATIONS:
+average acc: 67.5
+plus/minus:  0.049497474683058325
+
+RESULTS FOR mutag (brf), 3 ITERATIONS:
+average acc: 67.0
+plus/minus:  0.056920997883030816
+
+RESULTS FOR mutag (brf), 4 ITERATIONS:
+average acc: 67.00000000000001
+plus/minus:  0.04289522117905443
+
+RESULTS FOR mutag (brf), 5 ITERATIONS:
+average acc: 63.99999999999999
+plus/minus:  0.050596442562694056
+
