@@ -1114,3 +1114,387 @@ RESULTS FOR citeseer (brf):
 average acc: 0.7345345345345347
 plus/minus:  0.006936871936567402
 
+RESULTS FOR cora (brf):
+average acc: 0.8784132841328413
+plus/minus:  0.004411099188861584
+
+RESULTS FOR cora (brf):
+average acc: 0.8715867158671587
+plus/minus:  0.004115673356043892
+
+RESULTS FOR cora (brf):
+average acc: 0.8750922509225092
+plus/minus:  0.004726993440560838
+
+RESULTS FOR cora (brf):
+average acc: 0.8769372693726938
+plus/minus:  0.006643091351836222
+
+RESULTS FOR cora (brf):
+average acc: 0.8780442804428044
+plus/minus:  0.006050985472205515
+
+RESULTS FOR cora (brf):
+average acc: 0.8760147601476014
+plus/minus:  0.006408352279289276
+
+RESULTS FOR cora (brf):
+average acc: 0.872140221402214
+plus/minus:  0.005245825814017997
+
+RESULTS FOR cora (brf):
+average acc: 0.8695571955719558
+plus/minus:  0.002954334893173143
+
+RESULTS FOR cora (brf):
+average acc: 0.8758302583025829
+plus/minus:  0.007983623166107186
+
+RESULTS FOR cora (brf):
+average acc: 0.876568265682657
+plus/minus:  0.0053077560553090215
+
+RESULTS FOR cora (brf):
+average acc: 0.877859778597786
+plus/minus:  0.005922480486417381
+
+RESULTS FOR cora (brf):
+average acc: 0.8760147601476016
+plus/minus:  0.007876305753184196
+
+RESULTS FOR cora (brf):
+average acc: 0.8743542435424354
+plus/minus:  0.004823938256785538
+
+RESULTS FOR cora (brf):
+average acc: 0.8763837638376384
+plus/minus:  0.0042715265323949115
+
+RESULTS FOR cora (brf):
+average acc: 0.8738007380073801
+plus/minus:  0.005977404201126662
+
+RESULTS FOR cora (brf):
+average acc: 0.8726937269372694
+plus/minus:  0.004978131942152029
+
+RESULTS FOR cora (brf):
+average acc: 0.8767527675276753
+plus/minus:  0.004632429469070167
+
+RESULTS FOR cora (brf):
+average acc: 0.8726937269372694
+plus/minus:  0.006040850754149415
+
+RESULTS FOR cora (brf):
+average acc: 0.8758302583025831
+plus/minus:  0.008399191926694237
+
+RESULTS FOR cora (brf):
+average acc: 0.8771217712177121
+plus/minus:  0.00800321281873119
+
+RESULTS FOR cora (brf):
+average acc: 0.8754612546125461
+plus/minus:  0.006708361240847911
+
+RESULTS FOR cora (brf):
+average acc: 0.8678966789667897
+plus/minus:  0.0051449225263271985
+
+RESULTS FOR cora (brf):
+average acc: 0.8760147601476016
+plus/minus:  0.007246014883326089
+
+RESULTS FOR cora (brf):
+average acc: 0.8715867158671587
+plus/minus:  0.004845062010972645
+
+RESULTS FOR citeseer (brf):
+average acc: 0.7294294294294293
+plus/minus:  0.008155793487936562
+
+RESULTS FOR citeseer (brf):
+average acc: 0.7235735735735737
+plus/minus:  0.007995548365091872
+
+RESULTS FOR citeseer (brf):
+average acc: 0.7403903903903905
+plus/minus:  0.007626090502705474
+
+RESULTS FOR citeseer (brf):
+average acc: 0.7433933933933934
+plus/minus:  0.00871854058239243
+
+RESULTS FOR citeseer (brf):
+average acc: 0.737087087087087
+plus/minus:  0.00725024686428722
+
+RESULTS FOR citeseer (brf):
+average acc: 0.7292792792792794
+plus/minus:  0.006441423941400164
+
+RESULTS FOR citeseer (brf):
+average acc: 0.7345345345345344
+plus/minus:  0.005128017827300065
+
+RESULTS FOR citeseer (brf):
+average acc: 0.7378378378378379
+plus/minus:  0.007752169513639659
+
+RESULTS FOR citeseer (brf):
+average acc: 0.7411411411411412
+plus/minus:  0.008808581305643466
+
+RESULTS FOR citeseer (brf):
+average acc: 0.7303303303303303
+plus/minus:  0.007728868680910704
+
+RESULTS FOR citeseer (brf):
+average acc: 0.7414414414414415
+plus/minus:  0.008199903022643128
+
+RESULTS FOR citeseer (brf):
+average acc: 0.7360360360360361
+plus/minus:  0.006779075584154932
+
+RESULTS FOR citeseer (brf):
+average acc: 0.7310810810810813
+plus/minus:  0.0075069068828809695
+
+RESULTS FOR citeseer (brf):
+average acc: 0.7382882882882883
+plus/minus:  0.007831449538376802
+
+RESULTS FOR citeseer (brf):
+average acc: 0.7298798798798799
+plus/minus:  0.006433018425934334
+
+RESULTS FOR citeseer (brf):
+average acc: 0.7384384384384385
+plus/minus:  0.00424263856154939
+
+RESULTS FOR citeseer (brf):
+average acc: 0.7355855855855855
+plus/minus:  0.006474936886995371
+
+RESULTS FOR citeseer (brf):
+average acc: 0.7400900900900901
+plus/minus:  0.007434479652532522
+
+RESULTS FOR citeseer (brf):
+average acc: 0.7414414414414414
+plus/minus:  0.0068846750178532656
+
+RESULTS FOR citeseer (brf):
+average acc: 0.7327327327327328
+plus/minus:  0.006035961334006543
+
+RESULTS FOR citeseer (brf):
+average acc: 0.7397897897897898
+plus/minus:  0.008268353098426402
+
+RESULTS FOR citeseer (brf):
+average acc: 0.7360360360360361
+plus/minus:  0.004857073061659022
+
+RESULTS FOR citeseer (brf):
+average acc: 0.7442942942942943
+plus/minus:  0.0074900698388757495
+
+RESULTS FOR citeseer (brf):
+average acc: 0.7318318318318318
+plus/minus:  0.005685121713489124
+
+RESULTS FOR cora (brf):
+average acc: 0.8804428044280442
+plus/minus:  0.005081007964002516
+
+RESULTS FOR cora (brf):
+average acc: 0.8771217712177121
+plus/minus:  0.005249717857942055
+
+RESULTS FOR cora (brf):
+average acc: 0.8719557195571955
+plus/minus:  0.008320194523315892
+
+RESULTS FOR cora (brf):
+average acc: 0.8741697416974169
+plus/minus:  0.008760243970907106
+
+RESULTS FOR cora (brf):
+average acc: 0.8795202952029519
+plus/minus:  0.006413662042632303
+
+RESULTS FOR cora (brf):
+average acc: 0.8787822878228783
+plus/minus:  0.008202346960668348
+
+RESULTS FOR cora (brf):
+average acc: 0.8747232472324724
+plus/minus:  0.005098397274683105
+
+RESULTS FOR cora (brf):
+average acc: 0.8702952029520296
+plus/minus:  0.006825072140830186
+
+RESULTS FOR cora (brf):
+average acc: 0.8773062730627306
+plus/minus:  0.004789946489205597
+
+RESULTS FOR cora (brf):
+average acc: 0.8763837638376384
+plus/minus:  0.0047255529427548595
+
+RESULTS FOR cora (brf):
+average acc: 0.8767527675276753
+plus/minus:  0.006780034879914897
+
+RESULTS FOR cora (brf):
+average acc: 0.87380073800738
+plus/minus:  0.005453270317907358
+
+RESULTS FOR cora (brf):
+average acc: 0.8749077490774908
+plus/minus:  0.00657613857120161
+
+RESULTS FOR cora (brf):
+average acc: 0.8730627306273062
+plus/minus:  0.005054138352255029
+
+RESULTS FOR cora (brf):
+average acc: 0.8785977859778598
+plus/minus:  0.005367703777407582
+
+RESULTS FOR cora (brf):
+average acc: 0.8776752767527676
+plus/minus:  0.004520859969237438
+
+RESULTS FOR cora (brf):
+average acc: 0.8728782287822877
+plus/minus:  0.005384167222722069
+
+RESULTS FOR cora (brf):
+average acc: 0.8784132841328413
+plus/minus:  0.009515001817978718
+
+RESULTS FOR cora (brf):
+average acc: 0.87619926199262
+plus/minus:  0.005631388030268537
+
+RESULTS FOR cora (brf):
+average acc: 0.8723247232472324
+plus/minus:  0.007339371153034292
+
+RESULTS FOR cora (brf):
+average acc: 0.8771217712177121
+plus/minus:  0.006927055368417603
+
+RESULTS FOR cora (brf):
+average acc: 0.8747232472324724
+plus/minus:  0.007659826914043166
+
+RESULTS FOR cora (brf):
+average acc: 0.870110701107011
+plus/minus:  0.006946684354686407
+
+RESULTS FOR cora (brf):
+average acc: 0.8695571955719558
+plus/minus:  0.010644333427948986
+
+RESULTS FOR citeseer (brf):
+average acc: 0.7322822822822823
+plus/minus:  0.0035797508877322736
+
+RESULTS FOR citeseer (brf):
+average acc: 0.7312312312312312
+plus/minus:  0.008620240296941339
+
+RESULTS FOR citeseer (brf):
+average acc: 0.7388888888888889
+plus/minus:  0.004016621760570017
+
+RESULTS FOR citeseer (brf):
+average acc: 0.7342342342342343
+plus/minus:  0.007144370722744931
+
+RESULTS FOR citeseer (brf):
+average acc: 0.7391891891891892
+plus/minus:  0.005554337988483414
+
+RESULTS FOR citeseer (brf):
+average acc: 0.7288288288288288
+plus/minus:  0.006916040442274972
+
+RESULTS FOR citeseer (brf):
+average acc: 0.733033033033033
+plus/minus:  0.006310594852402982
+
+RESULTS FOR citeseer (brf):
+average acc: 0.7399399399399399
+plus/minus:  0.008845360510726886
+
+RESULTS FOR citeseer (brf):
+average acc: 0.7402402402402402
+plus/minus:  0.00702984979622799
+
+RESULTS FOR citeseer (brf):
+average acc: 0.7405405405405406
+plus/minus:  0.0038644343404553518
+
+RESULTS FOR citeseer (brf):
+average acc: 0.7331831831831832
+plus/minus:  0.00818063436626342
+
+RESULTS FOR citeseer (brf):
+average acc: 0.7343843843843844
+plus/minus:  0.0092114394305205
+
+RESULTS FOR citeseer (brf):
+average acc: 0.739039039039039
+plus/minus:  0.007582805574576158
+
+RESULTS FOR citeseer (brf):
+average acc: 0.7331831831831831
+plus/minus:  0.007538075905303685
+
+RESULTS FOR citeseer (brf):
+average acc: 0.7324324324324325
+plus/minus:  0.011202449028386734
+
+RESULTS FOR citeseer (brf):
+average acc: 0.7367867867867868
+plus/minus:  0.0084196621387292
+
+RESULTS FOR citeseer (brf):
+average acc: 0.7324324324324325
+plus/minus:  0.00876341932346957
+
+RESULTS FOR citeseer (brf):
+average acc: 0.7333333333333334
+plus/minus:  0.004597635846007113
+
+RESULTS FOR citeseer (brf):
+average acc: 0.7346846846846848
+plus/minus:  0.009187913315025227
+
+RESULTS FOR citeseer (brf):
+average acc: 0.7426426426426426
+plus/minus:  0.009769687720162854
+
+RESULTS FOR citeseer (brf):
+average acc: 0.737087087087087
+plus/minus:  0.006248122841225118
+
+RESULTS FOR citeseer (brf):
+average acc: 0.7448948948948949
+plus/minus:  0.00727508080192573
+
+RESULTS FOR citeseer (brf):
+average acc: 0.739039039039039
+plus/minus:  0.010842462840235297
+
+RESULTS FOR citeseer (brf):
+average acc: 0.7376876876876877
+plus/minus:  0.0072452698622493235
+
