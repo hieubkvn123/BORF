@@ -1,9 +1,9 @@
 
 gpu_index = 0
-layer_types = ["GCN", "GIN"]
-batch_add = [3, 4, 5]
-batch_remove = [0, 1, 2, 3]
-num_iterations = [1, 2, 3]
+layer_types = ["GCN"] # , "GIN"]
+batch_add = [1, 2]
+batch_remove = [0, 1]
+num_iterations = [1, 2, 3, 4, 5]
 
 cmd_template = """
 python run_graph_classification.py 
@@ -14,6 +14,7 @@ python run_graph_classification.py
     --brf_batch_add {}
     --brf_batch_remove {} 
     --num_iterations {}
+    --dataset mutag
 """
 
 for layer in layer_types:
