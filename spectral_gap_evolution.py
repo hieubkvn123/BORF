@@ -1,8 +1,3 @@
-"""
-Record data of evolution of the spectral gap of a graph as it gets rewired.
-
-"""
-
 import os.path
 import torch
 import numpy as np
@@ -65,25 +60,3 @@ if not os.path.isfile("results/spectral.csv"):
             all_data[key + "/" + rewiring_method] = spectral_gaps
     df = pd.DataFrame(all_data)
     df.to_csv("results/spectral_evolution.csv")
-
-# sample code to generate a plot, outdated due to different notation
-
-#df1 = pd.read_csv("results/spectral.csv")
-#df2 = pd.read_csv("results/spectral2.csv")
-
-#t = list(range(40))
-
-#y1 = list(df1["enzymes/sdrf"][1:])
-#y2 = list(df2["enzymes/fosr"])
-
-#plt.title("ENZYMES")
-#plt.xlabel("Iterations")
-#plt.ylabel("Spectral gap")
-#plt.plot(t, y1, label="SDRF")
-#plt.plot(t, y2, label="FoSR")
-
-#plt.legend()
-#plt.tight_layout()
-#plt.savefig("results/enzymes.png")
-
-#plt.show()

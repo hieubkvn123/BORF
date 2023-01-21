@@ -1,7 +1,3 @@
-"""
-Test rewired GNN performance on graph classifiation benchmarks.
-"""
-
 from attrdict import AttrDict
 from torch_geometric.datasets import TUDataset
 from torch_geometric.utils import to_networkx, from_networkx, to_dense_adj
@@ -18,11 +14,8 @@ from preprocessing import rewiring, sdrf, fosr, digl, brf
 mutag = list(TUDataset(root="data", name="MUTAG"))
 enzymes = list(TUDataset(root="data", name="ENZYMES"))
 proteins = list(TUDataset(root="data", name="PROTEINS"))
-collab = list(TUDataset(root="data", name="COLLAB"))
 imdb = list(TUDataset(root="data", name="IMDB-BINARY"))
-reddit = list(TUDataset(root="data", name="REDDIT-BINARY"))
-all_datasets = {"mutag" : mutag, "enzymes" : enzymes, "imdb": imdb, "proteins": proteins, "collab": collab, "reddit": reddit}
-datasets = {"mutag" : mutag, "enzymes" : enzymes, "imdb": imdb, "proteins": proteins} # , "collab": collab, "reddit": reddit}
+datasets = {"mutag" : mutag, "enzymes" : enzymes, "imdb": imdb, "proteins": proteins} 
 for key in datasets:
     if key in ["reddit", "imdb", "collab"]:
         for graph in datasets[key]:

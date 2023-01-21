@@ -1,8 +1,3 @@
-"""
-Record runtime of FoSR and SDRF.
-
-"""
-
 import os.path
 import torch
 import numpy as np

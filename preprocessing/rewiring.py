@@ -444,8 +444,6 @@ def augment_degree(G):
 	G.add_edge(i, j)
 	return G
 
-# DIGL pre-processing, from https://github.com/gasteigerjo/gdc.git
-
 def get_adj_matrix(dataset) -> np.ndarray:
     num_nodes = dataset.x.shape[0]
     adj_matrix = np.zeros(shape=(num_nodes, num_nodes))
@@ -478,9 +476,7 @@ def get_clipped_matrix(A: np.ndarray, eps: float = 0.01) -> np.ndarray:
     return A/norm
 
 def digl(base, alpha, k=None, eps=None):
-	# generate adjacency matrix from sparse representation
     adj_matrix = get_adj_matrix(base)
-    # obtain exact PPR matrix
     ppr_matrix = get_ppr_matrix(adj_matrix, alpha=alpha)
 
     if k != None:
@@ -492,7 +488,6 @@ def digl(base, alpha, k=None, eps=None):
     else:
         raise ValueError
 
-        # create PyG Data object
     edges_i = []
     edges_j = []
     edge_attr = []

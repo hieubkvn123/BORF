@@ -1,5 +1,5 @@
-# FoSR
-FoSR: First-order spectral rewiring for addressing oversquashing in GNNs
+# BORF
+BORF: Batch Ollivier Ricci Flow for unifying and addressing over-smoothing and over-squashing in GNN. 
 
 ## Requirements
 To configure and activate the conda environment for this repository, run
@@ -10,7 +10,12 @@ pip install -r requirements.txt
 ```
 
 ## Experiments
-To run experiments for the TUDataset benchmark, run the file ```run_graph_classification.py```. The following command will run the benchmark for FoSR with 20 iterations:
+### 1. For graph classification
+To run experiments for the TUDataset benchmark, run the file ```run_graph_classification.py```. The following command will run the benchmark for BORF with 20 iterations:
 ```
-python run_graph_classification.py --rewiring fosr --num_iterations 20
+python run_graph_classification.py --rewiring brf --num_iterations 20
 ```
+
+To add options for number of edges added and removed for rewiring, add the --brf_
+
+

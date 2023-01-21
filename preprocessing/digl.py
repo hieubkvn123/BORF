@@ -1,5 +1,3 @@
-# DIGL pre-processing, from https://github.com/gasteigerjo/gdc.git
-
 import numpy as np
 import torch
 from torch_geometric.data import Data

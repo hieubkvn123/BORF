@@ -1,23 +1,3 @@
-"""
-A class to compute the Ollivier-Ricci curvature of a given NetworkX graph.
-"""
-
-# Author:
-#     Chien-Chun Ni
-#     http://www3.cs.stonybrook.edu/~chni/
-
-# Reference:
-#     Ni, C.-C., Lin, Y.-Y., Gao, J., Gu, X., & Saucan, E. 2015.
-#         "Ricci curvature of the Internet topology" (Vol. 26, pp. 2758-2766).
-#         Presented at the 2015 IEEE Conference on Computer Communications (INFOCOM), IEEE.
-#     Ni, C.-C., Lin, Y.-Y., Gao, J., and Gu, X. 2018.
-#         "Network Alignment by Discrete Ollivier-Ricci Flow", Graph Drawing 2018.
-#     Ni, C.-C., Lin, Y.-Y., Luo, F. and Gao, J. 2019.
-#         "Community Detection on Networks with Ricci Flow", Scientific Reports.
-#     Ollivier, Y. 2009.
-#         "Ricci curvature of Markov chains on metric spaces". Journal of Functional Analysis, 256(3), 810-864.
-
-
 import heapq
 import importlib
 import math

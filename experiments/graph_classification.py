@@ -61,7 +61,6 @@ class Experiment:
                 self.args.num_relations = 2
         self.model = GNN(self.args).to(self.args.device)
        
-        # randomly assign a train/validation/test split, or train/validation split if test already assigned
         if self.test_dataset is None:
             dataset_size = len(self.dataset)
             train_size = int(self.args.train_fraction * dataset_size)

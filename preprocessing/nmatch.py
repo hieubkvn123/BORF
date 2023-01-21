@@ -33,9 +33,6 @@ def ring_of_cliques(n, d):
 	return G
 
 def create_neighborsmatch_labels(G, root_vertex, vertices_to_label):
-	# generates a dataset for the neighborsmatch problem
-	# vertices_to_label consists of vertices which we will randomly label with different one-hot vectors
-	# root_vertex is the vertex which needs to guess which vertex has the matching one-hot label
 	num_classes = len(vertices_to_label)
 	num_nodes = len(list(G.nodes))
 	class_labels = torch.randperm(num_classes)

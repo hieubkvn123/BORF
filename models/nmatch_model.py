@@ -5,7 +5,6 @@ from torch_geometric.nn import GCNConv, RGCNConv, SAGEConv, GatedGraphConv, GINC
 from torch_geometric.data import Data, InMemoryDataset
 
 class SelfLoopGCNConv(torch.nn.Module):
-    # R-GCN layer with two classes - the original edge list, and self-loops.
     def __init__(self, in_features, out_features, args):
         super(SelfLoopGCNConv, self).__init__()
         self.in_features = in_features
@@ -65,7 +64,5 @@ class GCN(torch.nn.Module):
             if i != self.num_layers - 1:
                 x = self.act_fn(x)
                 x = self.dropout(x)
-
-        # return value of the root vertex
 
         return x[root_mask]

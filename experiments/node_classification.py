@@ -51,7 +51,6 @@ class Experiment:
 
         self.model = GCN(self.args).to(self.args.device)
 
-        # randomly assign a train/validation/test split, or train/validation split if test already assigned
         if self.test_mask is None:
             node_indices = list(range(self.num_nodes))
             self.args.test_fraction = 1 - self.args.train_fraction - self.args.validation_fraction
