@@ -1,8 +1,0 @@
-RESULTS FOR mutag (brf), 2 ITERATIONS:
-average acc: 67.85
-plus/minus:  0.023759419184820153
-
-RESULTS FOR mutag (brf), 2 ITERATIONS:
-average acc: 68.35
-plus/minus:  0.019081666593880105
-
