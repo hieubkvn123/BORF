@@ -2,14 +2,14 @@ import pandas as pd
 
 seeds = 10
 gpu_index = 0
-layer_type = 'GIN'
-datasets = ['mutag', 'enzymes', 'proteins', 'imdb']
+layer_type = 'GCN'
+datasets = ['cora', 'citeseer', 'cornell', 'texas', 'wisconsin', 'chameleon']
 num_iterations = [1, 2, 3]
-batch_add = [3, 4, 5]
-batch_remove = [1, 2, 3]
+batch_add = [10, 20, 30, 50]
+batch_remove = [10, 20, 30]
 
 cmd_template = '''
-python run_graph_classification.py --rewiring brf     
+python run_node_classification.py --rewiring brf     
     --layer_type {}   
     --num_trials {}    
     --device cuda:{}    
@@ -19,7 +19,7 @@ python run_graph_classification.py --rewiring brf
     --dataset {}
 '''
 
-exp_file = f'graph_classification_{layer_type}_brf.csv'
+exp_file = f'node_classification_{layer_type}_brf.csv'
 df = pd.read_csv(exp_file)
 existing_exps = df[['dataset', 'num_iterations', 'brf_batch_add', 'brf_batch_remove']].values
 existing_exps = [list(x) for x in existing_exps]

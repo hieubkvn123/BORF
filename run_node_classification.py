@@ -106,6 +106,7 @@ for key in datasets:
     for trial in range(args.num_trials):
         print(f"TRIAL #{trial+1}")
 
+        ## Num splits
         test_accs = []
         for j in range(num_splits):
             train_acc, validation_acc, test_acc = Experiment(args=args, dataset=dataset).run()
