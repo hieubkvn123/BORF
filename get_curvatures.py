@@ -3,6 +3,7 @@ from torch_geometric.datasets import WebKB, WikipediaNetwork, Planetoid
 from torch_geometric.utils import to_networkx, from_networkx, to_undirected
 from GraphRicciCurvature.OllivierRicci import OllivierRicci
 
+import pathlib
 import warnings
 import numpy as np 
 import pandas as pd
