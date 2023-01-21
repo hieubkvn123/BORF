@@ -86,6 +86,6 @@ print(df)
 
 # Save curvatures
 print('[INFO] Saving curvatures to results/curvatures.csv')
-pathlib.Path('results/curvatures.csv').mkdir(parents=True, exist_ok=True)
+pathlib.Path('results').mkdir(parents=True, exist_ok=True)
 df.to_csv('results/curvatures.csv')
 
