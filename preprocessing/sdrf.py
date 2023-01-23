@@ -211,7 +211,7 @@ def sdrf(
     data,
     loops=10,
     remove_edges=True,
-    removal_bound=0.5,
+    removal_bound=0.1,
     tau=1,
     is_undirected=False,
     curvature='bfc'
