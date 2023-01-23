@@ -265,7 +265,6 @@ def sdrf(
                 improvements.append(
                     (D - C[x, y])[x_neighbors.index(i), y_neighbors.index(j)]
                 )
-
             k, l = candidates[
                 np.random.choice(
                     range(len(candidates)), p=softmax(np.array(improvements), tau=tau)
@@ -296,4 +295,6 @@ def sdrf(
             else:
                 if can_add is False:
                     break
-    return from_networkx(G).edge_index, torch.tensor(edge_type)
+    edge_index = from_networkx(G).edge_index
+    edge_type = torch.zeros(size=(len(G.edges),)).type(torch.LongTensor)
+    return edge_index, edge_type 
