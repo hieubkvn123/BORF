@@ -1,11 +1,11 @@
 gpu_index = 0
 layer_types = ['GCN', 'GIN']
-num_iterations = [5, 10, 15, 20]
+num_iterations = [5, 10, 15, 20, 30, 40]
 remove_edges = [True, False]
 
 cmd_template = """
 python run_graph_classification.py 
-    --rewiring sdrf_bfc 
+    --rewiring fosr 
     --layer_type {}
     --num_trials 100
     --device cuda:{}

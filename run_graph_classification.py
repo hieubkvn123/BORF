@@ -160,6 +160,7 @@ for key in datasets:
         "num_iterations": args.num_iterations,
         "brf_batch_add" : args.brf_batch_add,
         "brf_batch_remove" : args.brf_batch_remove,
+        "sdrf_remove_edges" : args.sdrf_remove_edges, 
         "alpha": args.alpha,
         "eps": args.eps,
         "test_mean": test_mean,
