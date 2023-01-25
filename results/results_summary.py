@@ -1,7 +1,7 @@
 import glob
 import pandas as pd
 
-model = 'fosr'
+model = 'sdrf'
 keys = ['dataset', 'num_iterations']
 columns = ['test_mean', 'test_ci', 'brf_batch_add', 'brf_batch_remove']
 if(model != 'brf'):

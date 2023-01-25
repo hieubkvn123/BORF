@@ -378,3 +378,483 @@ RESULTS FOR mutag (sdrf_bfc), 5 ITERATIONS:
 average acc: 74.55
 plus/minus:  0.02417002275547129
 
+RESULTS FOR imdb (fosr), 40 ITERATIONS:
+average acc: 47.809999999999995
+plus/minus:  0.008839434371044338
+
+RESULTS FOR mutag (fosr), 5 ITERATIONS:
+average acc: 69.6
+plus/minus:  0.025755776051208396
+
+RESULTS FOR mutag (sdrf_bfc), 5 ITERATIONS:
+average acc: 73.30000000000001
+plus/minus:  0.02616180421912831
+
+RESULTS FOR enzymes (sdrf_bfc), 5 ITERATIONS:
+average acc: 31.63333333333333
+plus/minus:  0.013241181551843811
+
+RESULTS FOR enzymes (fosr), 5 ITERATIONS:
+average acc: 25.31666666666667
+plus/minus:  0.011922853871638469
+
+RESULTS FOR enzymes (sdrf_bfc), 5 ITERATIONS:
+average acc: 31.8
+plus/minus:  0.012024789210441719
+
+RESULTS FOR imdb (sdrf_bfc), 5 ITERATIONS:
+average acc: 67.38000000000001
+plus/minus:  0.013370953593517554
+
+RESULTS FOR imdb (fosr), 5 ITERATIONS:
+average acc: 68.4
+plus/minus:  0.013810141201305656
+
+RESULTS FOR proteins (fosr), 40 ITERATIONS:
+average acc: 72.41964285714285
+plus/minus:  0.00867090710952671
+
+RESULTS FOR imdb (sdrf_bfc), 5 ITERATIONS:
+average acc: 68.17999999999999
+plus/minus:  0.012433438784181954
+
+RESULTS FOR mutag (fosr), 5 ITERATIONS:
+average acc: 70.64999999999999
+plus/minus:  0.026707864010437076
+
+RESULTS FOR proteins (sdrf_bfc), 5 ITERATIONS:
+average acc: 70.94642857142857
+plus/minus:  0.00814183890876788
+
+RESULTS FOR enzymes (fosr), 5 ITERATIONS:
+average acc: 24.783333333333335
+plus/minus:  0.0124958215238357
+
+RESULTS FOR proteins (fosr), 5 ITERATIONS:
+average acc: 72.39285714285715
+plus/minus:  0.008599952539024234
+
+RESULTS FOR mutag (sdrf_bfc), 10 ITERATIONS:
+average acc: 77.29999999999998
+plus/minus:  0.02299652147608416
+
+RESULTS FOR proteins (sdrf_bfc), 5 ITERATIONS:
+average acc: 70.7232142857143
+plus/minus:  0.00809027114779832
+
+RESULTS FOR mutag (fosr), 10 ITERATIONS:
+average acc: 73.1
+plus/minus:  0.02774094446842068
+
+RESULTS FOR mutag (sdrf_bfc), 10 ITERATIONS:
+average acc: 75.0
+plus/minus:  0.0282842712474619
+
+RESULTS FOR imdb (fosr), 5 ITERATIONS:
+average acc: 68.47
+plus/minus:  0.014812035646729994
+
+RESULTS FOR enzymes (fosr), 10 ITERATIONS:
+average acc: 20.866666666666667
+plus/minus:  0.010877908295664606
+
+RESULTS FOR enzymes (sdrf_bfc), 10 ITERATIONS:
+average acc: 30.9
+plus/minus:  0.011396100697655804
+
+RESULTS FOR enzymes (sdrf_bfc), 10 ITERATIONS:
+average acc: 31.25
+plus/minus:  0.012947543739601303
+
+RESULTS FOR imdb (fosr), 10 ITERATIONS:
+average acc: 69.32
+plus/minus:  0.013587876949693059
+
+RESULTS FOR imdb (sdrf_bfc), 10 ITERATIONS:
+average acc: 66.86
+plus/minus:  0.014164801445837493
+
+RESULTS FOR proteins (fosr), 5 ITERATIONS:
+average acc: 72.26785714285715
+plus/minus:  0.008859806627087735
+
+RESULTS FOR imdb (sdrf_bfc), 10 ITERATIONS:
+average acc: 67.99
+plus/minus:  0.012891842381909577
+
+RESULTS FOR mutag (fosr), 10 ITERATIONS:
+average acc: 69.4
+plus/minus:  0.03115381196579321
+
+RESULTS FOR proteins (fosr), 10 ITERATIONS:
+average acc: 74.22321428571429
+plus/minus:  0.00772888416980123
+
+RESULTS FOR proteins (sdrf_bfc), 10 ITERATIONS:
+average acc: 71.43750000000001
+plus/minus:  0.00754448964341471
+
+RESULTS FOR enzymes (fosr), 10 ITERATIONS:
+average acc: 19.7
+plus/minus:  0.010988681045107786
+
+RESULTS FOR mutag (fosr), 15 ITERATIONS:
+average acc: 73.05000000000001
+plus/minus:  0.027960507863771
+
+RESULTS FOR mutag (sdrf_bfc), 15 ITERATIONS:
+average acc: 73.3
+plus/minus:  0.030073908957766033
+
+RESULTS FOR proteins (sdrf_bfc), 10 ITERATIONS:
+average acc: 71.51785714285714
+plus/minus:  0.008059488640283398
+
+RESULTS FOR mutag (sdrf_bfc), 15 ITERATIONS:
+average acc: 72.45
+plus/minus:  0.023043220261065943
+
+RESULTS FOR enzymes (fosr), 15 ITERATIONS:
+average acc: 17.699999999999996
+plus/minus:  0.010030841329508596
+
+RESULTS FOR imdb (fosr), 10 ITERATIONS:
+average acc: 68.80000000000003
+plus/minus:  0.012325583150504481
+
+RESULTS FOR enzymes (sdrf_bfc), 15 ITERATIONS:
+average acc: 30.333333333333336
+plus/minus:  0.013349989596333855
+
+RESULTS FOR enzymes (sdrf_bfc), 15 ITERATIONS:
+average acc: 30.599999999999998
+plus/minus:  0.011685888926393231
+
+RESULTS FOR imdb (fosr), 15 ITERATIONS:
+average acc: 69.26999999999998
+plus/minus:  0.012438183147067742
+
+RESULTS FOR imdb (sdrf_bfc), 15 ITERATIONS:
+average acc: 65.93
+plus/minus:  0.016810127899572924
+
+RESULTS FOR proteins (fosr), 10 ITERATIONS:
+average acc: 72.69642857142858
+plus/minus:  0.008338272345893107
+
+RESULTS FOR mutag (fosr), 15 ITERATIONS:
+average acc: 74.45
+plus/minus:  0.02918544157623797
+
+RESULTS FOR imdb (sdrf_bfc), 15 ITERATIONS:
+average acc: 66.68999999999998
+plus/minus:  0.013817944854427519
+
+RESULTS FOR proteins (fosr), 15 ITERATIONS:
+average acc: 73.45535714285714
+plus/minus:  0.008488644125043332
+
+RESULTS FOR enzymes (fosr), 15 ITERATIONS:
+average acc: 17.466666666666665
+plus/minus:  0.009433745574031321
+
+RESULTS FOR mutag (fosr), 20 ITERATIONS:
+average acc: 71.65
+plus/minus:  0.032528602798152895
+
+RESULTS FOR proteins (sdrf_bfc), 15 ITERATIONS:
+average acc: 72.19642857142858
+plus/minus:  0.008935782802066885
+
+RESULTS FOR mutag (sdrf_bfc), 20 ITERATIONS:
+average acc: 73.35
+plus/minus:  0.030985641836179544
+
+RESULTS FOR proteins (sdrf_bfc), 15 ITERATIONS:
+average acc: 71.73214285714286
+plus/minus:  0.008770820709509877
+
+RESULTS FOR enzymes (fosr), 20 ITERATIONS:
+average acc: 17.133333333333333
+plus/minus:  0.011066265052953604
+
+RESULTS FOR mutag (sdrf_bfc), 20 ITERATIONS:
+average acc: 70.7
+plus/minus:  0.032803048638807945
+
+RESULTS FOR imdb (fosr), 15 ITERATIONS:
+average acc: 69.13000000000001
+plus/minus:  0.012262642455849392
+
+RESULTS FOR enzymes (sdrf_bfc), 20 ITERATIONS:
+average acc: 28.81666666666667
+plus/minus:  0.01360796335483994
+
+RESULTS FOR imdb (fosr), 20 ITERATIONS:
+average acc: 69.45999999999998
+plus/minus:  0.010558105890736271
+
+RESULTS FOR enzymes (sdrf_bfc), 20 ITERATIONS:
+average acc: 29.58333333333333
+plus/minus:  0.013394650673558706
+
+RESULTS FOR proteins (fosr), 15 ITERATIONS:
+average acc: 74.45535714285715
+plus/minus:  0.008784171612529399
+
+RESULTS FOR imdb (sdrf_bfc), 20 ITERATIONS:
+average acc: 66.23
+plus/minus:  0.014669301278520392
+
+RESULTS FOR mutag (fosr), 20 ITERATIONS:
+average acc: 74.1
+plus/minus:  0.03201187279744813
+
+RESULTS FOR imdb (sdrf_bfc), 20 ITERATIONS:
+average acc: 67.40000000000002
+plus/minus:  0.013455110553243329
+
+RESULTS FOR proteins (fosr), 20 ITERATIONS:
+average acc: 73.25892857142857
+plus/minus:  0.009759136875309231
+
+RESULTS FOR enzymes (fosr), 20 ITERATIONS:
+average acc: 17.233333333333334
+plus/minus:  0.010265584358536157
+
+RESULTS FOR mutag (fosr), 30 ITERATIONS:
+average acc: 74.14999999999999
+plus/minus:  0.030234252099233406
+
+RESULTS FOR proteins (sdrf_bfc), 20 ITERATIONS:
+average acc: 71.50892857142857
+plus/minus:  0.009323737398792002
+
+RESULTS FOR enzymes (fosr), 30 ITERATIONS:
+average acc: 15.983333333333336
+plus/minus:  0.00721256619457396
+
+RESULTS FOR mutag (sdrf_bfc), 30 ITERATIONS:
+average acc: 73.05
+plus/minus:  0.02697758328686986
+
+RESULTS FOR proteins (sdrf_bfc), 20 ITERATIONS:
+average acc: 71.18750000000001
+plus/minus:  0.008217604143370673
+
+RESULTS FOR imdb (fosr), 20 ITERATIONS:
+average acc: 70.28999999999999
+plus/minus:  0.008305636640258228
+
+RESULTS FOR mutag (sdrf_bfc), 30 ITERATIONS:
+average acc: 74.4
+plus/minus:  0.0256624238917527
+
+RESULTS FOR enzymes (sdrf_bfc), 30 ITERATIONS:
+average acc: 30.666666666666657
+plus/minus:  0.012806248474865698
+
+RESULTS FOR imdb (fosr), 30 ITERATIONS:
+average acc: 68.94
+plus/minus:  0.01393361403226026
+
+RESULTS FOR enzymes (sdrf_bfc), 30 ITERATIONS:
+average acc: 28.233333333333334
+plus/minus:  0.013290096563481646
+
+RESULTS FOR proteins (fosr), 20 ITERATIONS:
+average acc: 73.24107142857142
+plus/minus:  0.008513401050636554
+
+RESULTS FOR mutag (fosr), 30 ITERATIONS:
+average acc: 75.1
+plus/minus:  0.02683207036365252
+
+RESULTS FOR imdb (sdrf_bfc), 30 ITERATIONS:
+average acc: 64.61999999999999
+plus/minus:  0.013376935373993551
+
+RESULTS FOR proteins (fosr), 30 ITERATIONS:
+average acc: 73.22321428571429
+plus/minus:  0.010568939740811183
+
+RESULTS FOR imdb (sdrf_bfc), 30 ITERATIONS:
+average acc: 66.11000000000001
+plus/minus:  0.01268982269379679
+
+RESULTS FOR enzymes (fosr), 30 ITERATIONS:
+average acc: 16.533333333333328
+plus/minus:  0.008865413445268954
+
+RESULTS FOR mutag (fosr), 40 ITERATIONS:
+average acc: 74.19999999999999
+plus/minus:  0.029823480682173904
+
+RESULTS FOR proteins (sdrf_bfc), 30 ITERATIONS:
+average acc: 71.41071428571429
+plus/minus:  0.008634367140582298
+
+RESULTS FOR enzymes (fosr), 40 ITERATIONS:
+average acc: 16.45
+plus/minus:  0.008877624807470872
+
+RESULTS FOR mutag (sdrf_bfc), 40 ITERATIONS:
+average acc: 74.5
+plus/minus:  0.02725802634087802
+
+RESULTS FOR imdb (fosr), 30 ITERATIONS:
+average acc: 67.55000000000001
+plus/minus:  0.014583209523283961
+
+RESULTS FOR proteins (sdrf_bfc), 30 ITERATIONS:
+average acc: 71.85714285714288
+plus/minus:  0.008844172530830799
+
+RESULTS FOR mutag (sdrf_bfc), 40 ITERATIONS:
+average acc: 76.60000000000001
+plus/minus:  0.02770848245573907
+
+RESULTS FOR imdb (fosr), 40 ITERATIONS:
+average acc: 63.269999999999996
+plus/minus:  0.01629442849565458
+
+RESULTS FOR enzymes (sdrf_bfc), 40 ITERATIONS:
+average acc: 29.01666666666667
+plus/minus:  0.013216950396281957
+
+RESULTS FOR proteins (fosr), 30 ITERATIONS:
+average acc: 73.7857142857143
+plus/minus:  0.008494896427039147
+
+RESULTS FOR enzymes (sdrf_bfc), 40 ITERATIONS:
+average acc: 25.53333333333333
+plus/minus:  0.012063535505352021
+
+RESULTS FOR mutag (fosr), 40 ITERATIONS:
+average acc: 76.89999999999999
+plus/minus:  0.02292509541964875
+
+RESULTS FOR imdb (sdrf_bfc), 40 ITERATIONS:
+average acc: 63.88
+plus/minus:  0.012449192744913221
+
+RESULTS FOR proteins (fosr), 40 ITERATIONS:
+average acc: 72.99999999999999
+plus/minus:  0.009344320549436017
+
+RESULTS FOR enzymes (fosr), 40 ITERATIONS:
+average acc: 16.38333333333333
+plus/minus:  0.009933724824500067
+
+RESULTS FOR imdb (sdrf_bfc), 40 ITERATIONS:
+average acc: 63.27
+plus/minus:  0.01243174967572948
+
+RESULTS FOR proteins (sdrf_bfc), 40 ITERATIONS:
+average acc: 71.09821428571428
+plus/minus:  0.0085589753284765
+
+RESULTS FOR imdb (fosr), 40 ITERATIONS:
+average acc: 63.3
+plus/minus:  0.018433664855367203
+
+RESULTS FOR mutag (sdrf_bfc), 5 ITERATIONS:
+average acc: 75.0
+plus/minus:  0.0282842712474619
+
+RESULTS FOR proteins (sdrf_bfc), 40 ITERATIONS:
+average acc: 71.62500000000001
+plus/minus:  0.008510123023643724
+
+RESULTS FOR mutag (sdrf_bfc), 5 ITERATIONS:
+average acc: 77.05
+plus/minus:  0.021913238008108248
+
+RESULTS FOR enzymes (sdrf_bfc), 5 ITERATIONS:
+average acc: 33.2
+plus/minus:  0.012941578128050862
+
+RESULTS FOR proteins (fosr), 40 ITERATIONS:
+average acc: 73.22321428571428
+plus/minus:  0.008647338714120933
+
+RESULTS FOR mutag (fosr), 5 ITERATIONS:
+average acc: 70.19999999999999
+plus/minus:  0.027709926019388792
+
+RESULTS FOR enzymes (sdrf_bfc), 5 ITERATIONS:
+average acc: 33.23333333333333
+plus/minus:  0.012882546332150335
+
+RESULTS FOR imdb (sdrf_bfc), 5 ITERATIONS:
+average acc: 67.26000000000002
+plus/minus:  0.016894069965523405
+
+RESULTS FOR enzymes (fosr), 5 ITERATIONS:
+average acc: 26.3
+plus/minus:  0.012334054032996972
+
+RESULTS FOR imdb (sdrf_bfc), 5 ITERATIONS:
+average acc: 68.88000000000001
+plus/minus:  0.012687883984337182
+
+RESULTS FOR imdb (fosr), 5 ITERATIONS:
+average acc: 68.99
+plus/minus:  0.014219690573286042
+
+RESULTS FOR proteins (sdrf_bfc), 5 ITERATIONS:
+average acc: 70.64285714285712
+plus/minus:  0.009453430432323258
+
+RESULTS FOR mutag (sdrf_bfc), 10 ITERATIONS:
+average acc: 75.10000000000001
+plus/minus:  0.02588358553214759
+
+RESULTS FOR proteins (sdrf_bfc), 5 ITERATIONS:
+average acc: 70.00892857142857
+plus/minus:  0.008582934985142532
+
+RESULTS FOR mutag (sdrf_bfc), 10 ITERATIONS:
+average acc: 73.8
+plus/minus:  0.030728488410593845
+
+RESULTS FOR proteins (fosr), 5 ITERATIONS:
+average acc: 72.10714285714286
+plus/minus:  0.009133784561076708
+
+RESULTS FOR enzymes (sdrf_bfc), 10 ITERATIONS:
+average acc: 32.516666666666666
+plus/minus:  0.012957151607424286
+
+RESULTS FOR mutag (fosr), 10 ITERATIONS:
+average acc: 72.95
+plus/minus:  0.030334633671762052
+
+RESULTS FOR enzymes (sdrf_bfc), 10 ITERATIONS:
+average acc: 30.583333333333336
+plus/minus:  0.013075634677606368
+
+RESULTS FOR enzymes (fosr), 10 ITERATIONS:
+average acc: 19.3
+plus/minus:  0.011711153278439794
+
+RESULTS FOR imdb (sdrf_bfc), 10 ITERATIONS:
+average acc: 65.37
+plus/minus:  0.017919051314173973
+
+RESULTS FOR imdb (sdrf_bfc), 10 ITERATIONS:
+average acc: 67.3
+plus/minus:  0.016779749700159413
+
+RESULTS FOR imdb (fosr), 10 ITERATIONS:
+average acc: 68.32
+plus/minus:  0.015115237345142812
+
+RESULTS FOR proteins (sdrf_bfc), 10 ITERATIONS:
+average acc: 70.44642857142857
+plus/minus:  0.008479792907559833
+
+RESULTS FOR mutag (sdrf_bfc), 15 ITERATIONS:
+average acc: 73.7
+plus/minus:  0.024233035303073365
+
