@@ -5,7 +5,7 @@ BORF: Batch Ollivier Ricci Flow for unifying and addressing over-smoothing and o
 To configure and activate the conda environment for this repository, run
 ```
 conda env create -f environment.yml
-conda activate oversquashing
+conda activate borf 
 pip install -r requirements.txt
 ```
 

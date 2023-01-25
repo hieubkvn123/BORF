@@ -11,6 +11,7 @@ import pandas as pd
 from hyperparams import get_args_from_input
 from preprocessing import rewiring, sdrf, fosr, brf
 
+num_splits = 3
 largest_cc = LargestConnectedComponents()
 cornell = WebKB(root="data", name="Cornell")
 wisconsin = WebKB(root="data", name="Wisconsin")

@@ -1,4 +1,4 @@
-name: oversquashing
+name: borf 
 channels:
   - pytorch
   - conda-forge
