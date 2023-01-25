@@ -1,8 +1,8 @@
 
 gpu_index = 0
-layer_types = ["GCN"] # , "GIN"]
-batch_add = [1, 2]
-batch_remove = [0, 1]
+layer_types = ["GCN", "GIN"]
+batch_add = [1, 2, 3, 4, 5]
+batch_remove = [0, 1, 2, 3]
 num_iterations = [1, 2, 3, 4, 5]
 
 cmd_template = """
