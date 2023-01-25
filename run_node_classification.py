@@ -48,7 +48,8 @@ default_args = AttrDict({
     "patience": 100,
     "dataset": None,
     "brf_batch_add" : 4,
-    "brf_batch_remove" : 2
+    "brf_batch_remove" : 2,
+    "sdrf_remove_edges" : False
 })
 
 
@@ -74,7 +75,7 @@ for key in datasets:
         print(len(dataset.data.edge_type))
     elif args.rewiring == "sdrf_bfc":
         curvature_type = "bfc"
-        dataset.data.edge_index, dataset.data.edge_type = sdrf.sdrf(dataset.data, loops=args.num_iterations, remove_edges=False, 
+        dataset.data.edge_index, dataset.data.edge_type = sdrf.sdrf(dataset.data, loops=args.num_iterations, remove_edges=args.sdrf_remove_edges, 
                 is_undirected=True, curvature=curvature_type)
     elif args.rewiring == "brf":
         print(f"[INFO] BRF hyper-parameter : num_iterations = {args.num_iterations}")

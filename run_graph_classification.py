@@ -15,7 +15,7 @@ mutag = list(TUDataset(root="data", name="MUTAG"))
 enzymes = list(TUDataset(root="data", name="ENZYMES"))
 proteins = list(TUDataset(root="data", name="PROTEINS"))
 imdb = list(TUDataset(root="data", name="IMDB-BINARY"))
-datasets = {"mutag" : mutag, "enzymes" : enzymes, "imdb": imdb, "proteins": proteins} 
+datasets = {"mutag" : mutag, "enzymes" : enzymes, "imdb": imdb, "proteins": proteins}
 for key in datasets:
     if key in ["reddit", "imdb", "collab"]:
         for graph in datasets[key]:
@@ -55,7 +55,8 @@ default_args = AttrDict({
     "dataset": None,
     "last_layer_fa": False,
     "brf_batch_add" : 4,
-    "brf_batch_remove" : 2
+    "brf_batch_remove" : 2,
+    "sdrf_remove_edges" : False
 })
 
 hyperparams = {
@@ -99,7 +100,8 @@ for key in datasets:
                 pbar.update(1)
         elif args.rewiring == "sdrf_bfc":
             for i in range(len(dataset)):
-                dataset[i].edge_index, dataset[i].edge_type = sdrf.sdrf(dataset[i], loops=args.num_iterations, remove_edges=False, is_undirected=True, curvature='bfc')
+                dataset[i].edge_index, dataset[i].edge_type = sdrf.sdrf(dataset[i], loops=args.num_iterations, remove_edges=args["sdrf_remove_edges"], 
+                        is_undirected=True, curvature='bfc')
                 pbar.update(1)
         elif args.rewiring == "brf":
             print(f"[INFO] BRF hyper-parameter : num_iterations = {args.num_iterations}")
@@ -154,6 +156,7 @@ for key in datasets:
         "num_iterations": args.num_iterations,
         "brf_batch_add" : args.brf_batch_add,
         "brf_batch_remove" : args.brf_batch_remove,
+        "sdrf_remove_edges" : args.sdrf_remove_edges, 
         "alpha": args.alpha,
         "eps": args.eps,
         "test_mean": test_mean,
