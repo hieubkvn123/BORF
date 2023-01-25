@@ -1,7 +1,7 @@
 
 gpu_index = 0
 layer_types = ["GCN", "GIN"]
-batch_add = [25, 50, 75, 100]
+batch_add = [10, 20, 30, 40, 50, 60, 70, 80]
 batch_remove = [10, 20, 30]
 num_iterations = [1, 2, 3]
 
@@ -9,7 +9,7 @@ cmd_template = """
 python run_node_classification.py 
     --rewiring brf 
     --layer_type {}
-    --num_trials 10
+    --num_trials 100
     --device cuda:{}
     --brf_batch_add {}
     --brf_batch_remove {} 

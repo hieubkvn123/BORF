@@ -9,12 +9,11 @@ cmd_template = """
 python run_graph_classification.py 
     --rewiring brf 
     --layer_type {}
-    --num_trials 10
+    --num_trials 100
     --device cuda:{}
     --brf_batch_add {}
     --brf_batch_remove {} 
     --num_iterations {}
-    --dataset mutag
 """
 
 for layer in layer_types:
