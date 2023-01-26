@@ -22,6 +22,7 @@ def get_args_from_input():
 	parser.add_argument('--hidden_dim', metavar='', type=int, help='width of hidden layer')
 	parser.add_argument('--hidden_layers', metavar='', type=ast.literal_eval, help='list containing dimensions of all hidden layers')
 	parser.add_argument('--num_layers', metavar='', type=int, help='number of hidden layers')
+	parser.add_argument('--num_splits', metavar='', type=int, default=3, help='Number of random splits')
 	parser.add_argument('--batch_size', metavar='', type=int, help='number of samples in each training batch')
 	parser.add_argument('--num_trials', metavar='', type=int, help='number of times the network is trained'),
 	parser.add_argument('--rewiring', metavar='', type=str, help='type of rewiring to be performed'),

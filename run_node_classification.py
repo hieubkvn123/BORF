@@ -11,7 +11,6 @@ import pandas as pd
 from hyperparams import get_args_from_input
 from preprocessing import rewiring, sdrf, fosr, borf
 
-num_splits = 3
 largest_cc = LargestConnectedComponents()
 cornell = WebKB(root="data", name="Cornell")
 wisconsin = WebKB(root="data", name="Wisconsin")
@@ -101,10 +100,8 @@ for key in datasets:
     start = time.time()
     for trial in range(args.num_trials):
         print(f"TRIAL #{trial+1}")
-
-        # Partial seed finding
         test_accs = []
-        for _ in range(num_splits):
+        for i in range(args.num_splits):
             train_acc, validation_acc, test_acc = Experiment(args=args, dataset=dataset).run()
             test_accs.append(test_acc)
         test_acc = max(test_accs)
