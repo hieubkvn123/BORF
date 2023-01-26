@@ -31,3 +31,45 @@ python run_node_classification.py --rewiring borf --num_iterations 3 \
 	--borf_batch_add 3 \
 	--borf_batch_remove 1
 ```
+
+## Other rewiring methods
+BORF is compared with other rewiring options, including SDRF and FoSR. The best hyper-paramters
+for these methods are specified in the following scripts:
+- For FoSR:
+	- `scripts/run_node_fosr.sh`
+	- `scripts/run_graph_fosr.sh`
+
+- For SDRF:
+	- `scripts/run_node_sdrf.sh`
+	- `scripts/run_graph_sdrf.sh` 
+
+### 1. Stochastic Discrete Ricci Flow (SDRF)
+To run SDRF rewiring for both graph and node classification, add the rewiring option `sdrf_bfc` 
+and the hyper-parameters for SDRF (`--sdrf_remove_edges` and `--num_iterations`). The following
+is an example of running SDRF with 10 iterations and edge removal enabled:
+
+```bash
+python run_node_classification.py --layer_type GCN \
+	--rewiring sdrf_bfc \
+	--num_iterations 10 \
+	--sdrf_remove_edges
+
+python run_graph_classification.py --layer_type GCN \
+	--rewiring sdrf_bfc \
+	--num_iterations 10 \
+	--sdrf_remove_edges
+```
+
+### 2. First-order Spectral Rewiring (FoSR)
+To run FoSR, add the `fosr` rewiring option and the hyper-parameters for FoSR (`--num_iterations`).
+The following is an example of running FoSR with 10 iterations:
+
+```bash
+python run_node_classification.py --layer_type GCN \
+	--rewiring fosr \
+	--num_iterations 10
+
+python run_graph_classification.py --layer_type GCN \
+	--rewiring fosr \
+	--num_iterations 10
+```
