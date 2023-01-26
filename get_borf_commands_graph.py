@@ -7,12 +7,12 @@ num_iterations = [1, 2, 3, 4, 5]
 
 cmd_template = """
 python run_graph_classification.py 
-    --rewiring brf 
+    --rewiring borf 
     --layer_type {}
     --num_trials 100
     --device cuda:{}
-    --brf_batch_add {}
-    --brf_batch_remove {} 
+    --borf_batch_add {}
+    --borf_batch_remove {} 
     --num_iterations {}
 """
 

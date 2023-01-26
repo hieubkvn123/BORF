@@ -9,7 +9,7 @@ import torch
 import numpy as np
 import pandas as pd
 from hyperparams import get_args_from_input
-from preprocessing import rewiring, sdrf, fosr, brf
+from preprocessing import rewiring, sdrf, fosr, borf
 
 num_splits = 3
 largest_cc = LargestConnectedComponents()
@@ -47,8 +47,8 @@ default_args = AttrDict({
     "num_relations": 2,
     "patience": 100,
     "dataset": None,
-    "brf_batch_add" : 4,
-    "brf_batch_remove" : 2,
+    "borf_batch_add" : 4,
+    "borf_batch_remove" : 2,
     "sdrf_remove_edges" : False
 })
 
@@ -77,16 +77,16 @@ for key in datasets:
         curvature_type = "bfc"
         dataset.data.edge_index, dataset.data.edge_type = sdrf.sdrf(dataset.data, loops=args.num_iterations, remove_edges=args.sdrf_remove_edges, 
                 is_undirected=True, curvature=curvature_type)
-    elif args.rewiring == "brf":
-        print(f"[INFO] BRF hyper-parameter : num_iterations = {args.num_iterations}")
-        print(f"[INFO] BRF hyper-parameter : batch_add = {args.brf_batch_add}")
-        print(f"[INFO] BRF hyper-parameter : num_iterations = {args.brf_batch_remove}")
-        dataset.data.edge_index, dataset.data.edge_type = brf.brf3(dataset.data, 
+    elif args.rewiring == "borf":
+        print(f"[INFO] BORF hyper-parameter : num_iterations = {args.num_iterations}")
+        print(f"[INFO] BORF hyper-parameter : batch_add = {args.borf_batch_add}")
+        print(f"[INFO] BORF hyper-parameter : num_iterations = {args.borf_batch_remove}")
+        dataset.data.edge_index, dataset.data.edge_type = borf.borf3(dataset.data, 
                 loops=args.num_iterations, 
                 remove_edges=False, 
                 is_undirected=True,
-                batch_add=args.brf_batch_add,
-                batch_remove=args.brf_batch_remove,
+                batch_add=args.borf_batch_add,
+                batch_remove=args.borf_batch_remove,
                 dataset_name=key,
                 graph_index=0)
         print(len(dataset.data.edge_type))
@@ -113,8 +113,8 @@ for key in datasets:
         "dataset": key,
         "rewiring": args.rewiring,
         "num_iterations": args.num_iterations,
-        "brf_batch_add" : args.brf_batch_add,
-        "brf_batch_remove" : args.brf_batch_remove,
+        "borf_batch_add" : args.borf_batch_add,
+        "borf_batch_remove" : args.borf_batch_remove,
         "avg_accuracy": np.mean(accuracies),
         "ci":  2 * np.std(accuracies)/(args.num_trials ** 0.5),
         "run_duration" : run_duration,

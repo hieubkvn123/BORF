@@ -9,7 +9,7 @@ import torch
 import numpy as np
 import pandas as pd
 from hyperparams import get_args_from_input
-from preprocessing import rewiring, sdrf, fosr, digl, brf
+from preprocessing import rewiring, sdrf, fosr, digl, borf
 
 mutag = list(TUDataset(root="data", name="MUTAG"))
 enzymes = list(TUDataset(root="data", name="ENZYMES"))
@@ -54,8 +54,8 @@ default_args = AttrDict({
     "eps": 0.001,
     "dataset": None,
     "last_layer_fa": False,
-    "brf_batch_add" : 4,
-    "brf_batch_remove" : 2,
+    "borf_batch_add" : 4,
+    "borf_batch_remove" : 2,
     "sdrf_remove_edges" : False
 })
 
@@ -103,17 +103,17 @@ for key in datasets:
                 dataset[i].edge_index, dataset[i].edge_type = sdrf.sdrf(dataset[i], loops=args.num_iterations, remove_edges=args["sdrf_remove_edges"], 
                         is_undirected=True, curvature='bfc')
                 pbar.update(1)
-        elif args.rewiring == "brf":
-            print(f"[INFO] BRF hyper-parameter : num_iterations = {args.num_iterations}")
-            print(f"[INFO] BRF hyper-parameter : batch_add = {args.brf_batch_add}")
-            print(f"[INFO] BRF hyper-parameter : batch_remove = {args.brf_batch_remove}")
+        elif args.rewiring == "borf":
+            print(f"[INFO] BORF hyper-parameter : num_iterations = {args.num_iterations}")
+            print(f"[INFO] BORF hyper-parameter : batch_add = {args.borf_batch_add}")
+            print(f"[INFO] BORF hyper-parameter : batch_remove = {args.borf_batch_remove}")
             for i in range(len(dataset)):
-                dataset[i].edge_index, dataset[i].edge_type = brf.brf3(dataset[i], 
+                dataset[i].edge_index, dataset[i].edge_type = borf.borf3(dataset[i], 
                         loops=args.num_iterations, 
                         remove_edges=False, 
                         is_undirected=True,
-                        batch_add=args.brf_batch_add,
-                        batch_remove=args.brf_batch_remove,
+                        batch_add=args.borf_batch_add,
+                        batch_remove=args.borf_batch_remove,
                         dataset_name=key,
                         graph_index=i)
                 pbar.update(1)
@@ -154,8 +154,8 @@ for key in datasets:
         "rewiring": args.rewiring,
         "layer_type": args.layer_type,
         "num_iterations": args.num_iterations,
-        "brf_batch_add" : args.brf_batch_add,
-        "brf_batch_remove" : args.brf_batch_remove,
+        "borf_batch_add" : args.borf_batch_add,
+        "borf_batch_remove" : args.borf_batch_remove,
         "sdrf_remove_edges" : args.sdrf_remove_edges, 
         "alpha": args.alpha,
         "eps": args.eps,

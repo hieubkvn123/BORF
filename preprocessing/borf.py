@@ -242,7 +242,7 @@ def brf2(
     return from_networkx(G).edge_index, torch.tensor(edge_type)
 
 
-def brf3(
+def borf3(
     data,
     loops=10,
     remove_edges=True,
