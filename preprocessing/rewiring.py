@@ -248,7 +248,6 @@ def sdrf(G, curvatures=None, max_iterations=1, temperature=5, C_plus=None):
 	return G, curvatures
 
 def rlef(G):
-	# algorithm 1 from Overleaf (Random Local Edge Flip)
 	edge_list = list(G.edges)
 	chosen_edge = edge_list[np.random.randint(len(edge_list))]
 	(u, v) = chosen_edge

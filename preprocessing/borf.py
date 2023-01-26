@@ -34,7 +34,6 @@ class CurvaturePlainGraph():
             self.adjacency_matrix[edge[1], edge[0]] = 1
         
         # Floyd Warshall
-        # self.dist = self._floyd_warshall()
         self.dist = self._floyd_warshall()
 
     def __str__(self):
