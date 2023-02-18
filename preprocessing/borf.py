@@ -1,9 +1,12 @@
 import os
 import ot
+import copy
 import time
 import glob
 import torch
+import pickle
 import pathlib
+import warnings
 import numpy as np
 import pandas as pd
 import multiprocessing as mp
@@ -14,6 +17,7 @@ from torch_geometric.utils import (
 )
 from torch_geometric.datasets import TUDataset
 from GraphRicciCurvature.OllivierRicci import OllivierRicci
+warnings.filterwarnings("ignore")
 
 class CurvaturePlainGraph():
     def __init__(self, G, device=None):
@@ -252,7 +256,7 @@ def borf3(
     batch_add=4,
     batch_remove=2,
     device=None,
-    save_dir='rewired_graphs',
+    save_dir='rewired_graphs_deprecated',
     dataset_name=None,
     graph_index=0,
     debug=False
@@ -260,6 +264,9 @@ def borf3(
     # Check if there is a preprocessed graph
     dirname = f'{save_dir}/{dataset_name}'
     pathlib.Path(dirname).mkdir(parents=True, exist_ok=True)
+    fname = os.path.join(dirname, f'iters_{loops}_add_{batch_add}_remove_{batch_remove}.txt')
+
+    # Create graph checkpoint file
     edge_index_filename = os.path.join(dirname, f'iters_{loops}_add_{batch_add}_remove_{batch_remove}_edge_index_{graph_index}.pt')
     edge_type_filename = os.path.join(dirname, f'iters_{loops}_add_{batch_add}_remove_{batch_remove}_edge_type_{graph_index}.pt')
 
@@ -273,6 +280,7 @@ def borf3(
 
     # Preprocess data
     G, N, edge_type = _preprocess_data(data)
+    original_G = copy.deepcopy(G)
 
     # Rewiring begins
     for _ in range(loops):
@@ -299,6 +307,7 @@ def borf3(
             if(G.has_edge(u, v)):
                 G.remove_edge(u, v)
 
+    save_graph(original_G, G, graph_index, fname, loops, [(0,1)], [(0,1)])
     edge_index = from_networkx(G).edge_index
     edge_type = torch.zeros(size=(len(G.edges),)).type(torch.LongTensor)
     # edge_type = torch.tensor(edge_type)
@@ -314,7 +323,7 @@ def borf3(
     return edge_index, edge_type
 
 ### Optimized code for rebuttal ###
-def save_graph(graph_idx, fname, iters, added, removed):
+def save_graph(G1, G2, graph_idx, fname, iters, added, removed):
     with open(fname, 'a') as f:
         # Put number of iterations
         if(os.path.getsize(fname) <= 0):
@@ -326,15 +335,22 @@ def save_graph(graph_idx, fname, iters, added, removed):
         # Put added edges
         f.write('\tadded\n')
         for (p, q) in added:
-            f.write(f'\t\t{p} {q}\n')
+            if(not G1.has_edge(p, q)):
+                f.write(f'\t\t{p} {q}\n')
 
         # Put removed edges
         f.write('\tremoved\n')
         for (u, v) in removed:
-            f.write(f'\t\t{u} {v}\n')
+            if(G1.has_edge(u, v)):
+                f.write(f'\t\t{u} {v}\n')
+
+        # Put final graph edges
+        f.write('\tedges\n')
+        for (k, l) in G2.edges:
+            f.write(f'\t\t{k} {l}\n')
 
 def load_saved_graph(fname):
-    curr_idx = None
+    curr_index = None
     curr_mode = None
     latest_iters = 0
     result = {}
@@ -343,27 +359,33 @@ def load_saved_graph(fname):
         latest_iters = int(lines[0].split('=')[1])
         for line in lines[1:]:
             if(not line.startswith('\t') and not line.startswith('\t\t')):
-                curr_idx = int(line.strip())
-                result[curr_index] = {'added':[], 'removed':[]}
+                curr_index = int(line.strip())
+                result[curr_index] = {'added':[], 'removed':[], 'edges':[]}
             elif(line.startswith('\t') and not line.startswith('\t\t')):
                 curr_mode = line.strip()
             elif(line.startswith('\t\t')):
                 src, dst = line.strip().split(' ')
-                result[curr_idx][curr_mode].append((int(src), int(dst)))
+                result[curr_index][curr_mode].append((int(src), int(dst)))
 
     return result, latest_iters
 
 def load_latest_checkpoint(G, graph_idx, fname):
     checkpoint, latest_iters = load_saved_graph(fname)
+    if(graph_idx not in checkpoint):
+        return G, 0, [], []
+
     checkpoint = checkpoint[graph_idx]
+    original_edges = copy.deepcopy(G.edges)
     
-    for (p, q) in checkpoint['added']:
-        G.add_edge(p, q)
+    for (p, q) in checkpoint['edges']:
+        if(not G.has_edge(p, q)):
+            G.add_edge(p, q)
 
-    for (u, v) in checkpoint['removed']:
-        G.remove_edge(u, v)
+    for (u, v) in original_edges:
+        if((int(u), int(v)) not in checkpoint['edges']):
+            G.remove_edge(u, v)
 
-    return G, latest_iters
+    return G, latest_iters, checkpoint['added'], checkpoint['removed']
 
 def borf_optimized(
     data,
@@ -376,34 +398,54 @@ def borf_optimized(
     batch_remove=2,
     device=None,
     save_dir='rewired_graphs',
+    curvature_dir='curvatures',
     dataset_name=None,
     graph_index=0,
     debug=False
 ):
     # Check if there is a preprocessed graph
     dirname = f'{save_dir}/{dataset_name}'
+    curvature_dirname = f'{curvature_dir}/{dataset_name}'
     pathlib.Path(dirname).mkdir(parents=True, exist_ok=True)
+    pathlib.Path(curvature_dirname).mkdir(parents=True, exist_ok=True)
 
     # Create graph checkpoint file
     fname = os.path.join(dirname, f'iters_{loops}_add_{batch_add}_remove_{batch_remove}.txt')
+    curvature_fname = os.path.join(curvature_dirname, f'{graph_index}.pkl')
+    latest_iters = 0
     added = []
     removed = []
 
     # Preprocess data
     G, N, edge_type = _preprocess_data(data)
+    original_G = copy.deepcopy(G)
+    print(graph_index, len(G.edges), len(G.nodes))
     
     # Load the latest checkpoint
-    checkpoints = sorted(glob.glob(os.path.join(dirname, f'iters_*_add_{batch_add}_remove_{batch_remove}.txt')))
-    if(len(checkpoints) > 0):
+    checkpoints = [x for x in glob.glob(os.path.join(dirname, f'iters_*_add_{batch_add}_remove_{batch_remove}.txt')) if x <= fname]
+    checkpoints = sorted(checkpoints)
+    
+    if(len(checkpoints) >= 1):
         latest_checkpoint = checkpoints[-1]
-        if(latest_checkpoint != fname):
-            G, latest_iters = load_latest_checkpoint(G, graph_index, latest_checkpoint)
-            loops = loops - latest_iters
+        if(str(graph_index) in [x.strip() for x in open(latest_checkpoint, 'r').readlines()]):
+            latest_checkpoint = checkpoints[-1]
+        else:
+            if(len(checkpoints) >= 2):
+                latest_checkpoint = checkpoints[-2]
+        G, latest_iters, added, removed = load_latest_checkpoint(G, graph_index, latest_checkpoint)
 
     # Rewiring begins
-    for _ in range(loops):
+    for i in range(latest_iters, loops):
+        # print(latest_iters, loops)
         # Compute ORC
-        orc = OllivierRicci(G, alpha=0)
+        if(i == 0 and os.path.exists(curvature_fname)): # Always save the first curvature
+            # print('Loading initial curvature from', curvature_fname)
+            orc = pickle.load(open(curvature_fname, 'rb'))
+        else:
+            orc = OllivierRicci(G, alpha=0)
+            if(i == 0):
+                pickle.dump(orc, open(curvature_fname, 'wb'))
+
         orc.compute_ricci_curvature()
         _C = sorted(orc.G.edges, key=lambda x: orc.G[x[0]][x[1]]['ricciCurvature']['rc_curvature'])
 
@@ -431,6 +473,6 @@ def borf_optimized(
     edge_type = torch.zeros(size=(len(G.edges),)).type(torch.LongTensor)
     
     # Save rewired graph
-    save_graph(graph_index, fname, loops, added, removed)
+    save_graph(original_G, G, graph_index, fname, loops, set(added), set(removed))
 
     return edge_index, edge_type

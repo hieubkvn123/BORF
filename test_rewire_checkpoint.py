@@ -11,16 +11,20 @@ import pandas as pd
 from hyperparams import get_args_from_input
 from preprocessing import rewiring, sdrf, fosr, digl, borf
 
-mutag = list(TUDataset(root="data", name="MUTAG"))
-enzymes = list(TUDataset(root="data", name="ENZYMES"))
-proteins = list(TUDataset(root="data", name="PROTEINS"))
-imdb = list(TUDataset(root="data", name="IMDB-BINARY"))
-datasets = {"mutag" : mutag, "enzymes" : enzymes, "imdb": imdb, "proteins": proteins}
-for key in datasets:
-    if key in ["reddit", "imdb", "collab"]:
-        for graph in datasets[key]:
-            n = graph.num_nodes
-            graph.x = torch.ones((n,1))
+def get_dataset():
+    mutag = list(TUDataset(root="data", name="MUTAG"))
+    enzymes = list(TUDataset(root="data", name="ENZYMES"))
+    proteins = list(TUDataset(root="data", name="PROTEINS"))
+    imdb = list(TUDataset(root="data", name="IMDB-BINARY"))
+    datasets = {"mutag" : mutag, "enzymes" : enzymes, "imdb": imdb, "proteins": proteins}
+
+    for key in datasets:
+        if key in ["reddit", "imdb", "collab"]:
+            for graph in datasets[key]:
+                n = graph.num_nodes
+                graph.x = torch.ones((n,1))
+
+    return datasets
 
 default_args = AttrDict({
     "dropout": 0.5,
@@ -57,32 +61,65 @@ results = []
 args = default_args
 args += get_args_from_input()
 if args.dataset:
-    # restricts to just the given dataset if this mode is chosen
     name = args.dataset
-    datasets = {name: datasets[name]}
 
-for key in datasets:
-    args += hyperparams[key]
-    train_accuracies = []
-    validation_accuracies = []
-    test_accuracies = []
-    energies = []
-    print(f"TESTING: {key} ({args.rewiring} - layer {args.layer_type})")
-    dataset = datasets[key]
+key = name
+args += hyperparams[key]
+train_accuracies = []
+validation_accuracies = []
+test_accuracies = []
+energies = []
+print(f"TESTING: {key} ({args.rewiring} - layer {args.layer_type})")
 
-    print('REWIRING STARTED...')
-    start = time.time()
-    with tqdm.tqdm(total=len(dataset)) as pbar:
-        print(f"[INFO] BORF hyper-parameter : num_iterations = {args.num_iterations}")
-        print(f"[INFO] BORF hyper-parameter : batch_add = {args.borf_batch_add}")
-        print(f"[INFO] BORF hyper-parameter : batch_remove = {args.borf_batch_remove}")
-        for i in range(len(dataset)):
-            dataset[i].edge_index, dataset[i].edge_type = borf.borf_optimized(dataset[i], 
-                    loops=args.num_iterations, 
-                    remove_edges=False, 
-                    is_undirected=True,
-                    batch_add=args.borf_batch_add,
-                    batch_remove=args.borf_batch_remove,
-                    dataset_name=key,
-                    graph_index=i)
-            pbar.update(1)
+print('REWIRING STARTED...')
+start = time.time()
+datasets = get_dataset()
+dataset = datasets[key]
+with tqdm.tqdm(total=len(dataset)) as pbar:
+    print(f"[INFO] BORF hyper-parameter : num_iterations = {args.num_iterations}")
+    print(f"[INFO] BORF hyper-parameter : batch_add = {args.borf_batch_add}")
+    print(f"[INFO] BORF hyper-parameter : batch_remove = {args.borf_batch_remove}")
+    for i in range(len(dataset)):
+        dataset[i].edge_index, dataset[i].edge_type = borf.borf_optimized(dataset[i], 
+                loops=args.num_iterations, 
+                remove_edges=False, 
+                is_undirected=True,
+                batch_add=args.borf_batch_add,
+                batch_remove=args.borf_batch_remove,
+                dataset_name=key,
+                graph_index=i)
+        pbar.update(1)
+
+datasets = get_dataset()
+dataset = datasets[key]
+with tqdm.tqdm(total=len(dataset)) as pbar:
+    print(f"[INFO] BORF hyper-parameter : num_iterations = {args.num_iterations}")
+    print(f"[INFO] BORF hyper-parameter : batch_add = {args.borf_batch_add}")
+    print(f"[INFO] BORF hyper-parameter : batch_remove = {args.borf_batch_remove}")
+    for i in range(len(dataset)):
+        dataset[i].edge_index, dataset[i].edge_type = borf.borf_optimized(dataset[i], 
+                loops=args.num_iterations + 1, 
+                remove_edges=False, 
+                is_undirected=True,
+                batch_add=args.borf_batch_add,
+                batch_remove=args.borf_batch_remove,
+                dataset_name=key,
+                graph_index=i)
+        pbar.update(1)
+
+datasets = get_dataset()
+dataset = datasets[key]
+with tqdm.tqdm(total=len(dataset)) as pbar:
+    print(f"[INFO] BORF hyper-parameter : num_iterations = {args.num_iterations}")
+    print(f"[INFO] BORF hyper-parameter : batch_add = {args.borf_batch_add}")
+    print(f"[INFO] BORF hyper-parameter : batch_remove = {args.borf_batch_remove}")
+    for i in range(len(dataset)):
+        dataset[i].edge_index, dataset[i].edge_type = borf.borf3(dataset[i], 
+                loops=args.num_iterations + 1, 
+                remove_edges=False, 
+                is_undirected=True,
+                batch_add=args.borf_batch_add,
+                batch_remove=args.borf_batch_remove,
+                dataset_name=key,
+                graph_index=i)
+        pbar.update(1)
