@@ -312,6 +312,58 @@ def borf3(
 
     return edge_index, edge_type
 
+### Optimized code for rebuttal ###
+def save_graph(graph_idx, fname, iters, added, removed):
+    with open(fname, 'a') as f:
+        # Put number of iterations
+        if(os.path.getsize(fname) <= 0):
+            f.write(f'num_iters={iters}')
+
+        # Put graph ID
+        f.write(f'{graph_idx}')
+
+        # Put added edges
+        f.write('\tadded')
+        for (p, q) in added:
+            f.write(f'\t\t{p} {q}')
+
+        # Put removed edges
+        f.write('\tremoved')
+        for (u, v) in removed:
+            f.write(f'\t\t{u} {v}')
+
+def load_saved_graph(fname):
+    curr_idx = None
+    curr_mode = None
+    latest_iters = 0
+    result = {}
+    with open(fname, 'r') as f:
+        lines = f.readlines()
+        latest_iters = int(lines[0].split('=')[1])
+        for line in lines[1:]:
+            if(not line.startswith('\t') and not line.startswith('\t\t')):
+                curr_idx = int(line.strip())
+                result[curr_index] = {'added':[], 'removed':[]}
+            elif(line.startswith('\t') and not line.startswith('\t\t')):
+                curr_mode = line.strip()
+            elif(line.startswith('\t\t')):
+                src, dst = line.strip().split(' ')
+                result[curr_idx][curr_mode].append((int(src), int(dst)))
+
+    return result, latest_iters
+
+def load_latest_checkpoint(G, graph_idx, fname):
+    checkpoint, latest_iters = load_saved_graph(fname)
+    checkpoint = checkpoint[graph_idx]
+    
+    for (p, q) in checkpoint['added']:
+        G.add_edge(p, q)
+
+    for (u, v) in checkpoint['removed']:
+        G.remove_edge(u, v)
+
+    return G, latest_iters
+
 def borf_optimized(
     data,
     loops=10,
@@ -330,19 +382,21 @@ def borf_optimized(
     # Check if there is a preprocessed graph
     dirname = f'{save_dir}/{dataset_name}'
     pathlib.Path(dirname).mkdir(parents=True, exist_ok=True)
-    edge_index_filename = os.path.join(dirname, f'iters_{loops}_add_{batch_add}_remove_{batch_remove}_edge_index_{graph_index}.pt')
-    edge_type_filename = os.path.join(dirname, f'iters_{loops}_add_{batch_add}_remove_{batch_remove}_edge_type_{graph_index}.pt')
 
-    if(os.path.exists(edge_index_filename) and os.path.exists(edge_type_filename)):
-        if(debug) : print(f'[INFO] Rewired graph for {loops} iterations, {batch_add} edge additions and {batch_remove} edge removal exists...')
-        with open(edge_index_filename, 'rb') as f:
-            edge_index = torch.load(f)
-        with open(edge_type_filename, 'rb') as f:
-            edge_type = torch.load(f)
-        return edge_index, edge_type
+    # Create graph checkpoint file
+    fname = os.path.join(dirname, f'iters_{loops}_add_{batch_add}_remove_{batch_remove}.txt')
+    added = []
+    removed = []
 
     # Preprocess data
     G, N, edge_type = _preprocess_data(data)
+    
+    # Load the latest checkpoint
+    checkpoints = sorted(glob.glob(os.path.join(dirname, f'iters_*_add_{batch_add}_remove_{batch_remove}.txt')))
+    if(len(checkpoints) > 0):
+        latest_checkpoint = checkpoints[-1]
+        G, latest_iters = load_latest_checkpoint(G, graph_idx, latest_checkpoint)
+        loops = loops - latest_iters
 
     # Rewiring begins
     for _ in range(loops):
@@ -363,22 +417,18 @@ def borf_optimized(
             
             if(p != q and not G.has_edge(p, q)):
                 G.add_edge(p, q)
+                added.append((p, q))
 
         # Remove edges
         for (u, v) in most_pos_edges:
             if(G.has_edge(u, v)):
                 G.remove_edge(u, v)
+                removed.append((u, v))
 
     edge_index = from_networkx(G).edge_index
     edge_type = torch.zeros(size=(len(G.edges),)).type(torch.LongTensor)
-    # edge_type = torch.tensor(edge_type)
-
-    if(debug) : print(f'[INFO] Saving edge_index to {edge_index_filename}')
-    with open(edge_index_filename, 'wb') as f:
-        torch.save(edge_index, f)
-
-    if(debug) : print(f'[INFO] Saving edge_type to {edge_type_filename}')
-    with open(edge_type_filename, 'wb') as f:
-        torch.save(edge_type, f)
+    
+    # Save rewired graph
+    save_graph(graph_idx, fname, loops, added, removed)
 
     return edge_index, edge_type
