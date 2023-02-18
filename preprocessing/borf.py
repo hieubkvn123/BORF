@@ -311,3 +311,74 @@ def borf3(
         torch.save(edge_type, f)
 
     return edge_index, edge_type
+
+def borf_optimized(
+    data,
+    loops=10,
+    remove_edges=True,
+    removal_bound=0.5,
+    tau=1,
+    is_undirected=False,
+    batch_add=4,
+    batch_remove=2,
+    device=None,
+    save_dir='rewired_graphs',
+    dataset_name=None,
+    graph_index=0,
+    debug=False
+):
+    # Check if there is a preprocessed graph
+    dirname = f'{save_dir}/{dataset_name}'
+    pathlib.Path(dirname).mkdir(parents=True, exist_ok=True)
+    edge_index_filename = os.path.join(dirname, f'iters_{loops}_add_{batch_add}_remove_{batch_remove}_edge_index_{graph_index}.pt')
+    edge_type_filename = os.path.join(dirname, f'iters_{loops}_add_{batch_add}_remove_{batch_remove}_edge_type_{graph_index}.pt')
+
+    if(os.path.exists(edge_index_filename) and os.path.exists(edge_type_filename)):
+        if(debug) : print(f'[INFO] Rewired graph for {loops} iterations, {batch_add} edge additions and {batch_remove} edge removal exists...')
+        with open(edge_index_filename, 'rb') as f:
+            edge_index = torch.load(f)
+        with open(edge_type_filename, 'rb') as f:
+            edge_type = torch.load(f)
+        return edge_index, edge_type
+
+    # Preprocess data
+    G, N, edge_type = _preprocess_data(data)
+
+    # Rewiring begins
+    for _ in range(loops):
+        # Compute ORC
+        orc = OllivierRicci(G, alpha=0)
+        orc.compute_ricci_curvature()
+        _C = sorted(orc.G.edges, key=lambda x: orc.G[x[0]][x[1]]['ricciCurvature']['rc_curvature'])
+
+        # Get top negative and positive curved edges
+        most_pos_edges = _C[-batch_remove:]
+        most_neg_edges = _C[:batch_add]
+
+        # Add edges
+        for (u, v) in most_neg_edges:
+            pi = orc.G[u][v]['ricciCurvature']['rc_transport_cost']
+            p, q = np.unravel_index(pi.values.argmax(), pi.values.shape)
+            p, q = pi.index[p], pi.columns[q]
+            
+            if(p != q and not G.has_edge(p, q)):
+                G.add_edge(p, q)
+
+        # Remove edges
+        for (u, v) in most_pos_edges:
+            if(G.has_edge(u, v)):
+                G.remove_edge(u, v)
+
+    edge_index = from_networkx(G).edge_index
+    edge_type = torch.zeros(size=(len(G.edges),)).type(torch.LongTensor)
+    # edge_type = torch.tensor(edge_type)
+
+    if(debug) : print(f'[INFO] Saving edge_index to {edge_index_filename}')
+    with open(edge_index_filename, 'wb') as f:
+        torch.save(edge_index, f)
+
+    if(debug) : print(f'[INFO] Saving edge_type to {edge_type_filename}')
+    with open(edge_type_filename, 'wb') as f:
+        torch.save(edge_type, f)
+
+    return edge_index, edge_type
