@@ -16,11 +16,12 @@ cornell = WebKB(root="data", name="Cornell")
 wisconsin = WebKB(root="data", name="Wisconsin")
 texas = WebKB(root="data", name="Texas")
 chameleon = WikipediaNetwork(root="data", name="chameleon")
+squirrel = WikipediaNetwork(root="data", name="squirrel")
+actor = Actor(root="data")
 cora = Planetoid(root="data", name="cora")
 citeseer = Planetoid(root="data", name="citeseer")
-datasets = {"cornell": cornell, "wisconsin": wisconsin, "texas": texas, 
-        "chameleon": chameleon,
-        "cora": cora, "citeseer": citeseer}
+pubmed = Planetoid(root="data", name="pubmed")
+datasets = {"cornell": cornell, "wisconsin": wisconsin, "texas": texas, "chameleon": chameleon, "squirrel": squirrel, "actor": actor, "cora": cora, "citeseer": citeseer, "pubmed": pubmed}
 
 for key in datasets:
     dataset = datasets[key]
