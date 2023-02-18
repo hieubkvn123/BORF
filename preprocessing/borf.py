@@ -1,6 +1,7 @@
 import os
 import ot
 import time
+import glob
 import torch
 import pathlib
 import numpy as np
@@ -317,20 +318,20 @@ def save_graph(graph_idx, fname, iters, added, removed):
     with open(fname, 'a') as f:
         # Put number of iterations
         if(os.path.getsize(fname) <= 0):
-            f.write(f'num_iters={iters}')
+            f.write(f'num_iters={iters}\n')
 
         # Put graph ID
-        f.write(f'{graph_idx}')
+        f.write(f'{graph_idx}\n')
 
         # Put added edges
-        f.write('\tadded')
+        f.write('\tadded\n')
         for (p, q) in added:
-            f.write(f'\t\t{p} {q}')
+            f.write(f'\t\t{p} {q}\n')
 
         # Put removed edges
-        f.write('\tremoved')
+        f.write('\tremoved\n')
         for (u, v) in removed:
-            f.write(f'\t\t{u} {v}')
+            f.write(f'\t\t{u} {v}\n')
 
 def load_saved_graph(fname):
     curr_idx = None
@@ -395,8 +396,9 @@ def borf_optimized(
     checkpoints = sorted(glob.glob(os.path.join(dirname, f'iters_*_add_{batch_add}_remove_{batch_remove}.txt')))
     if(len(checkpoints) > 0):
         latest_checkpoint = checkpoints[-1]
-        G, latest_iters = load_latest_checkpoint(G, graph_idx, latest_checkpoint)
-        loops = loops - latest_iters
+        if(latest_checkpoint != fname):
+            G, latest_iters = load_latest_checkpoint(G, graph_index, latest_checkpoint)
+            loops = loops - latest_iters
 
     # Rewiring begins
     for _ in range(loops):
@@ -429,6 +431,6 @@ def borf_optimized(
     edge_type = torch.zeros(size=(len(G.edges),)).type(torch.LongTensor)
     
     # Save rewired graph
-    save_graph(graph_idx, fname, loops, added, removed)
+    save_graph(graph_index, fname, loops, added, removed)
 
     return edge_index, edge_type
