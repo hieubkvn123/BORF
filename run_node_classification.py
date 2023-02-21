@@ -10,6 +10,7 @@ import numpy as np
 import pandas as pd
 from hyperparams import get_args_from_input
 from preprocessing import rewiring, sdrf, fosr, borf
+from ogb.nodeproppred import Evaluator, PygNodePropPredDataset
 
 largest_cc = LargestConnectedComponents()
 cornell = WebKB(root="data", name="Cornell")
@@ -21,7 +22,8 @@ actor = Actor(root="data")
 cora = Planetoid(root="data", name="cora")
 citeseer = Planetoid(root="data", name="citeseer")
 pubmed = Planetoid(root="data", name="pubmed")
-datasets = {"cornell": cornell, "wisconsin": wisconsin, "texas": texas, "chameleon": chameleon, "squirrel": squirrel, "actor": actor, "cora": cora, "citeseer": citeseer, "pubmed": pubmed}
+ogbn_arxiv = PygNodePropPredDataset(name='ogbn-arxiv', root='data')
+datasets = {"cornell": cornell, "wisconsin": wisconsin, "texas": texas, "chameleon": chameleon, "squirrel": squirrel, "actor": actor, "cora": cora, "citeseer": citeseer, "pubmed": pubmed, 'ogbn-arxiv' : ogbn_arxiv}
 
 for key in datasets:
     dataset = datasets[key]
@@ -81,7 +83,7 @@ for key in datasets:
         print(f"[INFO] BORF hyper-parameter : num_iterations = {args.num_iterations}")
         print(f"[INFO] BORF hyper-parameter : batch_add = {args.borf_batch_add}")
         print(f"[INFO] BORF hyper-parameter : num_iterations = {args.borf_batch_remove}")
-        dataset.data.edge_index, dataset.data.edge_type = borf.borf3(dataset.data, 
+        dataset.data.edge_index, dataset.data.edge_type = borf.borf_optimized(dataset.data, 
                 loops=args.num_iterations, 
                 remove_edges=False, 
                 is_undirected=True,
