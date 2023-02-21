@@ -94,3 +94,7 @@ RESULTS FOR actor (borf):
 average acc: 0.2692171052631579
 plus/minus:  0.0015572294765574149
 
+RESULTS FOR actor (borf):
+average acc: 0.26898026315789475
+plus/minus:  0.001536194776251279
+
