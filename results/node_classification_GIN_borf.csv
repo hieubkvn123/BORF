@@ -1,0 +1,2 @@
+,dataset,rewiring,num_iterations,borf_batch_add,borf_batch_remove,avg_accuracy,ci,run_duration,rewiring_duration
+0,actor,borf,1,20,10,0.2615,0.0017368899514940798,1368.279435634613,11.840076208114624

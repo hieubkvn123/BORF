@@ -4,7 +4,7 @@ layer_types = ["GCN", "GIN"]
 batch_add = [20, 30, 40]
 batch_remove = [10, 20, 30]
 num_iterations = [1, 2, 3]
-datasets = ['actor', 'pubmed', 'squirrel'] # , 'ogbn-arxiv']
+datasets = ['actor'] #, 'pubmed', 'squirrel'] # , 'ogbn-arxiv']
 
 cmd_template = """
 python run_node_classification.py 

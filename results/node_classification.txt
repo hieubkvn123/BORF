@@ -42,3 +42,55 @@ RESULTS FOR chameleon (brf):
 average acc: 0.5926973684210526
 plus/minus:  0.019687643847154115
 
+RESULTS FOR actor (borf):
+average acc: 0.2615
+plus/minus:  0.0017368899514940798
+
+RESULTS FOR actor (borf):
+average acc: 0.2702434210526316
+plus/minus:  0.0017288347115423717
+
+RESULTS FOR actor (borf):
+average acc: 0.26948026315789475
+plus/minus:  0.001601580655342673
+
+RESULTS FOR actor (borf):
+average acc: 0.2688684210526316
+plus/minus:  0.001635911056918922
+
+RESULTS FOR actor (borf):
+average acc: 0.26918421052631575
+plus/minus:  0.0015663665455839682
+
+RESULTS FOR actor (borf):
+average acc: 0.26853289473684205
+plus/minus:  0.0017125549711135908
+
+RESULTS FOR actor (borf):
+average acc: 0.26919736842105263
+plus/minus:  0.0017409620195347753
+
+RESULTS FOR actor (borf):
+average acc: 0.26987500000000003
+plus/minus:  0.0017294795103531297
+
+RESULTS FOR actor (borf):
+average acc: 0.26873684210526316
+plus/minus:  0.0017177458978350334
+
+RESULTS FOR actor (borf):
+average acc: 0.27037500000000003
+plus/minus:  0.0015549107936397143
+
+RESULTS FOR actor (borf):
+average acc: 0.26836184210526315
+plus/minus:  0.0018016319740954596
+
+RESULTS FOR actor (borf):
+average acc: 0.26918421052631575
+plus/minus:  0.0017252122596133558
+
+RESULTS FOR actor (borf):
+average acc: 0.2692171052631579
+plus/minus:  0.0015572294765574149
+
