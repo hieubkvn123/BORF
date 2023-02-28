@@ -60,18 +60,31 @@ def compute_spectral_gap(edge_index, x):
 			return 1 - y[i]/x[i]
 	return 0.
 
+def load_checkpoint(ckpt_dir, dataset_name, x, y, edge_index, edge_type, degrees):
+    ...
+
+def save_checkpoint(ckpt_dir, dataset_name, latest_iters, x, y, edge_index, edge_type, degrees):
+    ...
+
 @jit(nopython=True)
-def _edge_rewire(edge_index, edge_type, x=None, num_iterations=50, initial_power_iters=50):
+def _edge_rewire(edge_index, edge_type, x=None, num_iterations=50, initial_power_iters=50,
+        ckpt_dir='fosr_ckpt', dataset_name=None):
 	m = edge_index.shape[1]
 	n = np.max(edge_index) + 1
 	if x is None:
 		x = 2 * np.random.random(n) - 1
+
 	degrees = compute_degrees(edge_index, num_nodes=n)
 	for i in range(initial_power_iters):
 		x = x - x.dot(degrees ** 0.5) * (degrees ** 0.5)/sum(degrees)
 		y = x + adj_matrix_multiply(edge_index, x / (degrees ** 0.5)) / (degrees ** 0.5)
 		x = y / np.linalg.norm(y)
-	for I in range(num_iterations):
+
+        # Load checkpoint
+        latest_iters = 0
+        x, y, edge_index, edge_type, degrees, latest_iters = load_checkpoint(ckpt_dir, dataset_name, x, y, edge_index,
+                edge_type, degrees)
+	for I in range(latest_iters, num_iterations):
 		i, j = choose_edge_to_add(x, edge_index, degrees=degrees)
 		edge_index = add_edge(edge_index, i, j)
 		degrees[i] += 1
@@ -81,6 +94,9 @@ def _edge_rewire(edge_index, edge_type, x=None, num_iterations=50, initial_power
 		x = x - x.dot(degrees ** 0.5) * (degrees ** 0.5)/sum(degrees)
 		y = x + adj_matrix_multiply(edge_index, x / (degrees ** 0.5)) / (degrees ** 0.5)
 		x = y / np.linalg.norm(y)
+
+        save_checkpoint(ckp_dir, dataset_name, num_iterations, x, y, edge_index, edge_type, degrees)
+
 	return edge_index, edge_type, x
 
 def edge_rewire(edge_index, x=None, edge_type=None, num_iterations=50, initial_power_iters=5):

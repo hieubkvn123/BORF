@@ -322,3 +322,15 @@ RESULTS FOR cora (sdrf_bfc):
 average acc: 0.8745387453874539
 plus/minus:  0.0
 
+RESULTS FOR cora (sdrf_bfc):
+average acc: 0.8579335793357934
+plus/minus:  0.0
+
+RESULTS FOR cora (sdrf_bfc):
+average acc: 0.8690036900369004
+plus/minus:  0.0
+
+RESULTS FOR pubmed (fosr):
+average acc: 0.8853955375253549
+plus/minus:  0.0
+
