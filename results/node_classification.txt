@@ -314,3 +314,11 @@ RESULTS FOR actor (borf):
 average acc: 0.26078947368421057
 plus/minus:  0.0018306031883619672
 
+RESULTS FOR cora (sdrf_bfc):
+average acc: 0.8800738007380073
+plus/minus:  0.0
+
+RESULTS FOR cora (sdrf_bfc):
+average acc: 0.8745387453874539
+plus/minus:  0.0
+

@@ -73,12 +73,10 @@ for key in datasets:
         edge_index, edge_type, _ = fosr.edge_rewire(dataset.data.edge_index.numpy(), num_iterations=args.num_iterations)
         dataset.data.edge_index = torch.tensor(edge_index)
         dataset.data.edge_type = torch.tensor(edge_type)
-        print(dataset.data.num_edges)
-        print(len(dataset.data.edge_type))
     elif args.rewiring == "sdrf_bfc":
         curvature_type = "bfc"
         dataset.data.edge_index, dataset.data.edge_type = sdrf.sdrf(dataset.data, loops=args.num_iterations, remove_edges=args.sdrf_remove_edges, 
-                is_undirected=True, curvature=curvature_type)
+                is_undirected=True, curvature=curvature_type, dataset_name=key)
     elif args.rewiring == "borf":
         print(f"[INFO] BORF hyper-parameter : num_iterations = {args.num_iterations}")
         print(f"[INFO] BORF hyper-parameter : batch_add = {args.borf_batch_add}")
@@ -92,10 +90,6 @@ for key in datasets:
                 dataset_name=key,
                 graph_index=0)
         print(len(dataset.data.edge_type))
-    elif args.rewiring == "sdrf_orc":
-        curvature_type = "orc"
-        dataset.data.edge_index, dataset.data.edge_type = sdrf.sdrf(dataset.data, loops=args.num_iterations, remove_edges=False, 
-                is_undirected=True, curvature=curvature_type)
     end = time.time()
     rewiring_duration = end - start
 

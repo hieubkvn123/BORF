@@ -96,14 +96,10 @@ for key in datasets:
                 dataset[i].edge_index = torch.tensor(edge_index)
                 dataset[i].edge_type = torch.tensor(edge_type)
                 pbar.update(1)
-        elif args.rewiring == "sdrf_orc":
-            for i in range(len(dataset)):
-                dataset[i].edge_index, dataset[i].edge_type = sdrf.sdrf(dataset[i], loops=args.num_iterations, remove_edges=False, is_undirected=True, curvature='orc')
-                pbar.update(1)
         elif args.rewiring == "sdrf_bfc":
             for i in range(len(dataset)):
                 dataset[i].edge_index, dataset[i].edge_type = sdrf.sdrf(dataset[i], loops=args.num_iterations, remove_edges=args["sdrf_remove_edges"], 
-                        is_undirected=True, curvature='bfc')
+                        is_undirected=True, curvature='bfc', dataset_name=key)
                 pbar.update(1)
         elif args.rewiring == "borf":
             print(f"[INFO] BORF hyper-parameter : num_iterations = {args.num_iterations}")

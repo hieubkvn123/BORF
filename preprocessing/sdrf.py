@@ -1,4 +1,8 @@
+import os
+import glob
 import torch
+import pickle
+import pathlib
 import numpy as np
 import networkx as nx
 from numba import jit, prange
@@ -205,6 +209,32 @@ def balanced_forman_post_delta(A, x, y, i_neighbors, j_neighbors, D=None):
     return D
 
 
+def save_checkpoint(ckpt_dir, dataset_name, latest_iters, A, G, C, edge_type):
+    ckpt_dir = os.path.join(ckpt_dir, dataset_name, f'iters_{latest_iters}')
+    pathlib.Path(ckpt_dir).mkdir(parents=True, exist_ok=True)
+
+    np.save(os.path.join(ckpt_dir, 'A.npy'), A)
+    np.save(os.path.join(ckpt_dir, 'C.npy'), C)
+    np.save(os.path.join(ckpt_dir, 'edge_type.npy'), edge_type)
+    pickle.dump(G, open(os.path.join(ckpt_dir, 'G.pkl'), 'wb'))
+    
+def load_checkpoint(ckpt_dir, dataset_name, A, G, C, edge_type):
+    # Find the latest checkpoint
+    latest_iters = 0
+    checkpoints = glob.glob(os.path.join(ckpt_dir, dataset_name, 'iters_*'))
+    if(len(checkpoints) > 0):
+        latest_checkpoint = sorted(checkpoints)[-1]
+        latest_iters = int(latest_checkpoint.split('_')[-1])
+
+        # Load all things
+        A = np.load(os.path.join(latest_checkpoint, 'A.npy'))
+        C = np.load(os.path.join(latest_checkpoint, 'C.npy'))
+        edge_type = np.load(os.path.join(latest_checkpoint, 'edge_type.npy'))
+        G = pickle.load(open(os.path.join(latest_checkpoint, 'G.pkl'), 'rb'))
+
+    return A, G, C, edge_type, latest_iters
+
+
 def sdrf(
     data,
     loops=10,
@@ -212,16 +242,22 @@ def sdrf(
     removal_bound=0.5,
     tau=1,
     is_undirected=False,
-    curvature='bfc'
+    curvature='bfc',
+    ckpt_dir='sdrf_ckpt',
+    dataset_name=None
 ):
+    # Start rewiring
     N = data.x.shape[0]
     A = np.zeros(shape=(N, N))
     m = data.edge_index.shape[1]
 
+    # Edge type - for whatever reasons
     if not "edge_type" in data.keys:
         edge_type = np.zeros(m, dtype=int)
     else:
         edge_type = data.edge_type
+
+    # Adjacency matrix
     if is_undirected:
         for i, j in zip(data.edge_index[0], data.edge_index[1]):
             if i != j:
@@ -230,13 +266,19 @@ def sdrf(
         for i, j in zip(data.edge_index[0], data.edge_index[1]):
             if i != j:
                 A[i, j] = 1.0
+
     N = A.shape[0]
     G = to_networkx(data)
     if is_undirected:
         G = G.to_undirected()
     C = np.zeros((N, N))
 
-    for _ in range(loops):
+    # Load checkpoints
+    latest_iters = 0
+    A, G, C, edge_type, latest_iters = load_checkpoint(ckpt_dir, dataset_name, A, G, C, edge_type)
+
+    # Rewiring loop
+    for _ in range(latest_iters, loops):
         can_add = True
         if(curvature == 'bfc'):
             balanced_forman_curvature(A, C=C)
@@ -294,4 +336,7 @@ def sdrf(
             else:
                 if can_add is False:
                     break
-    return from_networkx(G).edge_index, torch.tensor(edge_type)
+
+    save_checkpoint(ckpt_dir, dataset_name, loops, A, G, C, edge_type)
+    edge_index, edge_type = from_networkx(G).edge_index, torch.tensor(edge_type)
+    return edge_index, edge_type 
