@@ -82,7 +82,7 @@ for key in datasets:
     elif args.rewiring == "borf":
         print(f"[INFO] BORF hyper-parameter : num_iterations = {args.num_iterations}")
         print(f"[INFO] BORF hyper-parameter : batch_add = {args.borf_batch_add}")
-        print(f"[INFO] BORF hyper-parameter : num_iterations = {args.borf_batch_remove}")
+        print(f"[INFO] BORF hyper-parameter : batch_remove = {args.borf_batch_remove}")
         dataset.data.edge_index, dataset.data.edge_type = borf.borf_optimized(dataset.data, 
                 loops=args.num_iterations, 
                 remove_edges=False, 
