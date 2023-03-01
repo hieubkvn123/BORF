@@ -453,6 +453,13 @@ def borf_optimized(
         most_pos_edges = _C[-batch_remove:]
         most_neg_edges = _C[:batch_add]
 
+        # Get max and min curvature
+        u_max, v_max = most_pos_edges[-1]
+        u_min, v_min = most_neg_edges[0]
+        max_curvature = orc.G[u_max][v_max]['ricciCurvature']['rc_curvature']
+        min_curvature = orc.G[u_min][v_min]['ricciCurvature']['rc_curvature']
+        print(f'Curvature range : {min_curvature} -> {max_curvature}')
+
         # Add edges
         for (u, v) in most_neg_edges:
             pi = orc.G[u][v]['ricciCurvature']['rc_transport_cost']
