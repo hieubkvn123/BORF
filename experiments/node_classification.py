@@ -137,7 +137,7 @@ class Experiment:
                     if self.args.display:
                         print(f'{self.args.patience} epochs without improvement, stopping training')
                         print(f'Best train acc: {best_train_acc}, Best validation loss: {best_validation_acc}, Best test loss: {best_test_acc}')
-                    return train_acc, validation_acc, test_acc
+                    return train_acc, validation_acc, best_test_acc
 
     def eval(self, batch, mask):
         self.model.eval()

@@ -16,6 +16,7 @@ texas = WebKB(root="data", name="Texas")
 chameleon = WikipediaNetwork(root="data", name="chameleon")
 cora = Planetoid(root="data", name="cora")
 citeseer = Planetoid(root="data", name="citeseer")
+pubmed = Planetoid(root="data", name="pubmed")
 
 ### Graph classification ###
 mutag = list(TUDataset(root="data", name="MUTAG"))
@@ -31,7 +32,8 @@ datasets = {
         'texas' : texas,
         'chameleon' : chameleon,
         'cora' : cora,
-        'citeseer' : citeseer
+        'citeseer' : citeseer,
+        'pubmed' : pubmed
     },
     'graph_cls' : {
         'mutag' : mutag,
