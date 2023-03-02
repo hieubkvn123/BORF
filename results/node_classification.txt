@@ -1346,3 +1346,11 @@ RESULTS FOR actor (sdrf):
 average acc: 0.24457894736842103
 plus/minus:  0.005019943604764287
 
+RESULTS FOR actor (sdrf):
+average acc: 0.24585526315789477
+plus/minus:  0.004108993750285974
+
+RESULTS FOR actor (sdrf):
+average acc: 0.24551315789473688
+plus/minus:  0.003933148950245839
+
