@@ -714,3 +714,591 @@ RESULTS FOR actor (borf):
 average acc: 0.2659671052631579
 plus/minus:  0.002339875860878378
 
+RESULTS FOR actor (borf):
+average acc: 0.26709868421052635
+plus/minus:  0.0025096417259835675
+
+RESULTS FOR actor (borf):
+average acc: 0.2664407894736842
+plus/minus:  0.002390865508740805
+
+RESULTS FOR actor (borf):
+average acc: 0.2626776315789474
+plus/minus:  0.002267884827939414
+
+RESULTS FOR actor (borf):
+average acc: 0.26599342105263163
+plus/minus:  0.0023801387765354917
+
+RESULTS FOR actor (borf):
+average acc: 0.26667763157894736
+plus/minus:  0.0023014188535797194
+
+RESULTS FOR actor (borf):
+average acc: 0.2660789473684211
+plus/minus:  0.0021712775003162313
+
+RESULTS FOR actor (borf):
+average acc: 0.26499999999999996
+plus/minus:  0.002347421524063019
+
+RESULTS FOR actor (borf):
+average acc: 0.26588157894736847
+plus/minus:  0.002331215071998154
+
+RESULTS FOR actor (borf):
+average acc: 0.26464473684210527
+plus/minus:  0.002295184951418695
+
+RESULTS FOR actor (borf):
+average acc: 0.26529605263157896
+plus/minus:  0.0023845485266398496
+
+RESULTS FOR actor (borf):
+average acc: 0.2664934210526316
+plus/minus:  0.0022475174824225543
+
+RESULTS FOR actor (borf):
+average acc: 0.26715131578947365
+plus/minus:  0.0024616346363955993
+
+RESULTS FOR actor (borf):
+average acc: 0.26894078947368416
+plus/minus:  0.0025105935525587546
+
+RESULTS FOR actor (borf):
+average acc: 0.26735526315789476
+plus/minus:  0.0023104588768482004
+
+RESULTS FOR actor (borf):
+average acc: 0.2659342105263158
+plus/minus:  0.0026296427087388265
+
+RESULTS FOR actor (borf):
+average acc: 0.2650197368421053
+plus/minus:  0.0025604908176259517
+
+RESULTS FOR actor (borf):
+average acc: 0.2630131578947368
+plus/minus:  0.002463274569886232
+
+RESULTS FOR actor (borf):
+average acc: 0.2662763157894737
+plus/minus:  0.0021220237426906744
+
+RESULTS FOR actor (borf):
+average acc: 0.26511842105263156
+plus/minus:  0.002150821205018139
+
+RESULTS FOR actor (borf):
+average acc: 0.2669868421052631
+plus/minus:  0.002288897386633441
+
+RESULTS FOR actor (borf):
+average acc: 0.2646973684210526
+plus/minus:  0.002368583327774098
+
+RESULTS FOR actor (borf):
+average acc: 0.2657302631578947
+plus/minus:  0.0022094369966363073
+
+RESULTS FOR actor (borf):
+average acc: 0.26898684210526314
+plus/minus:  0.0025071932525316367
+
+RESULTS FOR actor (borf):
+average acc: 0.26641447368421045
+plus/minus:  0.002282306916585902
+
+RESULTS FOR actor (borf):
+average acc: 0.2678092105263158
+plus/minus:  0.00272595601924106
+
+RESULTS FOR actor (borf):
+average acc: 0.26473684210526316
+plus/minus:  0.0022844773067590214
+
+RESULTS FOR actor (borf):
+average acc: 0.2653947368421053
+plus/minus:  0.002040025392270408
+
+RESULTS FOR actor (borf):
+average acc: 0.26665789473684215
+plus/minus:  0.0023377309831510737
+
+RESULTS FOR actor (borf):
+average acc: 0.2663552631578947
+plus/minus:  0.002125806022791684
+
+RESULTS FOR actor (borf):
+average acc: 0.2672302631578948
+plus/minus:  0.002147576018731977
+
+RESULTS FOR actor (borf):
+average acc: 0.2660789473684211
+plus/minus:  0.002626397530633866
+
+RESULTS FOR actor (borf):
+average acc: 0.2664013157894737
+plus/minus:  0.0023425675918610487
+
+RESULTS FOR actor (borf):
+average acc: 0.26565131578947365
+plus/minus:  0.0022062376160066144
+
+RESULTS FOR actor (borf):
+average acc: 0.2679934210526316
+plus/minus:  0.002296448465351796
+
+RESULTS FOR actor (borf):
+average acc: 0.26649999999999996
+plus/minus:  0.002627409855442514
+
+RESULTS FOR actor (borf):
+average acc: 0.2665328947368421
+plus/minus:  0.0022871778416258715
+
+RESULTS FOR actor (borf):
+average acc: 0.2653355263157895
+plus/minus:  0.002220894778002427
+
+RESULTS FOR actor (borf):
+average acc: 0.26595394736842104
+plus/minus:  0.002291618399558853
+
+RESULTS FOR actor (borf):
+average acc: 0.26596710526315787
+plus/minus:  0.002535882038794676
+
+RESULTS FOR actor (borf):
+average acc: 0.26617763157894736
+plus/minus:  0.00243048042798195
+
+RESULTS FOR actor (borf):
+average acc: 0.2664407894736842
+plus/minus:  0.002147962943370807
+
+RESULTS FOR actor (borf):
+average acc: 0.2666644736842105
+plus/minus:  0.002430477578663875
+
+RESULTS FOR actor (borf):
+average acc: 0.2674934210526315
+plus/minus:  0.002126789209282439
+
+RESULTS FOR actor (borf):
+average acc: 0.2658092105263158
+plus/minus:  0.0023459795720241405
+
+RESULTS FOR actor (borf):
+average acc: 0.2652171052631579
+plus/minus:  0.002433225618671097
+
+RESULTS FOR actor (borf):
+average acc: 0.26698026315789475
+plus/minus:  0.0019149773256868442
+
+RESULTS FOR actor (borf):
+average acc: 0.2667565789473684
+plus/minus:  0.002164979943993648
+
+RESULTS FOR actor (borf):
+average acc: 0.26779605263157896
+plus/minus:  0.002622707084583322
+
+RESULTS FOR actor (borf):
+average acc: 0.26448026315789475
+plus/minus:  0.0024290838617063463
+
+RESULTS FOR actor (borf):
+average acc: 0.26631578947368423
+plus/minus:  0.0022943082651449578
+
+RESULTS FOR actor (borf):
+average acc: 0.26509868421052635
+plus/minus:  0.0026631250648070067
+
+RESULTS FOR actor (borf):
+average acc: 0.26513157894736844
+plus/minus:  0.0023121232941657375
+
+RESULTS FOR actor (borf):
+average acc: 0.2670394736842105
+plus/minus:  0.0022699942645784013
+
+RESULTS FOR actor (borf):
+average acc: 0.2655
+plus/minus:  0.0023755973151774103
+
+RESULTS FOR actor (borf):
+average acc: 0.2658684210526316
+plus/minus:  0.002327518146056354
+
+RESULTS FOR actor (borf):
+average acc: 0.26503947368421055
+plus/minus:  0.0024630946348151955
+
+RESULTS FOR actor (borf):
+average acc: 0.26566447368421053
+plus/minus:  0.002481768355220743
+
+RESULTS FOR actor (borf):
+average acc: 0.2475986842105263
+plus/minus:  0.0034103260479699886
+
+RESULTS FOR actor (borf):
+average acc: 0.24532894736842106
+plus/minus:  0.0048123189968479665
+
+RESULTS FOR actor (borf):
+average acc: 0.26640131578947374
+plus/minus:  0.002505067924170748
+
+RESULTS FOR actor (borf):
+average acc: 0.24753289473684212
+plus/minus:  0.0038738046588110303
+
+RESULTS FOR actor (borf):
+average acc: 0.24728289473684206
+plus/minus:  0.0038500573348970355
+
+RESULTS FOR actor (borf):
+average acc: 0.26305263157894737
+plus/minus:  0.002219337077532819
+
+RESULTS FOR actor (borf):
+average acc: 0.24856578947368416
+plus/minus:  0.00380676701010872
+
+RESULTS FOR actor (borf):
+average acc: 0.24378947368421053
+plus/minus:  0.004254756178502377
+
+RESULTS FOR actor (borf):
+average acc: 0.24808552631578948
+plus/minus:  0.0033317335438480386
+
+RESULTS FOR actor (borf):
+average acc: 0.26521052631578945
+plus/minus:  0.00218692602283728
+
+RESULTS FOR actor (borf):
+average acc: 0.24811184210526313
+plus/minus:  0.004006645060382713
+
+RESULTS FOR actor (borf):
+average acc: 0.24566447368421052
+plus/minus:  0.003686986501173254
+
+RESULTS FOR actor (borf):
+average acc: 0.24700657894736844
+plus/minus:  0.0034767916224803562
+
+RESULTS FOR actor (borf):
+average acc: 0.26801315789473684
+plus/minus:  0.0022383725414570803
+
+RESULTS FOR actor (borf):
+average acc: 0.24759868421052628
+plus/minus:  0.004054441453346559
+
+RESULTS FOR actor (borf):
+average acc: 0.24907236842105265
+plus/minus:  0.004146640957773772
+
+RESULTS FOR actor (borf):
+average acc: 0.2652697368421053
+plus/minus:  0.002342570548105902
+
+RESULTS FOR actor (borf):
+average acc: 0.24618421052631578
+plus/minus:  0.003805749040829262
+
+RESULTS FOR actor (borf):
+average acc: 0.24608552631578948
+plus/minus:  0.004770254055442185
+
+RESULTS FOR actor (borf):
+average acc: 0.2465263157894737
+plus/minus:  0.0041792870735585155
+
+RESULTS FOR actor (borf):
+average acc: 0.26599342105263163
+plus/minus:  0.0025965894288566033
+
+RESULTS FOR actor (borf):
+average acc: 0.24447368421052637
+plus/minus:  0.004373491033798364
+
+RESULTS FOR actor (borf):
+average acc: 0.2422894736842105
+plus/minus:  0.004225429218146049
+
+RESULTS FOR actor (borf):
+average acc: 0.24366447368421057
+plus/minus:  0.004010359464342442
+
+RESULTS FOR actor (borf):
+average acc: 0.2638026315789474
+plus/minus:  0.0022488824556141157
+
+RESULTS FOR actor (borf):
+average acc: 0.24780921052631577
+plus/minus:  0.0035704744421970413
+
+RESULTS FOR actor (borf):
+average acc: 0.246625
+plus/minus:  0.0034836209053495425
+
+RESULTS FOR actor (borf):
+average acc: 0.2676184210526316
+plus/minus:  0.00257347566693572
+
+RESULTS FOR actor (borf):
+average acc: 0.2459078947368421
+plus/minus:  0.0037177318987406996
+
+RESULTS FOR actor (borf):
+average acc: 0.24686184210526313
+plus/minus:  0.00418374935393
+
+RESULTS FOR actor (borf):
+average acc: 0.24721052631578946
+plus/minus:  0.003292057932261047
+
+RESULTS FOR actor (borf):
+average acc: 0.2682763157894737
+plus/minus:  0.0019247063308031678
+
+RESULTS FOR actor (borf):
+average acc: 0.24536184210526316
+plus/minus:  0.0038376585208219965
+
+RESULTS FOR actor (borf):
+average acc: 0.24468421052631575
+plus/minus:  0.004293172444695088
+
+RESULTS FOR actor (borf):
+average acc: 0.2660921052631579
+plus/minus:  0.0023023247915929194
+
+RESULTS FOR actor (borf):
+average acc: 0.2464013157894737
+plus/minus:  0.004064296907096044
+
+RESULTS FOR actor (borf):
+average acc: 0.2445131578947368
+plus/minus:  0.0051340486634497695
+
+RESULTS FOR actor (borf):
+average acc: 0.26819078947368424
+plus/minus:  0.0027791750679242474
+
+RESULTS FOR actor (borf):
+average acc: 0.2652631578947368
+plus/minus:  0.002158536489937882
+
+RESULTS FOR actor (borf):
+average acc: 0.2665197368421052
+plus/minus:  0.002639389396250874
+
+RESULTS FOR actor (borf):
+average acc: 0.26492763157894733
+plus/minus:  0.002000319832460041
+
+RESULTS FOR actor (borf):
+average acc: 0.2654539473684211
+plus/minus:  0.0020407462074208274
+
+RESULTS FOR actor (borf):
+average acc: 0.26621052631578945
+plus/minus:  0.0021871825056495385
+
+RESULTS FOR actor (borf):
+average acc: 0.2658486842105263
+plus/minus:  0.002512372087123069
+
+RESULTS FOR actor (borf):
+average acc: 0.2418815789473684
+plus/minus:  0.004400532736573036
+
+RESULTS FOR actor (borf):
+average acc: 0.24468421052631573
+plus/minus:  0.004621650542783627
+
+RESULTS FOR actor (borf):
+average acc: 0.24550657894736844
+plus/minus:  0.004446981258451556
+
+RESULTS FOR actor (borf):
+average acc: 0.24746710526315788
+plus/minus:  0.00369717526185837
+
+RESULTS FOR actor (borf):
+average acc: 0.2435789473684211
+plus/minus:  0.0032180735277362593
+
+RESULTS FOR actor (borf):
+average acc: 0.24307236842105265
+plus/minus:  0.004834571334270453
+
+RESULTS FOR actor (borf):
+average acc: 0.2477894736842106
+plus/minus:  0.003635320345804548
+
+RESULTS FOR actor (borf):
+average acc: 0.24996052631578944
+plus/minus:  0.0033245925332986855
+
+RESULTS FOR actor (borf):
+average acc: 0.2467828947368421
+plus/minus:  0.0034201362639099493
+
+RESULTS FOR actor (borf):
+average acc: 0.24714473684210525
+plus/minus:  0.00430394797180964
+
+RESULTS FOR actor (borf):
+average acc: 0.2462434210526316
+plus/minus:  0.004385757253856019
+
+RESULTS FOR actor (borf):
+average acc: 0.24719078947368422
+plus/minus:  0.003857434048389309
+
+RESULTS FOR actor (borf):
+average acc: 0.24938815789473687
+plus/minus:  0.0033642683592124134
+
+RESULTS FOR actor (borf):
+average acc: 0.2473289473684211
+plus/minus:  0.004841169102866422
+
+RESULTS FOR actor (borf):
+average acc: 0.24700000000000003
+plus/minus:  0.0034762410844995095
+
+RESULTS FOR actor (borf):
+average acc: 0.24388815789473686
+plus/minus:  0.004723310166982262
+
+RESULTS FOR actor (borf):
+average acc: 0.24599342105263158
+plus/minus:  0.004387722696008
+
+RESULTS FOR actor (borf):
+average acc: 0.24825000000000003
+plus/minus:  0.0031966492585196863
+
+RESULTS FOR actor (borf):
+average acc: 0.24786842105263163
+plus/minus:  0.0034753345361999547
+
+RESULTS FOR actor (borf):
+average acc: 0.24446710526315793
+plus/minus:  0.0037477183732959663
+
+RESULTS FOR actor (borf):
+average acc: 0.24660526315789472
+plus/minus:  0.004270369144650021
+
+RESULTS FOR actor (borf):
+average acc: 0.24782236842105265
+plus/minus:  0.003920685915384119
+
+RESULTS FOR actor (borf):
+average acc: 0.24788815789473687
+plus/minus:  0.0034662148062551594
+
+RESULTS FOR actor (borf):
+average acc: 0.24771052631578944
+plus/minus:  0.0034869404156945213
+
+RESULTS FOR actor (borf):
+average acc: 0.24273684210526317
+plus/minus:  0.004936996406521432
+
+RESULTS FOR actor (borf):
+average acc: 0.24530921052631577
+plus/minus:  0.004285138873619499
+
+RESULTS FOR actor (borf):
+average acc: 0.24948684210526317
+plus/minus:  0.004295264899167061
+
+RESULTS FOR actor (borf):
+average acc: 0.24567105263157896
+plus/minus:  0.00365160288107949
+
+RESULTS FOR actor (borf):
+average acc: 0.2448026315789474
+plus/minus:  0.0036597638163050534
+
+RESULTS FOR actor (borf):
+average acc: 0.24286842105263154
+plus/minus:  0.004310439559566507
+
+RESULTS FOR actor (borf):
+average acc: 0.24563157894736842
+plus/minus:  0.003847082212696596
+
+RESULTS FOR actor (borf):
+average acc: 0.24879605263157892
+plus/minus:  0.003800653054760364
+
+RESULTS FOR actor (borf):
+average acc: 0.2430921052631579
+plus/minus:  0.0049365608437442485
+
+RESULTS FOR actor (borf):
+average acc: 0.24685526315789474
+plus/minus:  0.00374635464554464
+
+RESULTS FOR actor (borf):
+average acc: 0.24966447368421055
+plus/minus:  0.002872913852305718
+
+RESULTS FOR actor (borf):
+average acc: 0.24571052631578946
+plus/minus:  0.003296859077727368
+
+RESULTS FOR actor (borf):
+average acc: 0.24811184210526316
+plus/minus:  0.0036590614856379052
+
+RESULTS FOR actor (borf):
+average acc: 0.246953947368421
+plus/minus:  0.003835369681734456
+
+RESULTS FOR actor (borf):
+average acc: 0.24673684210526317
+plus/minus:  0.003509184624852608
+
+RESULTS FOR actor (borf):
+average acc: 0.24433552631578948
+plus/minus:  0.004265751931715708
+
+RESULTS FOR actor (borf):
+average acc: 0.2446513157894737
+plus/minus:  0.004686451821865916
+
+RESULTS FOR actor (borf):
+average acc: 0.24409868421052633
+plus/minus:  0.0048219135277659305
+
+RESULTS FOR actor (borf):
+average acc: 0.24717105263157899
+plus/minus:  0.002894288242752087
+
+RESULTS FOR actor (borf):
+average acc: 0.24376973684210526
+plus/minus:  0.003820118007705755
+
+RESULTS FOR actor (borf):
+average acc: 0.2500921052631579
+plus/minus:  0.0036048318989088217
+
+RESULTS FOR actor (None):
+average acc: 0.24473026315789476
+plus/minus:  0.004853158686693353
+

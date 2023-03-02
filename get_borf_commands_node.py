@@ -1,9 +1,9 @@
 
 gpu_index = 0
 layer_types = ["GCN", "GIN"]
-batch_add = [10, 15, 20] # [2, 3, 4] # [20, 30, 40]
-batch_remove = [5, 10] # [10, 20, 30]
-num_iterations = [5, 10, 15, 20, 30]
+batch_add = [20, 30, 40]
+batch_remove = [10, 20, 30]
+num_iterations = [1, 2, 3] 
 datasets = ['actor'] # 'actor', 'squirrel' , 'ogbn-arxiv'
 
 cmd_template = """
