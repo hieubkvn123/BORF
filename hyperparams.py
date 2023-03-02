@@ -34,5 +34,6 @@ def get_args_from_input():
 	parser.add_argument('--last_layer_fa', type=str, help='whether or not to make last layer fully adjacent')
 	parser.add_argument('--borf_batch_add', type=int)
 	parser.add_argument('--borf_batch_remove', type=int)
+	parser.add_argument('--sdrf_remove_edges', action='store_true')
 	arg_values = parser.parse_args()
 	return AttrDict(vars(arg_values))

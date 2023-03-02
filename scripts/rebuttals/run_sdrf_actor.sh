@@ -1,0 +1,16 @@
+python run_node_classification.py     --rewiring sdrf     --layer_type GCN    --num_trials 100    --device cuda:0    --sdrf_remove_edges    --num_iterations 25    --dataset actor
+python run_node_classification.py     --rewiring sdrf     --layer_type GCN    --num_trials 100    --device cuda:0    --sdrf_remove_edges    --num_iterations 50    --dataset actor
+python run_node_classification.py     --rewiring sdrf     --layer_type GCN    --num_trials 100    --device cuda:0    --sdrf_remove_edges    --num_iterations 75    --dataset actor
+python run_node_classification.py     --rewiring sdrf     --layer_type GCN    --num_trials 100    --device cuda:0    --sdrf_remove_edges    --num_iterations 100    --dataset actor
+python run_node_classification.py     --rewiring sdrf     --layer_type GCN    --num_trials 100    --device cuda:0    --sdrf_remove_edges    --num_iterations 125    --dataset actor
+python run_node_classification.py     --rewiring sdrf     --layer_type GCN    --num_trials 100    --device cuda:0    --sdrf_remove_edges    --num_iterations 150    --dataset actor
+python run_node_classification.py     --rewiring sdrf     --layer_type GCN    --num_trials 100    --device cuda:0    --sdrf_remove_edges    --num_iterations 175    --dataset actor
+python run_node_classification.py     --rewiring sdrf     --layer_type GCN    --num_trials 100    --device cuda:0    --sdrf_remove_edges    --num_iterations 200    --dataset actor
+python run_node_classification.py     --rewiring sdrf     --layer_type GIN    --num_trials 100    --device cuda:0    --sdrf_remove_edges    --num_iterations 25    --dataset actor
+python run_node_classification.py     --rewiring sdrf     --layer_type GIN    --num_trials 100    --device cuda:0    --sdrf_remove_edges    --num_iterations 50    --dataset actor
+python run_node_classification.py     --rewiring sdrf     --layer_type GIN    --num_trials 100    --device cuda:0    --sdrf_remove_edges    --num_iterations 75    --dataset actor
+python run_node_classification.py     --rewiring sdrf     --layer_type GIN    --num_trials 100    --device cuda:0    --sdrf_remove_edges    --num_iterations 100    --dataset actor
+python run_node_classification.py     --rewiring sdrf     --layer_type GIN    --num_trials 100    --device cuda:0    --sdrf_remove_edges    --num_iterations 125    --dataset actor
+python run_node_classification.py     --rewiring sdrf     --layer_type GIN    --num_trials 100    --device cuda:0    --sdrf_remove_edges    --num_iterations 150    --dataset actor
+python run_node_classification.py     --rewiring sdrf     --layer_type GIN    --num_trials 100    --device cuda:0    --sdrf_remove_edges    --num_iterations 175    --dataset actor
+python run_node_classification.py     --rewiring sdrf     --layer_type GIN    --num_trials 100    --device cuda:0    --sdrf_remove_edges    --num_iterations 200    --dataset actor

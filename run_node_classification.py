@@ -51,7 +51,7 @@ default_args = AttrDict({
     "dataset": None,
     "borf_batch_add" : 4,
     "borf_batch_remove" : 2,
-    "sdrf_remove_edges" : False
+    "sdrf_remove_edges" : True
 })
 
 
@@ -75,7 +75,7 @@ for key in datasets:
         dataset.data.edge_type = torch.tensor(edge_type)
         print(dataset.data.num_edges)
         print(len(dataset.data.edge_type))
-    elif args.rewiring == "sdrf_bfc":
+    elif args.rewiring == "sdrf":
         curvature_type = "bfc"
         dataset.data.edge_index, dataset.data.edge_type = sdrf.sdrf(dataset.data, loops=args.num_iterations, remove_edges=args.sdrf_remove_edges, 
                 is_undirected=True, curvature=curvature_type)
@@ -92,10 +92,6 @@ for key in datasets:
                 dataset_name=key,
                 graph_index=0)
         print(len(dataset.data.edge_type))
-    elif args.rewiring == "sdrf_orc":
-        curvature_type = "orc"
-        dataset.data.edge_index, dataset.data.edge_type = sdrf.sdrf(dataset.data, loops=args.num_iterations, remove_edges=False, 
-                is_undirected=True, curvature=curvature_type)
     end = time.time()
     rewiring_duration = end - start
 

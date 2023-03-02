@@ -1302,3 +1302,47 @@ RESULTS FOR actor (None):
 average acc: 0.24473026315789476
 plus/minus:  0.004853158686693353
 
+RESULTS FOR actor (sdrf):
+average acc: 0.26474342105263154
+plus/minus:  0.0023321858987829414
+
+RESULTS FOR actor (sdrf):
+average acc: 0.26394736842105265
+plus/minus:  0.0027522340459647174
+
+RESULTS FOR actor (sdrf):
+average acc: 0.2654013157894737
+plus/minus:  0.002277881648833886
+
+RESULTS FOR actor (sdrf):
+average acc: 0.26653947368421055
+plus/minus:  0.002219672494621561
+
+RESULTS FOR actor (sdrf):
+average acc: 0.2656118421052631
+plus/minus:  0.0020480596012308594
+
+RESULTS FOR actor (sdrf):
+average acc: 0.26635526315789476
+plus/minus:  0.002617661884127167
+
+RESULTS FOR actor (sdrf):
+average acc: 0.26515131578947365
+plus/minus:  0.002547706521168704
+
+RESULTS FOR actor (sdrf):
+average acc: 0.2659605263157895
+plus/minus:  0.0023135919597527758
+
+RESULTS FOR actor (sdrf):
+average acc: 0.24730263157894736
+plus/minus:  0.003443775749485205
+
+RESULTS FOR actor (sdrf):
+average acc: 0.24453947368421047
+plus/minus:  0.005165123157284529
+
+RESULTS FOR actor (sdrf):
+average acc: 0.24457894736842103
+plus/minus:  0.005019943604764287
+
