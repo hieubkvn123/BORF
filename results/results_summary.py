@@ -1,18 +1,19 @@
 import glob
 import pandas as pd
 
-model = ['borf', 'sdrf', 'None']
+model = ['borf', 'sdrf', 'None', 'fosr']
 keys = ['dataset', 'num_iterations']
-columns = ['avg_accuracy', 'ci', 'borf_batch_add', 'borf_batch_remove']
-if(model != 'borf'):
-    columns = ['avg_accuracy', 'ci']
-columns = keys + columns
 
 if(isinstance(model, list)):
     models = model
 else:
     models = [model]
 for m in models:
+    columns = ['avg_accuracy', 'ci', 'borf_batch_add', 'borf_batch_remove']
+    if(m != 'borf'):
+        columns = ['avg_accuracy', 'ci']
+    columns = keys + columns
+
     for _file in glob.glob(f'node_classification_*{m}*'):
         print('\nResult for ', _file)
         df = pd.read_csv(_file)

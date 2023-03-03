@@ -1366,3 +1366,67 @@ RESULTS FOR actor (sdrf):
 average acc: 0.24261184210526315
 plus/minus:  0.004656179248472487
 
+RESULTS FOR actor (fosr):
+average acc: 0.26563157894736844
+plus/minus:  0.0025610360827552814
+
+RESULTS FOR actor (fosr):
+average acc: 0.2683421052631579
+plus/minus:  0.002358332313720664
+
+RESULTS FOR actor (fosr):
+average acc: 0.2669671052631579
+plus/minus:  0.0024304946745222233
+
+RESULTS FOR actor (fosr):
+average acc: 0.2701315789473684
+plus/minus:  0.0026023375386025433
+
+RESULTS FOR actor (fosr):
+average acc: 0.26508552631578947
+plus/minus:  0.0023366476181514283
+
+RESULTS FOR actor (fosr):
+average acc: 0.26795394736842104
+plus/minus:  0.002514865429837928
+
+RESULTS FOR actor (fosr):
+average acc: 0.26380263157894734
+plus/minus:  0.002278176908780534
+
+RESULTS FOR actor (fosr):
+average acc: 0.26776315789473687
+plus/minus:  0.0021037823739655935
+
+RESULTS FOR actor (fosr):
+average acc: 0.24273684210526317
+plus/minus:  0.004006699721626239
+
+RESULTS FOR actor (fosr):
+average acc: 0.24694078947368422
+plus/minus:  0.0036323118539619004
+
+RESULTS FOR actor (fosr):
+average acc: 0.24644736842105264
+plus/minus:  0.004533691970225418
+
+RESULTS FOR actor (fosr):
+average acc: 0.24525
+plus/minus:  0.003847129915567918
+
+RESULTS FOR actor (fosr):
+average acc: 0.2422039473684211
+plus/minus:  0.00387639595979553
+
+RESULTS FOR actor (fosr):
+average acc: 0.24663815789473684
+plus/minus:  0.004235775241618342
+
+RESULTS FOR actor (fosr):
+average acc: 0.24829605263157892
+plus/minus:  0.0038621545646033415
+
+RESULTS FOR actor (fosr):
+average acc: 0.24882894736842104
+plus/minus:  0.002796823732681369
+
