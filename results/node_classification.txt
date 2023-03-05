@@ -1646,3 +1646,19 @@ RESULTS FOR squirrel (sdrf):
 average acc: 0.3788952929875119
 plus/minus:  0.0067187162185604055
 
+RESULTS FOR pubmed (sdrf):
+average acc: 0.7648580121703855
+plus/minus:  0.026323553345360247
+
+RESULTS FOR pubmed (None):
+average acc: 0.8469269776876267
+plus/minus:  0.0012493200138551834
+
+RESULTS FOR pubmed (None):
+average acc: 0.7799797160243407
+plus/minus:  0.01887625036563104
+
+RESULTS FOR squirrel (sdrf):
+average acc: 0.365609990393852
+plus/minus:  0.009886588465800972
+
