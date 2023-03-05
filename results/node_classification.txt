@@ -1430,3 +1430,219 @@ RESULTS FOR actor (fosr):
 average acc: 0.24882894736842104
 plus/minus:  0.002796823732681369
 
+RESULTS FOR pubmed (fosr):
+average acc: 0.8480502028397565
+plus/minus:  0.0010684596212174973
+
+RESULTS FOR pubmed (sdrf):
+average acc: 0.8476774847870184
+plus/minus:  0.0010155194241377534
+
+RESULTS FOR squirrel (fosr):
+average acc: 0.39145052833813637
+plus/minus:  0.003185361574497179
+
+RESULTS FOR squirrel (sdrf):
+average acc: 0.38924111431316044
+plus/minus:  0.0033900856868569113
+
+RESULTS FOR pubmed (fosr):
+average acc: 0.8470055780933063
+plus/minus:  0.0010173150653118442
+
+RESULTS FOR squirrel (fosr):
+average acc: 0.3876753121998079
+plus/minus:  0.00336267376214234
+
+RESULTS FOR pubmed (sdrf):
+average acc: 0.8473580121703855
+plus/minus:  0.001046911084306598
+
+RESULTS FOR pubmed (fosr):
+average acc: 0.8458215010141988
+plus/minus:  0.0010141906693387425
+
+RESULTS FOR squirrel (sdrf):
+average acc: 0.3890585975024016
+plus/minus:  0.0033624805657817953
+
+RESULTS FOR squirrel (fosr):
+average acc: 0.38959654178674347
+plus/minus:  0.0032187625940012362
+
+RESULTS FOR pubmed (fosr):
+average acc: 0.8479487829614605
+plus/minus:  0.0010405475633507941
+
+RESULTS FOR squirrel (fosr):
+average acc: 0.3905859750240155
+plus/minus:  0.003074327548539786
+
+RESULTS FOR pubmed (sdrf):
+average acc: 0.846713995943205
+plus/minus:  0.0011325317630489352
+
+RESULTS FOR pubmed (fosr):
+average acc: 0.8468914807302232
+plus/minus:  0.0009036909541988606
+
+RESULTS FOR squirrel (sdrf):
+average acc: 0.39223823246878003
+plus/minus:  0.003321880959590241
+
+RESULTS FOR squirrel (fosr):
+average acc: 0.3904418828049952
+plus/minus:  0.0035929946916349134
+
+RESULTS FOR pubmed (fosr):
+average acc: 0.8471095334685598
+plus/minus:  0.001035551092946116
+
+RESULTS FOR squirrel (fosr):
+average acc: 0.39193083573487036
+plus/minus:  0.0031637932442432222
+
+RESULTS FOR pubmed (sdrf):
+average acc: 0.8466480730223123
+plus/minus:  0.001154303027807728
+
+RESULTS FOR pubmed (fosr):
+average acc: 0.8469548681541582
+plus/minus:  0.0011887105246908727
+
+RESULTS FOR squirrel (sdrf):
+average acc: 0.3883189241114313
+plus/minus:  0.003301958218345222
+
+RESULTS FOR squirrel (fosr):
+average acc: 0.39426512968299726
+plus/minus:  0.0030972050346065967
+
+RESULTS FOR pubmed (fosr):
+average acc: 0.8467139959432047
+plus/minus:  0.0011781812421430536
+
+RESULTS FOR squirrel (fosr):
+average acc: 0.38972142170989427
+plus/minus:  0.0034258815220088944
+
+RESULTS FOR pubmed (fosr):
+average acc: 0.7864984787018255
+plus/minus:  0.015380476480404432
+
+RESULTS FOR pubmed (sdrf):
+average acc: 0.8466176470588236
+plus/minus:  0.0009604098341463368
+
+RESULTS FOR squirrel (fosr):
+average acc: 0.3790970220941402
+plus/minus:  0.008029476526466515
+
+RESULTS FOR pubmed (fosr):
+average acc: 0.7775811359026369
+plus/minus:  0.019002401437825705
+
+RESULTS FOR squirrel (sdrf):
+average acc: 0.39006724303554274
+plus/minus:  0.0030719037261566747
+
+RESULTS FOR squirrel (fosr):
+average acc: 0.3661959654178674
+plus/minus:  0.008720532627700228
+
+RESULTS FOR pubmed (fosr):
+average acc: 0.7854994929006086
+plus/minus:  0.018305164927368365
+
+RESULTS FOR pubmed (sdrf):
+average acc: 0.8478346855983772
+plus/minus:  0.001167849348103015
+
+RESULTS FOR squirrel (fosr):
+average acc: 0.3706820365033622
+plus/minus:  0.008462499698009081
+
+RESULTS FOR pubmed (fosr):
+average acc: 0.7870993914807302
+plus/minus:  0.017087962706081525
+
+RESULTS FOR squirrel (sdrf):
+average acc: 0.3913640730067243
+plus/minus:  0.0035002351364185344
+
+RESULTS FOR squirrel (fosr):
+average acc: 0.37651296829971187
+plus/minus:  0.008133832400225537
+
+RESULTS FOR pubmed (fosr):
+average acc: 0.7849087221095334
+plus/minus:  0.018562618087224963
+
+RESULTS FOR squirrel (fosr):
+average acc: 0.37365033621517774
+plus/minus:  0.008088511411025266
+
+RESULTS FOR pubmed (sdrf):
+average acc: 0.8483950304259635
+plus/minus:  0.0010052663182174993
+
+RESULTS FOR pubmed (fosr):
+average acc: 0.7691987829614604
+plus/minus:  0.02150683199448716
+
+RESULTS FOR squirrel (sdrf):
+average acc: 0.39416906820365033
+plus/minus:  0.003450846567226975
+
+RESULTS FOR squirrel (fosr):
+average acc: 0.36825168107588857
+plus/minus:  0.007845176993354765
+
+RESULTS FOR pubmed (fosr):
+average acc: 0.7756643002028397
+plus/minus:  0.023095637424534056
+
+RESULTS FOR squirrel (fosr):
+average acc: 0.36808837656099913
+plus/minus:  0.008952574481820793
+
+RESULTS FOR pubmed (fosr):
+average acc: 0.7839224137931035
+plus/minus:  0.0175127335321384
+
+RESULTS FOR pubmed (sdrf):
+average acc: 0.8474797160243406
+plus/minus:  0.0010873095503056139
+
+RESULTS FOR squirrel (fosr):
+average acc: 0.3733909702209414
+plus/minus:  0.007919684950409591
+
+RESULTS FOR squirrel (sdrf):
+average acc: 0.3951392891450528
+plus/minus:  0.0033661806518283043
+
+RESULTS FOR pubmed (sdrf):
+average acc: 0.769566430020284
+plus/minus:  0.022229122829171166
+
+RESULTS FOR squirrel (sdrf):
+average acc: 0.37902977905859747
+plus/minus:  0.007614482930970445
+
+RESULTS FOR pubmed (sdrf):
+average acc: 0.7663336713995943
+plus/minus:  0.023213254590118547
+
+RESULTS FOR squirrel (sdrf):
+average acc: 0.3741210374639769
+plus/minus:  0.009838962424902531
+
+RESULTS FOR pubmed (sdrf):
+average acc: 0.7864705882352943
+plus/minus:  0.018921826158862072
+
+RESULTS FOR squirrel (sdrf):
+average acc: 0.3788952929875119
+plus/minus:  0.0067187162185604055
+
