@@ -459,16 +459,17 @@ def borf_optimized(
     orc = OllivierRicci(G, alpha=0)
     orc.compute_ricci_curvature()
     _C = sorted(orc.G.edges, key=lambda x: orc.G[x[0]][x[1]]['ricciCurvature']['rc_curvature'])
-    all_curvatures = np.array([orc.G[x[0]][x[1]]['ricciCurvature']['rc_curvature'] for x in orc.G.edges])
-    negative_curvatures_mean = all_curvatures[np.where(all_curvatures < 0)].mean()
-    positive_curvatures_mean = all_curvatures[np.where(all_curvatures >=0)].mean()
+    all_negative = all_curvatures[np.where(all_curvatures < 0)]
+    all_positive = all_curvatures[np.where(all_curvatures >=0)]
+    negative_curvatures_mean = all_negative.mean()
+    positive_curvatures_mean = all_positive.mean()
     most_pos_edges = _C[-batch_remove:]
     most_neg_edges = _C[:batch_add]
     u_max, v_max = most_pos_edges[-1]
     u_min, v_min = most_neg_edges[0]
     max_curvature = orc.G[u_max][v_max]['ricciCurvature']['rc_curvature']
     min_curvature = orc.G[u_min][v_min]['ricciCurvature']['rc_curvature']
-    print(f'Curvature range : {negative_curvatures_mean} -> {positive_curvatures_mean}')
+    print(f'*Curvature range : {negative_curvatures_mean}({len(all_negative)}) -> {positive_curvatures_mean}({len(all_positive)})')
 
     # Store edge index edge_type
     edge_index = from_networkx(G).edge_index
