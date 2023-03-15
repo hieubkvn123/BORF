@@ -51,7 +51,7 @@ default_args = AttrDict({
     "alpha": 0.1,
     "eps": 0.001,
     "dataset": None,
-    "last_layer_fa": False,
+    "last_layer_fa": True,
     "borf_batch_add" : 4,
     "borf_batch_remove" : 2,
     "sdrf_remove_edges" : False

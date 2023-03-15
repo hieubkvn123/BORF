@@ -166,6 +166,8 @@ class Experiment:
                 y = graph.y.to(self.args.device)
                 out = self.model(graph)
                 _, pred = out.max(dim=1)
+                if(len(y.shape) == 2):
+                    _, y = y.max(dim=1)
                 total_correct += pred.eq(y).sum().item()
                 
         return total_correct / sample_size
