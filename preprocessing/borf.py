@@ -419,7 +419,7 @@ def borf_optimized(
     # Preprocess data
     G, N, edge_type = _preprocess_data(data)
     original_G = copy.deepcopy(G)
-    print(graph_index, len(G.edges), len(G.nodes))
+    # print(graph_index, len(G.edges), len(G.nodes))
     
     # Load the latest checkpoint
     checkpoints = [x for x in glob.glob(os.path.join(dirname, f'iters_*_add_{batch_add}_remove_{batch_remove}.txt')) if x <= fname]
@@ -458,7 +458,7 @@ def borf_optimized(
         u_min, v_min = most_neg_edges[0]
         max_curvature = orc.G[u_max][v_max]['ricciCurvature']['rc_curvature']
         min_curvature = orc.G[u_min][v_min]['ricciCurvature']['rc_curvature']
-        print(f'Curvature range : {min_curvature} -> {max_curvature}')
+        # print(f'Curvature range : {min_curvature} -> {max_curvature}')
 
         # Add edges
         for (u, v) in most_neg_edges:
