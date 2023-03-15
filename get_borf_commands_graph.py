@@ -4,7 +4,7 @@ from argparse import ArgumentParser
 def get_commands(gpu_index, num_trials, datasets, layer_types, batch_add,
     batch_remove, num_iterations):
     cmd_template = """
-        python run_graph_classification.py 
+        python run_graph_classification_lrgb.py 
             --rewiring borf 
             --layer_type {}
             --num_trials {}
