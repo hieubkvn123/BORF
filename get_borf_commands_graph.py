@@ -46,9 +46,9 @@ if __name__ == '__main__':
 
     # Hard-coded options
     layer_types = ["GCN", "GIN"]
-    batch_add = [3, 4, 5]
-    batch_remove = [0, 1, 2, 3]
-    num_iterations = [1, 2, 3, 5, 10, 15, 20]
+    batch_add = [30]
+    batch_remove = [20]
+    num_iterations = [1, 2, 3, 4, 5, 6, 7, 8]
 
     # Get commands
     commands = get_commands(gpu_index, num_trials, datasets, layer_types, batch_add,
