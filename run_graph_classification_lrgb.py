@@ -10,7 +10,7 @@ import torch
 import numpy as np
 import pandas as pd
 from hyperparams import get_args_from_input
-from preprocessing import rewiring, sdrf, fosr, digl, borf2
+from preprocessing import rewiring, sdrf, fosr, digl, borf2, borf
 
 peptides_func = LRGBDataset(root='data', name='Peptides-func')
 datasets = {'pt_func' : peptides_func}
@@ -75,6 +75,7 @@ if args.dataset:
     name = args.dataset
     datasets = {name: datasets[name]}
 
+torch.set_num_threads(16)
 for key in datasets:
     args += hyperparams[key]
     train_accuracies = []
@@ -107,7 +108,7 @@ for key in datasets:
             print(f"[INFO] BORF hyper-parameter : batch_add = {args.borf_batch_add}")
             print(f"[INFO] BORF hyper-parameter : batch_remove = {args.borf_batch_remove}")
             for i in range(len(dataset)):
-                dataset[i].edge_index, dataset[i].edge_type = borf2.borf_optimized(dataset[i], 
+                dataset[i].edge_index, dataset[i].edge_type = borf.borf_optimized(dataset[i], 
                         loops=args.num_iterations, 
                         remove_edges=False, 
                         is_undirected=True,

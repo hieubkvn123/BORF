@@ -189,7 +189,7 @@ def borf_optimized(
         if(i == 0 and os.path.exists(curvature_fname)): # Always save the first curvature
             orc = pickle.load(open(curvature_fname, 'rb'))
         else:
-            orc = BORFOllivierRicciCurvature(G, device=device, chunk_size=4) 
+            orc = BORFOllivierRicciCurvature(G, device=device, chunk_size=1) 
             if(i == 0):
                 pickle.dump(orc, open(curvature_fname, 'wb'))
 
