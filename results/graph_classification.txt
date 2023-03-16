@@ -1,0 +1,8 @@
+RESULTS FOR pt_func (fosr), 25 ITERATIONS:
+average acc: 63.163602941176464
+plus/minus:  0.002713945088888449
+
+RESULTS FOR pt_func (None), 10 ITERATIONS:
+average acc: 63.054227941176464
+plus/minus:  0.003454068575188119
+
