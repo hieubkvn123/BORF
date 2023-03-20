@@ -108,7 +108,7 @@ for key in datasets:
             print(f"[INFO] BORF hyper-parameter : batch_add = {args.borf_batch_add}")
             print(f"[INFO] BORF hyper-parameter : batch_remove = {args.borf_batch_remove}")
             for i in range(len(dataset)):
-                dataset[i].edge_index, dataset[i].edge_type = borf.borf_optimized(dataset[i], 
+                dataset[i].edge_index, dataset[i].edge_type = borf2.borf_optimized(dataset[i], 
                         loops=args.num_iterations, 
                         remove_edges=False, 
                         is_undirected=True,

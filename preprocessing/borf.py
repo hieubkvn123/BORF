@@ -11,6 +11,7 @@ import numpy as np
 import pandas as pd
 import multiprocessing as mp
 import networkx as nx
+from scipy import stats
 from torch_geometric.utils import (
     to_networkx,
     from_networkx,
@@ -448,17 +449,14 @@ def borf_optimized(
 
         orc.compute_ricci_curvature()
         _C = sorted(orc.G.edges, key=lambda x: orc.G[x[0]][x[1]]['ricciCurvature']['rc_curvature'])
+        if(i==0):
+            curvatures = [orc.G[x[0]][x[1]]['ricciCurvature']['rc_curvature'] for x in orc.G.edges]
+            print('Before rewiring')
+            print(stats.describe(curvatures))
 
         # Get top negative and positive curved edges
         most_pos_edges = _C[-batch_remove:]
         most_neg_edges = _C[:batch_add]
-
-        # Get max and min curvature
-        u_max, v_max = most_pos_edges[-1]
-        u_min, v_min = most_neg_edges[0]
-        max_curvature = orc.G[u_max][v_max]['ricciCurvature']['rc_curvature']
-        min_curvature = orc.G[u_min][v_min]['ricciCurvature']['rc_curvature']
-        # print(f'Curvature range : {min_curvature} -> {max_curvature}')
 
         # Add edges
         for (u, v) in most_neg_edges:
@@ -478,6 +476,12 @@ def borf_optimized(
 
     edge_index = from_networkx(G).edge_index
     edge_type = torch.zeros(size=(len(G.edges),)).type(torch.LongTensor)
+
+    orc = OllivierRicci(G, alpha=0)
+    orc.compute_ricci_curvature()
+    curvatures = [orc.G[x[0]][x[1]]['ricciCurvature']['rc_curvature'] for x in orc.G.edges]
+    print('After rewiring')
+    print(stats.describe(curvatures))
     
     # Save rewired graph
     save_graph(original_G, G, graph_index, fname, loops, set(added), set(removed))

@@ -6,3 +6,11 @@ RESULTS FOR pt_func (None), 10 ITERATIONS:
 average acc: 63.054227941176464
 plus/minus:  0.003454068575188119
 
+RESULTS FOR pt_func (borf), 1 ITERATIONS:
+average acc: 62.904411764705884
+plus/minus:  0.003090094853305015
+
+RESULTS FOR pt_func (borf), 2 ITERATIONS:
+average acc: 63.0735294117647
+plus/minus:  0.0026966504517956257
+
