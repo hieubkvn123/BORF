@@ -437,7 +437,6 @@ def borf_optimized(
 
     # Rewiring begins
     for i in range(latest_iters, loops):
-        # print(latest_iters, loops)
         # Compute ORC
         if(i == 0 and os.path.exists(curvature_fname)): # Always save the first curvature
             # print('Loading initial curvature from', curvature_fname)
@@ -449,10 +448,6 @@ def borf_optimized(
 
         orc.compute_ricci_curvature()
         _C = sorted(orc.G.edges, key=lambda x: orc.G[x[0]][x[1]]['ricciCurvature']['rc_curvature'])
-        if(i==0):
-            curvatures = [orc.G[x[0]][x[1]]['ricciCurvature']['rc_curvature'] for x in orc.G.edges]
-            print('Before rewiring')
-            print(stats.describe(curvatures))
 
         # Get top negative and positive curved edges
         most_pos_edges = _C[-batch_remove:]
@@ -477,12 +472,6 @@ def borf_optimized(
     edge_index = from_networkx(G).edge_index
     edge_type = torch.zeros(size=(len(G.edges),)).type(torch.LongTensor)
 
-    orc = OllivierRicci(G, alpha=0)
-    orc.compute_ricci_curvature()
-    curvatures = [orc.G[x[0]][x[1]]['ricciCurvature']['rc_curvature'] for x in orc.G.edges]
-    print('After rewiring')
-    print(stats.describe(curvatures))
-    
     # Save rewired graph
     save_graph(original_G, G, graph_index, fname, loops, set(added), set(removed))
 

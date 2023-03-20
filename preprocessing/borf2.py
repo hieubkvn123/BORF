@@ -192,9 +192,14 @@ def borf_optimized(
             orc = BORFOllivierRicciCurvature(G, device=device, chunk_size=1) 
             if(i == 0):
                 pickle.dump(orc, open(curvature_fname, 'wb'))
-
+    
+        # Compute curvatures + transport plans
         _C, _PI = orc.edge_curvatures(method='OTD')
         _C = sorted(_C, key=_C.get)
+
+        # Collect garbage
+        gc.collect()
+        torch.cuda.empty_cach()
 
         # Get top negative and positive curved edges
         most_pos_edges = _C[-batch_remove:]

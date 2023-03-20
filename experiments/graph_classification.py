@@ -6,6 +6,7 @@ from torch_geometric.loader import DataLoader
 from torch.utils.data import random_split
 from torch.optim.lr_scheduler import ReduceLROnPlateau
 from math import inf
+from sklearn.metrics import precision_score
 
 from models.graph_model import GNN
 
@@ -170,7 +171,9 @@ class Experiment:
                     _, y = y.max(dim=1)
                 total_correct += pred.eq(y).sum().item()
                 
-        return total_correct / sample_size
+        precision = precision_score(y.cpu().detach().numpy()
+                , pred.cpu().detach().numpy())
+        return precision 
     def check_dirichlet(self, loader):
         self.model.eval()
         sample_size = len(loader.dataset)
