@@ -37,7 +37,7 @@ def log_to_file(message, filename="results/graph_classification.txt"):
 
 default_args = AttrDict({
     "dropout": 0.5,
-    "num_layers": 4,
+    "num_layers": 5,
     "hidden_dim": 64,
     "learning_rate": 1e-3,
     "layer_type": "R-GCN",
