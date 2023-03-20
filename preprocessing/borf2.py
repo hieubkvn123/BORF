@@ -1,4 +1,5 @@
 import os
+import gc
 import ot
 import copy
 import time
@@ -199,7 +200,7 @@ def borf_optimized(
 
         # Collect garbage
         gc.collect()
-        torch.cuda.empty_cach()
+        torch.cuda.empty_cache()
 
         # Get top negative and positive curved edges
         most_pos_edges = _C[-batch_remove:]

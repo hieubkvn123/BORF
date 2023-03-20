@@ -114,6 +114,7 @@ for key in datasets:
                         is_undirected=True,
                         batch_add=args.borf_batch_add,
                         batch_remove=args.borf_batch_remove,
+                        device=args.device,
                         dataset_name=key,
                         graph_index=i)
                 pbar.update(1)

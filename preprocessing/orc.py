@@ -16,7 +16,7 @@ class BORFOllivierRicciCurvature():
         if(device is None):
           self.device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
         else:
-          self.device = device
+          self.device = torch.device(device)
         
         for index in range(self.V):
             self.adjacency_matrix[index, index] = 0
