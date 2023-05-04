@@ -16,6 +16,12 @@ from hyperparams import get_args_from_input
 from preprocessing import rewiring, sdrf, fosr, borf, borf2
 from ogb.nodeproppred import Evaluator, PygNodePropPredDataset
 
+# Configure matplotlib
+import matplotlib
+font = {'size'   : 35}
+matplotlib.rc('font', **font)
+
+
 largest_cc = LargestConnectedComponents()
 cornell = WebKB(root="data", name="Cornell")
 wisconsin = WebKB(root="data", name="Wisconsin")
@@ -67,13 +73,13 @@ if args.dataset:
     name = args.dataset
     datasets = {name: datasets[name]}
 
-key = 'chameleon'
-borf_iters = 3
-borf_ba = 20
-borf_br = 20
-sdrf_iters = 50
+key = 'wisconsin'
+sdrf_iters = 150
 sdrf_rm_edges = True
-fosr_iters = 50
+fosr_iters = 175
+borf_iters = 2
+borf_ba = 30
+borf_br = 20
 
 print(f"TESTING: {key} ({args.rewiring})")
 dataset = datasets[key]
@@ -92,9 +98,6 @@ ds_fosr.data.edge_index = torch.tensor(edge_index)
 ds_fosr.data.edge_type = torch.tensor(edge_type)
 
 # BORF
-print(f"[INFO] BORF hyper-parameter : num_iterations = {args.num_iterations}")
-print(f"[INFO] BORF hyper-parameter : batch_add = {args.borf_batch_add}")
-print(f"[INFO] BORF hyper-parameter : batch_remove = {args.borf_batch_remove}")
 ds_borf = copy.deepcopy(original)
 ds_borf.data.edge_index, ds_borf.data.edge_type = borf.borf_optimized(ds_borf.data, 
         loops=borf_iters,
@@ -137,13 +140,12 @@ print(f'W1(original, BORF) = {W1_borf}')
 
 # Plot
 fig, ax = plt.subplots(figsize=(15, 8))
-sns.kdeplot(data=dg_original, label='Original')
-sns.kdeplot(data=dg_fosr, label='FoSR')
-sns.kdeplot(data=dg_sdrf, label='SDRF')
-sns.kdeplot(data=dg_borf, label='BORF')
+sns.kdeplot(data=dg_original, label='Original', linewidth=2)
+sns.kdeplot(data=dg_fosr, label='FoSR', linewidth=2)
+sns.kdeplot(data=dg_sdrf, label='SDRF', linewidth=2)
+sns.kdeplot(data=dg_borf, label='BORF', linewidth=2)
 
-plt.xlabel('log2(degrees)')
-plt.title('Degree distributions after rewired')
+ax.set_ylabel("")
 plt.legend()
 plt.savefig(f'BORF_vs_SDRF_vs_FoSR_degrees_{key}.png')
 
