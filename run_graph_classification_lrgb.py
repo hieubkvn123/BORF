@@ -176,6 +176,7 @@ def main():
         df = pd.DataFrame(results)
         with open(f'results/graph_classification_{args.layer_type}_{args.rewiring}.csv', 'a') as f:
             df.to_csv(f, mode='a', header=f.tell()==0)
+        return args
 
 if __name__ == '__main__':
     try:
