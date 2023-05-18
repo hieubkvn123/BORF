@@ -73,12 +73,12 @@ if args.dataset:
     name = args.dataset
     datasets = {name: datasets[name]}
 
-key = 'wisconsin'
-sdrf_iters = 150
+key = 'chameleon'
+sdrf_iters = 50
 sdrf_rm_edges = True
-fosr_iters = 175
-borf_iters = 2
-borf_ba = 30
+fosr_iters = 50
+borf_iters = 3
+borf_ba = 20
 borf_br = 20
 
 print(f"TESTING: {key} ({args.rewiring})")

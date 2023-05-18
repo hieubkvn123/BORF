@@ -2,7 +2,7 @@ from attrdict import AttrDict
 from torch_geometric.datasets import TUDataset
 from torch_geometric.datasets.lrgb import LRGBDataset
 from torch_geometric.utils import to_networkx, from_networkx, to_dense_adj
-from experiments.graph_classification import Experiment
+from experiments.graph_classification_lrgb import Experiment
 
 import time
 import tqdm
