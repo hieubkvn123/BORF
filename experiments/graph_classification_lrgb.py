@@ -6,7 +6,8 @@ from torch_geometric.loader import DataLoader
 from torch.utils.data import random_split
 from torch.optim.lr_scheduler import ReduceLROnPlateau
 from math import inf
-from sklearn.metrics import average_precision_score, precision_score
+import torch.nn.functional as F
+from sklearn.metrics import average_precision_score
 
 from models.graph_model import GNN
 
@@ -61,7 +62,7 @@ class Experiment:
             else:
                 self.args.num_relations = 2
         self.model = GNN(self.args).to(self.args.device)
-       
+
         if self.test_dataset is None:
             dataset_size = len(self.dataset)
             train_size = int(self.args.train_fraction * dataset_size)
@@ -72,7 +73,7 @@ class Experiment:
             train_size = int(self.args.train_fraction * len(self.train_dataset))
             validation_size = len(self.args.train_data) - train_size
             self.args.train_data, self.args.validation_data = random_split(self.args.train_data, [train_size, validation_size])
-        
+
     def run(self):
         optimizer = torch.optim.Adam(self.model.parameters(), lr=self.args.learning_rate)
         scheduler = ReduceLROnPlateau(optimizer)
@@ -167,14 +168,11 @@ class Experiment:
                 y = graph.y.to(self.args.device)
                 out = self.model(graph)
                 _, pred = out.max(dim=1)
-                if(len(y.shape) == 2):
-                    _, y = y.max(dim=1)
-                total_correct += pred.eq(y).sum().item()
-            
-        y_true = y.cpu().detach().numpy()
-        y_pred = pred.cpu().detach().numpy() 
-        precision = precision_score(y_true, y_pred, average='macro') 
-        return precision 
+                pred = F.one_hot(pred, num_classes=y.shape[-1]).type(y.dtype)
+
+        precision = average_precision_score(y.cpu().detach().numpy()
+                , pred.cpu().detach().numpy(), average='micro')
+        return precision
     def check_dirichlet(self, loader):
         self.model.eval()
         sample_size = len(loader.dataset)
