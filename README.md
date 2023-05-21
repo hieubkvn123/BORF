@@ -77,15 +77,6 @@ python run_graph_classification.py --layer_type GCN \
 ## Citation and reference
 For technical details and full experiment results, please check [our paper](https://arxiv.org/abs/2211.15779).
 ```
-@misc{nguyen2023revisiting,
-      title={Revisiting Over-smoothing and Over-squashing using Ollivier-Ricci Curvature}, 
-      author={Khang Nguyen and Tan Nguyen and Hieu Nong and Vinh Nguyen and Nhat Ho and Stanley Osher},
-      year={2023},
-      eprint={2211.15779},
-      archivePrefix={arXiv},
-      primaryClass={cs.LG}
-}
-```
 @inproceedings{
 nguyen2023revisiting,
 title={Revisiting Over-smoothing and Over-squashing Using {Ollivier-Ricci} Curvature},
@@ -93,3 +84,4 @@ author={Khang Nguyen and Hieu Nong and Vinh Nguyen and Nhat Ho and Stanley Osher
 booktitle={International Conference on Machine Learning},
 year={2023}
 }
+```
