@@ -31,3 +31,16 @@ python run_node_classification.py --rewiring brf --num_iterations 3 \
 	--brf_batch_add 3 \
 	--brf_batch_remove 1
 ```
+
+## Citation and reference
+For technical details and full experiment results, please check [our paper](https://arxiv.org/abs/2211.15779).
+```
+@misc{nguyen2023revisiting,
+      title={Revisiting Over-smoothing and Over-squashing using Ollivier-Ricci Curvature}, 
+      author={Khang Nguyen and Tan Nguyen and Hieu Nong and Vinh Nguyen and Nhat Ho and Stanley Osher},
+      year={2023},
+      eprint={2211.15779},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG}
+}
+```
