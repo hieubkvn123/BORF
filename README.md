@@ -86,3 +86,10 @@ For technical details and full experiment results, please check [our paper](http
       primaryClass={cs.LG}
 }
 ```
+@inproceedings{
+nguyen2023revisiting,
+title={Revisiting Over-smoothing and Over-squashing Using {Ollivier-Ricci} Curvature},
+author={Khang Nguyen and Hieu Nong and Vinh Nguyen and Nhat Ho and Stanley Osher and Tan Nguyen},
+booktitle={International Conference on Machine Learning},
+year={2023}
+}
